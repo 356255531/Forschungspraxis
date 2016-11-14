@@ -5,9 +5,39 @@ from copy import deepcopy
 
 __auther__ = "Zhiwei"
 
+# from IPython.core.debugger import Tracer
+
 
 class GQLambda(object):
-    """docstring for GQLambda"""
+    """ An agent for learning the parameter using GQ(lambda)
+        and perform greedy action selection
+
+        Input(constructor):
+                 alpha: float, learning rate,
+                 gamma: float, discount factor,
+                 lambda_back: float, eligibility factor,
+                 eta: float,
+                 epsilon: float, greedy factor
+                 action_space: dict, {state1(tuple):actions1(list),....}
+
+        Attributes:
+                 alpha: float, learning rate,
+                 gamma: float, discount factor,
+                 lambda_back: float, eligibility factor,
+                 eta: float,
+                 epsilon: float, greedy factor
+                 action_space: dict, {state1(tuple):actions1(list),....}
+                 num_element_qfunc: integer, number of elements in
+                                    feature vector
+                 theta: float array, learned parameters
+                 w: float array, intermedia vector
+                 e: float array, eligibility trace
+        Function:
+            _m_Learn: learning the parameters
+            _m_GreedyPolicy: greedy pick one action according to
+                             learned parameters with probability of
+                             epsilon to pick random action
+        """
 
     def __init__(self,
                  alpha,
@@ -17,6 +47,14 @@ class GQLambda(object):
                  epsilon,
                  action_space
                  ):
+        """
+            Input(constructor):
+                alpha: float, learning rate,
+                gamma: float, discount factor,
+                lambda_back: float, eligibility factor,
+                eta: float,
+                epsilon: float, greedy factor
+                action_space: dict, {state1(tuple):actions1(list),....} """
         super(GQLambda, self).__init__()
 
         self.alpha = alpha
@@ -29,14 +67,27 @@ class GQLambda(object):
 
         self.num_element_qfunc = reduce(
             lambda x, y: x + len(y),
-            self.action_space.value(),
+            self.action_space.values(),
             0
         )
         self.theta = np.random.rand(self.num_element_qfunc)
         self.w = np.zeros(self.num_element_qfunc)
         self.e = np.zeros(self.num_element_qfunc)
 
-    def _m_Learn(self, phi, phi_bar, step_reward, rho, i_unknown):
+    def _m_Learn(self,
+                 phi,
+                 phi_bar,
+                 step_reward,
+                 rho,
+                 i_unknown
+                 ):
+        """ Update the learned parameters
+            Input:
+                phi: integer array, feature vector[0,0,0..1...0,0]
+                phi_bar: integer array, feature vector[0,0,0..1...0,0]
+                step_reward: float, reward each step
+                rho: float, the probability expectation of action
+                i_unkown: not known """
         try:
             if (
                 len(self.theta) != len(phi_bar) or
@@ -48,6 +99,7 @@ class GQLambda(object):
             print "theta dimension is", len(self.theta)
             print "phi_bar dimension is", len(phi_bar)
             sys.exit(0)
+
         delta = step_reward + self.gamma * np.dot(
             self.theta,
             phi_bar
@@ -59,44 +111,47 @@ class GQLambda(object):
         dot_w_e = np.dot(self.w, self.e)
         dot_w_phi = np.dot(self.w, phi)
         gradient = delta * self.e - (
-            self.gamma * (1 - self.lambda_back) * dot_w_e * phi_bar
+            self.gamma * (
+                1 - self.lambda_back
+            ) * dot_w_e * phi_bar
         )
 
+        # Tracer()()
         self.theta += self.alpha * gradient
         self.w += self.alpha * self.eta * (
             delta * self.e - dot_w_phi * phi
         )
         self.e *= self.gamma * self.lambda_back
 
-    def _m_GreedyPolicy(self, state):
-        state = tuple(state)
+    def _m_GreedyPolicy(
+        self,
+        discret_state,
+        state_action_space
+    ):
+        """ greedy pick one action according to learned parameters
+            with probability of epsilon to pick random action
+
+            Input:
+                descret_state: tuple,
+                state_action_space: object """
+        discret_state = tuple(discret_state)
         if np.random.random_sample() < self.epsilon:
-            action = rd.choice(self.action_space[state])
+            action = rd.choice(
+                state_action_space.action_space[discret_state]
+            )
             return action
 
         max_value = -float("inf")
-        for action in self.action_space[state]:
+        for action in state_action_space.action_space[discret_state]:
             action_value = np.dot(
                 self.theta,
-                self.__discret_state_action_to_feature(state, action)
+                state_action_space._m_discrete_state_to_feature(
+                    discret_state,
+                    action
+                )
             )
             if max_value < action_value:
                 return_action = action
                 max_value = action_value
 
         return return_action
-
-    def __discret_state_action_to_feature(self, state, action):
-        """Transfer observation to feature space(only for Mountain Car!) """
-        count = 0
-        for state_index in self.state_space:
-            if state_index != state:
-                count += len(list(
-                    self.action_space[state_index]
-                )
-                )
-
-        count += list(self.action_space[state]).index(action)
-        feature = np.zeros(self.num_element_qfunc)
-        feature[count] = 1
-        return feature

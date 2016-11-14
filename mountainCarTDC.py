@@ -14,6 +14,7 @@ Qfunc = np.random.rand(precise_x * precise_y * 2)
 w = np.zeros(precise_x * precise_y * 2)
 #################
 
+
 def observation_to_feature(observation, action):
     """Transfer observation to feature space(only for Mountain Car!) """
     size_unit_in_x = 1.8 / (precise_x * 1.0)
@@ -28,20 +29,21 @@ def observation_to_feature(observation, action):
     feature[int(y * precise_y + x) + action * precise_x * precise_y] = 1
     return feature
 
+
 def epsilon_greddy_action_choose(observation):
     if np.random.random_sample() < 0.1:
         action = np.random.randint(2)
         return action
     if (np.dot(Qfunc, observation_to_feature(observation, 0)) >
-        np.dot(Qfunc, observation_to_feature(observation, 1))):
+            np.dot(Qfunc, observation_to_feature(observation, 1))):
         return 0
     else:
         return 1
 
 
-def parameter_update(observation, observation_next, action, 
-                    action_next, learning_rate, discount_factor, reward,   
-                    Qfunc, w):
+def parameter_update(observation, observation_next, action,
+                     action_next, learning_rate, discount_factor, reward,
+                     Qfunc, w):
     """Run TDC"""
     feature = observation_to_feature(observation, action)
     feature_next = observation_to_feature(observation_next, action_next)
@@ -52,14 +54,12 @@ def parameter_update(observation, observation_next, action,
     return Qfunc, w
 
 
-
-
 env = gym.make('MountainCar-v0')
 
 total_reward = 0
 Qfunc_difference = []
 total_reward_episode = []
-for i_episode in range(15):
+for i_episode in range(150):
     observation = env.reset()
     total_reward = 0
     Qfunc_previous = Qfunc
@@ -69,21 +69,21 @@ for i_episode in range(15):
         action = epsilon_greddy_action_choose(observation)
         # print action
 
-        observation_next, reward, done, info = env.step(action)        
+        observation_next, reward, done, info = env.step(action)
         action_next = epsilon_greddy_action_choose(observation_next)
         # Qfunc_previous = Qfunc;
-        Qfunc, w = parameter_update(observation, observation_next, 
-                        action, action_next, learning_rate, 
-                        discount_factor, reward, Qfunc, w);
+        Qfunc, w = parameter_update(observation, observation_next,
+                                    action, action_next, learning_rate,
+                                    discount_factor, reward, Qfunc, w)
         # print np.dot(Qfunc_previous - Qfunc, Qfunc_previous - Qfunc)
         total_reward += reward
         if done:
-            print("Episode finished after {} timesteps".format(t+1))
+            print("Episode finished after {} timesteps".format(t + 1))
             break
     total_reward_episode.append(total_reward)
     Qfunc_difference.append(np.dot(Qfunc_previous - Qfunc, Qfunc_previous - Qfunc))
     if i_episode % 100 == 0:
-            print i_episode, "th episode completed"
+        print i_episode, "th episode completed"
 
 # print Qfunc_difference
 # print w
@@ -104,6 +104,5 @@ for i_episode in range(10):
         action = epsilon_greddy_action_choose(observation)
         observation, reward, done, info = env.step(action)
         if done:
-            print("Episode finished after {} timesteps".format(t+1))
+            print("Episode finished after {} timesteps".format(t + 1))
             break
-
