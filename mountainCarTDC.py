@@ -38,7 +38,7 @@ def epsilon_greddy_action_choose(observation):
             np.dot(Qfunc, observation_to_feature(observation, 1))):
         return 0
     else:
-        return 1
+        return 2
 
 
 def parameter_update(observation, observation_next, action,

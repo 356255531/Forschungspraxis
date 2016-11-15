@@ -77,17 +77,19 @@ class GQLambda(object):
     def _m_Learn(self,
                  phi,
                  phi_bar,
-                 step_reward,
+                 transient_reward,
+                 outcome_reward,
                  rho,
-                 i_unknown
+                 i
                  ):
         """ Update the learned parameters
             Input:
                 phi: integer array, feature vector[0,0,0..1...0,0]
                 phi_bar: integer array, feature vector[0,0,0..1...0,0]
-                step_reward: float, reward each step
+                transient_reward:
+                 float, reward each step
                 rho: float, the probability expectation of action
-                i_unkown: not known """
+                i: float, set of interest for s_t, a_t [0,1] """
         try:
             if (
                 len(self.theta) != len(phi_bar) or
@@ -100,27 +102,13 @@ class GQLambda(object):
             print "phi_bar dimension is", len(phi_bar)
             sys.exit(0)
 
-        delta = step_reward + self.gamma * np.dot(
-            self.theta,
-            phi_bar
-        )
-        delta -= np.dot(self.theta, phi)
+        delta = transient_reward + (1 - self.gamma) * outcome_reward + self.gamma * np.dot(self.theta, phi_bar) - np.dot(self.theta, phi)
 
-        self.e = rho * self.e + i_unknown * phi
-
-        dot_w_e = np.dot(self.w, self.e)
-        dot_w_phi = np.dot(self.w, phi)
-        gradient = delta * self.e - (
-            self.gamma * (
-                1 - self.lambda_back
-            ) * dot_w_e * phi_bar
-        )
+        self.e = rho * self.e + i * phi
 
         # Tracer()()
-        self.theta += self.alpha * gradient
-        self.w += self.alpha * self.eta * (
-            delta * self.e - dot_w_phi * phi
-        )
+        self.theta += self.alpha * (delta * self.e - self.gamma * (1 - self.lambda_back) * np.dot(self.w, self.e) * phi_bar)
+        self.w += self.alpha * self.eta * (delta * self.e - np.dot(self.w, phi) * phi)
         self.e *= self.gamma * self.lambda_back
 
     def _m_GreedyPolicy(
