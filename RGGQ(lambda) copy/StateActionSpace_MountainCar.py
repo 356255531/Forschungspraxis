@@ -8,7 +8,7 @@ import itertools
 __auther__ = "Zhiwei"
 
 
-class StateActionSpace(object):
+class StateActionSpace_MountainCar(object):
     """ Define a state-action space for Mountain Car problem
 
         Input(constructor):
@@ -52,7 +52,7 @@ class StateActionSpace(object):
             state_space: list, [state1(tuple), state2(tuple),.....]
             action_space: dict, {state1(tuple):actions(list), .....}
             element_num_afunc: integer """
-        super(StateActionSpace, self).__init__()
+        super(StateActionSpace_MountainCar, self).__init__()
         self.continuous_space = deepcopy(continuous_space)
         self.precise = deepcopy(precise)
         self.actions = deepcopy(actions)

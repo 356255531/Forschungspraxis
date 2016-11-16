@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 from copy import deepcopy
 import sys
 
-from GQLambda import GQLambda
-from StateActionSpace import StateActionSpace
+from RGGQLambda import RGGQLambda
+from StateActionSpace_MountainCar import StateActionSpace_MountainCar
 
 __auther__ = "Zhiwei"
 
@@ -13,23 +13,25 @@ __auther__ = "Zhiwei"
 ############# Learning Parameter ##############
 precise = [8, 8]
 
-learning_rate = 0.01
+learning_rate = 0.1
+discount_of_learning_rate = 0.9
 discount_factor = 0.9
 eligibility_factor = 0.9
-discount_of_learning_rate = 0.9
+regularize_factor = 0.0003
 epsilon = 0.1
 ###############################################
-state_action_space = StateActionSpace(
+state_action_space = StateActionSpace_MountainCar(
     ([-1.2, -0.07], [0.6, 0.07]),
     precise,
     [0, 2]
 )
 
-learning_agent = GQLambda(
+learning_agent = RGGQLambda(
     learning_rate,
+    discount_of_learning_rate,
     discount_factor,
     eligibility_factor,
-    discount_of_learning_rate,
+    regularize_factor,
     epsilon,
     state_action_space.action_space
 )
@@ -89,9 +91,8 @@ for i_episode in range(2000):
         learning_agent._m_Learn(phi,
                                 phi_bar,
                                 step_reward,
-                                step_reward,
                                 rho,
-                                1
+                                0.5
                                 )
 
         observation = observation_bar
@@ -101,7 +102,8 @@ for i_episode in range(2000):
 #         # print np.dot(Qfunc_previous - Qfunc, Qfunc_previous - Qfunc)
         total_reward += step_reward
         if done:
-            learning_agent.epsilon *= 0.999
+            if total_reward > -150:
+                learning_agent.epsilon *= 0.999
             print "Episode finished after {} timesteps".format(t + 1)
             break
     if total_reward > max_reward:

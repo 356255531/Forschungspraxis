@@ -2,14 +2,12 @@ import gym
 import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
-import sys
 
 from GGQLambda import GGQLambda
 from StateActionSpace_MountainCar import StateActionSpace_MountainCar
 
 __auther__ = "Zhiwei"
 
-# from IPython.core.debugger import Tracer
 ############# Learning Parameter ##############
 precise = [8, 8]
 
@@ -39,7 +37,7 @@ env = gym.make('MountainCar-v0')
 Qfunc_difference = []
 total_reward_episode = []
 max_reward = -float("inf")
-for i_episode in range(200):
+for i_episode in range(2000):
     observation = env.reset()
     # count = 0
     # while 1:
@@ -69,7 +67,7 @@ for i_episode in range(200):
     total_reward = 0
     Qfunc_previous = deepcopy(learning_agent.theta)
     # Tracer()()
-    for t in range(500):
+    for t in range(200):
         # env.render()
         same_action_count = 0
         while set(discret_state) == set(discret_state_bar):
@@ -124,7 +122,6 @@ for i_episode in range(200):
 # print Qfunc_difference
 # print w
 
-print learning_agent.theta
 plt.figure(1)
 plt.subplot(211)
 plt.plot(Qfunc_difference)

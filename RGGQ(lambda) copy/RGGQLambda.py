@@ -8,7 +8,7 @@ __auther__ = "Zhiwei"
 # from IPython.core.debugger import Tracer
 
 
-class GQLambda(object):
+class RGGQLambda(object):
     """ An agent for learning the parameter using GQ(lambda)
         and perform greedy action selection
 
@@ -41,9 +41,10 @@ class GQLambda(object):
 
     def __init__(self,
                  alpha,
+                 eta,
                  gamma,
                  lambda_back,
-                 eta,
+                 reguarize_rho,
                  epsilon,
                  action_space
                  ):
@@ -55,12 +56,13 @@ class GQLambda(object):
                 eta: float,
                 epsilon: float, greedy factor
                 action_space: dict, {state1(tuple):actions1(list),....} """
-        super(GQLambda, self).__init__()
+        super(RGGQLambda, self).__init__()
 
         self.alpha = alpha
+        self.eta = eta
         self.gamma = gamma
         self.lambda_back = lambda_back
-        self.eta = eta
+        self.reguarize_rho = reguarize_rho
         self.epsilon = epsilon
         self.state_space = action_space.keys()
         self.action_space = deepcopy(action_space)
@@ -71,14 +73,19 @@ class GQLambda(object):
             0
         )
         self.theta = np.random.rand(self.num_element_qfunc)
-        self.w = np.zeros(self.num_element_qfunc)
-        self.e = np.zeros(self.num_element_qfunc)
+        self.w, self.e, self.x, self.y = self.__parameter_init()
+
+    def __parameter_init(self):
+        w = np.zeros(self.num_element_qfunc)
+        e = np.zeros(self.num_element_qfunc)
+        x = np.array(list(w) + list(self.theta))
+        y = np.zeros(self.num_element_qfunc * 2)
+        return w, e, x, y
 
     def _m_Learn(self,
                  phi,
                  phi_bar,
-                 transient_reward,
-                 outcome_reward,
+                 step_reward,
                  rho,
                  i
                  ):
@@ -102,14 +109,49 @@ class GQLambda(object):
             print "phi_bar dimension is", len(phi_bar)
             sys.exit(0)
 
-        delta = transient_reward + (1 - self.gamma) * outcome_reward + self.gamma * np.dot(self.theta, phi_bar) - np.dot(self.theta, phi)
-
+        delta = step_reward + self.lambda_back * np.dot(phi_bar, self.theta) - np.dot(phi, self.theta)
+        # print delta
         self.e = rho * self.e + i * phi
 
+        y_1, y_2 = np.split(self.y, 2)
+        y_transposed_A_1 = self.eta * phi * np.dot(y_1, phi) + self.gamma * (1 - self.lambda_back) * self.e * np.dot(y_2, phi_bar)
+        y_transposed_A_2 = (phi - self.gamma * phi_bar) * np.dot(
+            self.eta * y_1 + y_2,
+            self.e
+        )
+        y_transposed_A = np.array(
+            list(y_transposed_A_1) + list(y_transposed_A_2)
+        )
+
+        A_x_minus_b_1 = -self.eta * (delta * self.e - np.dot(phi, self.w) * phi)
+        A_x_minus_b_2 = self.gamma * (1 - self.lambda_back) * np.dot(self.e, self.w) * phi_bar - delta * self.e
+        A_x_minus_b = np.array(
+            list(A_x_minus_b_1) + list(A_x_minus_b_2)
+        )
+
+        x_half = self.x - self.alpha * y_transposed_A
+        y_half = self.y + self.alpha * A_x_minus_b
+
+        self.x = self.__proximal(x_half)
+        # print self.x
+        # sys.exit(0)
+        self.y = self.__update_y(y_half)
+
+        self.w, self.theta = np.split(self.x, 2)
+
         # Tracer()()
-        self.theta += self.alpha * (delta * self.e - self.gamma * (1 - self.lambda_back) * np.dot(self.w, self.e) * phi_bar)
-        self.w += self.alpha * self.eta * (delta * self.e - np.dot(self.w, phi) * phi)
         self.e *= self.gamma * self.lambda_back
+
+    def __proximal(self, x_half):
+        x = []
+        for i in x_half:
+            x_i = max(i - self.reguarize_rho, 0) - max(-i - self.reguarize_rho, 0)
+            x.append(x_i)
+        return np.array(x)
+
+    def __update_y(self, y_half):
+        max_norm = np.linalg.norm(y_half, np.inf)
+        return min(1, 1 / max_norm) * y_half
 
     def _m_GreedyPolicy(
         self,
