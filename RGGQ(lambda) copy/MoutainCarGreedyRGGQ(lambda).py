@@ -17,7 +17,7 @@ learning_rate = 0.1
 discount_of_learning_rate = 0.9
 discount_factor = 1
 eligibility_factor = 0.9
-regularize_factor = 0.0003
+regularize_factor = 0.0001  # 0.00003
 epsilon = 0.1
 ###############################################
 state_action_space = StateActionSpace_MountainCar(
@@ -41,7 +41,7 @@ env = gym.make('MountainCar-v0')
 Qfunc_difference = []
 total_reward_episode = []
 max_reward = -float("inf")
-for i_episode in range(200):
+for i_episode in range(500):
     observation = env.reset()
     # count = 0
     # while 1:
@@ -70,6 +70,7 @@ for i_episode in range(200):
 
     total_reward = 0
     Qfunc_previous = deepcopy(learning_agent.theta)
+    learning_agent.e = np.zeros(learning_agent.num_element_qfunc)
     # Tracer()()
     for t in range(500):
         # env.render()
@@ -99,7 +100,7 @@ for i_episode in range(200):
         phi = phi_bar
         action = action_bar
         discret_state = discret_state_bar
-#         # print np.dot(Qfunc_previous - Qfunc, Qfunc_previous - Qfunc)
+#         # print np.dot(Qfunc_previous -Qfunc, Qfunc_previous - Qfunc)
         total_reward += step_reward
         if done:
             if total_reward > -150:
@@ -135,7 +136,9 @@ plt.subplot(212)
 plt.plot(total_reward_episode)
 plt.show()
 
+learning_agent.episode = 0
 env = gym.make('MountainCar-v0')
+
 for i_episode in range(10):
     observation = env.reset()
 

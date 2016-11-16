@@ -73,6 +73,7 @@ class RGGQLambda(object):
             0
         )
         self.theta = np.random.rand(self.num_element_qfunc)
+        # self.theta = np.zeros(self.num_element_qfunc)
         self.w, self.e, self.x, self.y = self.__parameter_init()
 
     def __parameter_init(self):
