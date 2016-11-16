@@ -15,7 +15,7 @@ precise = [8, 8]
 
 learning_rate = 0.1
 discount_of_learning_rate = 0.9
-discount_factor = 0.9
+discount_factor = 1
 eligibility_factor = 0.9
 regularize_factor = 0.0003
 epsilon = 0.1
@@ -41,7 +41,7 @@ env = gym.make('MountainCar-v0')
 Qfunc_difference = []
 total_reward_episode = []
 max_reward = -float("inf")
-for i_episode in range(2000):
+for i_episode in range(200):
     observation = env.reset()
     # count = 0
     # while 1:
