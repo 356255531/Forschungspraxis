@@ -2,31 +2,41 @@ import gym
 import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
-import sys
 
-from RGGQLambda import RGGQLambda
-from StateActionSpace_MountainCar import StateActionSpace_MountainCar
+from Toolbox import RGGQLambda
+from Toolbox import GGQLambda
+from Toolbox import StateActionSpace_MountainCar
 
 __auther__ = "Zhiwei"
 
-# from IPython.core.debugger import Tracer
-############# Learning Parameter ##############
+# Learning Parameter
 precise = [8, 8]
 
 learning_rate = 0.1
-discount_of_learning_rate = 0.9
 discount_factor = 0.9
+discount_of_learning_rate = 0.9
 eligibility_factor = 0.9
-regularize_factor = 0.0003
+regularize_factor = 0.0001  # 0.0001
 epsilon = 0.1
-###############################################
-state_action_space = StateActionSpace_MountainCar(
-    ([-1.2, -0.07], [0.6, 0.07]),
-    precise,
-    [0, 2]
+
+NUM_EPISODE = 500
+REWARD_THREASHOLD = -150
+# Definition of dependencies
+env = gym.make('MountainCar-v0')
+
+observation_space = (
+    env.observation_space.low,
+    env.observation_space.high
 )
 
-learning_agent = RGGQLambda(
+MountainCar_universal_action_space = [i for i in xrange(0, env.action_space.n)]
+state_action_space = StateActionSpace_MountainCar(
+    observation_space,
+    precise,
+    MountainCar_universal_action_space
+)
+
+learning_agent_RGGQLambda = RGGQLambda(
     learning_rate,
     discount_of_learning_rate,
     discount_factor,
@@ -35,26 +45,29 @@ learning_agent = RGGQLambda(
     epsilon,
     state_action_space.action_space
 )
-# print learning_agent.state_space
-env = gym.make('MountainCar-v0')
 
-Qfunc_difference = []
+learning_agent_GGQLambda = GGQLambda(
+    learning_rate,
+    discount_factor,
+    eligibility_factor,
+    discount_of_learning_rate,
+    epsilon,
+    state_action_space.action_space
+)
+
+learning_agent = learning_agent_GGQLambda
+
+# Run algorithm
+Qfunc_error_history = []
 total_reward_episode = []
 max_reward = -float("inf")
-for i_episode in range(2000):
+for i_episode in range(NUM_EPISODE):
     observation = env.reset()
-    # count = 0
-    # while 1:
-    #     observation_bar, _, _, _ = env.step(1)
-    #     print observation_bar
-    #     count += 1
-    #     if count == 100:
-    #         sys.exit(0)
     observation_bar = deepcopy(observation)
     discret_state = state_action_space._m_observation_to_discrete_state(
         observation
     )
-    discret_state_bar = discret_state
+    discret_state_bar = deepcopy(discret_state)
 
     action = learning_agent._m_GreedyPolicy(
         discret_state,
@@ -70,16 +83,22 @@ for i_episode in range(2000):
 
     total_reward = 0
     Qfunc_previous = deepcopy(learning_agent.theta)
-    # Tracer()()
-    for t in range(500):
-        # env.render()
-        same_action_count = 0
+    learning_agent.e = np.zeros(learning_agent.num_element_qfunc)
+
+    for t in range(200):
         while set(discret_state) == set(discret_state_bar):
             observation_bar, step_reward, done, info = env.step(action)
+
+            if done:
+                if total_reward > REWARD_THREASHOLD:
+                    learning_agent.epsilon *= 0.999
+                print "Episode finished after {} timesteps".format(t + 1)
+                break
+
             discret_state_bar = state_action_space._m_observation_to_discrete_state(
                 observation_bar
             )
-        # Tracer()()
+
         action_bar = learning_agent._m_GreedyPolicy(
             discret_state_bar,
             state_action_space
@@ -88,60 +107,70 @@ for i_episode in range(2000):
             discret_state_bar,
             action_bar
         )
-        learning_agent._m_Learn(phi,
-                                phi_bar,
-                                step_reward,
-                                rho,
-                                0.5
-                                )
+
+        if isinstance(learning_agent, RGGQLambda):  # for adapting the
+                                                    # parameter setting
+                                                    # of different algorithm
+            learning_agent._m_Learn(phi,
+                                    phi_bar,
+                                    step_reward,
+                                    rho,
+                                    0.5
+                                    )
+        else:
+            learning_agent._m_Learn(phi,
+                                    phi_bar,
+                                    step_reward,
+                                    step_reward,
+                                    rho,
+                                    1
+                                    )
 
         observation = observation_bar
         phi = phi_bar
         action = action_bar
         discret_state = discret_state_bar
-#         # print np.dot(Qfunc_previous - Qfunc, Qfunc_previous - Qfunc)
         total_reward += step_reward
         if done:
-            if total_reward > -150:
+            if total_reward > REWARD_THREASHOLD:
                 learning_agent.epsilon *= 0.999
             print "Episode finished after {} timesteps".format(t + 1)
             break
     if total_reward > max_reward:
         max_reward = total_reward
-    total_reward_episode.append(total_reward)
+
+    total_reward_episode.append(total_reward)   # Add total reward to reward history
+
+    delta_q_func = Qfunc_previous - learning_agent.theta
     Qfunc_difference_this_episode = np.dot(
-        Qfunc_previous - learning_agent.theta,
-        Qfunc_previous - learning_agent.theta
+        delta_q_func,
+        delta_q_func
     )
-    Qfunc_difference.append(
+    Qfunc_error_history.append(     # Add error to error history
         Qfunc_difference_this_episode
     )
 
-    Qfunc_previous = deepcopy(learning_agent.theta)
     if i_episode % 10 == 0:
         print i_episode, "th episode completed"
         print "Q update is", Qfunc_difference_this_episode
         print "Maximal reward is", max_reward, "\n"
 
-# print Qfunc_difference
-# print w
-
-print learning_agent.theta
+# Plot results
 plt.figure(1)
 plt.subplot(211)
-plt.plot(Qfunc_difference)
+plt.plot(Qfunc_error_history)
 
 plt.subplot(212)
 plt.plot(total_reward_episode)
 plt.show()
 
-env = gym.make('MountainCar-v0')
+# Run learned policy an simulator
 for i_episode in range(10):
     observation = env.reset()
 
     for t in range(200):
         env.render()
-        # print(observation)
+
         discret_state = state_action_space._m_observation_to_discrete_state(
             observation
         )
@@ -149,7 +178,9 @@ for i_episode in range(10):
             discret_state,
             state_action_space
         )
+
         observation, reward, done, info = env.step(action)
+
         if done:
             print("Episode finished after {} timesteps".format(t + 1))
             break

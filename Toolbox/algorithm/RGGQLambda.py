@@ -73,6 +73,7 @@ class RGGQLambda(object):
             0
         )
         self.theta = np.random.rand(self.num_element_qfunc)
+        # self.theta = np.zeros(self.num_element_qfunc)
         self.w, self.e, self.x, self.y = self.__parameter_init()
 
     def __parameter_init(self):
@@ -132,7 +133,7 @@ class RGGQLambda(object):
         x_half = self.x - self.alpha * y_transposed_A
         y_half = self.y + self.alpha * A_x_minus_b
 
-        self.x = self.__proximal(x_half)
+        self.x = self.__proximal(x_half, A_x_minus_b)
         # print self.x
         # sys.exit(0)
         self.y = self.__update_y(y_half)
@@ -142,16 +143,14 @@ class RGGQLambda(object):
         # Tracer()()
         self.e *= self.gamma * self.lambda_back
 
-    def __proximal(self, x_half):
-        x = []
-        for i in x_half:
-            x_i = max(i - self.reguarize_rho, 0) - max(-i - self.reguarize_rho, 0)
-            x.append(x_i)
+    def __proximal(self, x_half, A_x_minus_b):
+        x = x_half - self.alpha * A_x_minus_b
+        x = [max(i - self.reguarize_rho, 0) - max(-i - self.reguarize_rho, 0) for i in x]
         return np.array(x)
 
     def __update_y(self, y_half):
-        max_norm = np.linalg.norm(y_half, np.inf)
-        return min(1, 1 / max_norm) * y_half
+        second_norm = np.linalg.norm(y_half, ord=2)
+        return min(1, 1 / second_norm) * y_half
 
     def _m_GreedyPolicy(
         self,
