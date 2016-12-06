@@ -85,19 +85,11 @@ class StateActionSpace_MountainCar_OSKQ(object):
 
         self.__observation_dim = len(self.__lower_band)
 
-        self.__feature_vector_dim = self.get_state_dim + self.get_action_dim
+        self.__state_dim = 2
 
-        if isinstance(self.__state_space[0],
-                      collections.Iterable):
-            self.__state_dim = len(self.__state_space[0])
-        else:
-            self.__state_dim = len([self.__state_space[0]])
+        self.__action_dim = 1
 
-        if isinstance(self.__action_space[0],
-                      collections.Iterable):
-            self.__action_dim = len(self.__action_space[0])
-        else:
-            self.__action_dim = len([self.__action_space[0]])
+        self.__feature_vector_dim = self.__state_dim + self.__action_dim
 
     def get_state_dim(self):
         return self.__state_dim
@@ -208,7 +200,6 @@ class StateActionSpace_MountainCar_OSKQ(object):
         for i in self.__precise:
             sub_precise.append([j for j in xrange(0, i)])
         temp_discrete_state_space = [i for i in itertools.product(*sub_precise)]
-        print type(temp_discrete_state_space[0])
         return temp_discrete_state_space
 
     def get_state_space(self):
@@ -236,19 +227,19 @@ class StateActionSpace_MountainCar_OSKQ(object):
             Output:
                 state: tuple
         """
-        try:
-            if len(self.__upper_band) != len(observation):
-                raise ValueError("The continous state illegal")
-            for i in xrange(0, len(observation)):
-                if not(
-                        self.__lower_band[i] <=
-                        observation[i] <=
-                        self.__upper_band[i]
-                ):
-                    ValueError("The continous state illegal")
-        except ValueError as v_e:
-            print v_e
-            sys.exit()
+        # try:
+        #     if len(self.__upper_band) != len(observation):
+        #         raise ValueError("The continous state illegal")
+        #     for i in xrange(0, len(observation)):
+        #         if not(
+        #                 self.__lower_band[i] <=
+        #                 observation[i] <=
+        #                 self.__upper_band[i]
+        #         ):
+        #             ValueError("The continous state illegal")
+        # except ValueError as v_e:
+        #     print v_e
+        #     sys.exit()
 
         state = np.array(observation)
         state -= np.array(self.__lower_band)

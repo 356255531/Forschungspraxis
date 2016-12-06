@@ -10,8 +10,8 @@ __auther__ = "Zhiwei"
 # Learning Parameter
 precise = [8, 8]
 
-mu_1 = 1
-mu_2 = 2
+mu_1 = 0.1
+mu_2 = 0.1
 learning_rate = 0.1
 discount_factor = 0.9
 discount_of_learning_rate = 0.9
@@ -32,30 +32,30 @@ observation_space = (
 )
 
 MountainCar_universal_action_space = [i for i in xrange(0, env.action_space.n)]
-# state_action_space = StateActionSpace_MountainCar_OSKQ(
-#     observation_space,
-#     precise,
-#     MountainCar_universal_action_space
-# )
+state_action_space = StateActionSpace_MountainCar_OSKQ(
+    observation_space,
+    precise,
+    MountainCar_universal_action_space
+)
 
-# learning_agent_OSKQ = OSKQ(
-#     mu_1,
-#     mu_2,
-#     state_action_space,
-#     env,
-#     learning_rate,
-#     discount_factor,
-#     eligibility_factor,
-#     epsilon,
-#     0.5 * strandard_deviation,
-#     NUM_EPISODE,
-#     MAX_STEP_PER_EPISODE,
-#     REWARD_THREASHOLD
-# )
+learning_agent_OSKQ = OSKQ(
+    mu_1,
+    mu_2,
+    state_action_space,
+    env,
+    learning_rate,
+    discount_factor,
+    eligibility_factor,
+    epsilon,
+    0.5 * strandard_deviation,
+    NUM_EPISODE,
+    MAX_STEP_PER_EPISODE,
+    REWARD_THREASHOLD
+)
 
-# learning_agent = learning_agent_OSKQ
-print env.reset() , " "
-# learning_agent.learn()
+learning_agent = learning_agent_OSKQ
+
+learning_agent.learn()
 
 # # Run algorithm
 # Qfunc_error_history = []
