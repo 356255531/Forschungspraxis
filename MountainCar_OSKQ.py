@@ -10,18 +10,18 @@ __auther__ = "Zhiwei"
 # Learning Parameter
 precise = [8, 8]
 
-mu_1 = 0.1
-mu_2 = 0.1
-learning_rate = 0.1
+mu_1 = 0.01
+mu_2 = 0.02
+learning_rate = 0.001
 discount_factor = 0.9
 discount_of_learning_rate = 0.9
-eligibility_factor = 0.9
+eligibility_factor = 0.4
 regularize_factor = 0.0001  # 0.0001
 epsilon = 0.1
 strandard_deviation = 1
 
-NUM_EPISODE = 500
-MAX_STEP_PER_EPISODE = 200
+NUM_EPISODE = 1000
+MAX_STEP_PER_EPISODE = 500
 REWARD_THREASHOLD = -150
 # Definition of dependencies
 env = gym.make('MountainCar-v0')
@@ -31,6 +31,7 @@ observation_space = (
     env.observation_space.high
 )
 
+# print observation_space
 MountainCar_universal_action_space = [i for i in xrange(0, env.action_space.n)]
 state_action_space = StateActionSpace_MountainCar_OSKQ(
     observation_space,

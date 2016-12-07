@@ -97,6 +97,9 @@ class StateActionSpace_MountainCar_OSKQ(object):
     def get_action_dim(self):
         return self.__action_dim
 
+    def get_feature_vector_dim(self):
+        return self.__feature_vector_dim
+
     def if_dict_legal(self, input_dict):
         try:
             if input_dict.shape[1] != self.__feature_vector_dim:
@@ -227,32 +230,20 @@ class StateActionSpace_MountainCar_OSKQ(object):
             Output:
                 state: tuple
         """
-        # try:
-        #     if len(self.__upper_band) != len(observation):
-        #         raise ValueError("The continous state illegal")
-        #     for i in xrange(0, len(observation)):
-        #         if not(
-        #                 self.__lower_band[i] <=
-        #                 observation[i] <=
-        #                 self.__upper_band[i]
-        #         ):
-        #             ValueError("The continous state illegal")
-        # except ValueError as v_e:
-        #     print v_e
-        #     sys.exit()
+        # state = np.array(observation)
+        # state -= np.array(self.__lower_band)
+        # state /= self.__divide_unit
+        # state = [int(math.floor(i)) for i in state]
 
-        state = np.array(observation)
-        state -= np.array(self.__lower_band)
-        state /= self.__divide_unit
-        state = [int(math.floor(i)) for i in state]
+        # for i in xrange(0, len(observation)):
+        #     if observation[i] == self.__upper_band[i]:
+        #         state[i] = self.__precise[i] - 1
 
-        for i in xrange(0, len(observation)):
-            if observation[i] == self.__upper_band[i]:
-                state[i] = self.__precise[i] - 1
+        # state = tuple(state)
 
-        state = tuple(state)
+        # return state
 
-        return state
+        return tuple(observation)
 
     def trans_state_action_to_feature_vector(
         self,
@@ -270,52 +261,32 @@ class StateActionSpace_MountainCar_OSKQ(object):
             Output:
                 feature_vector: np.array
         """
+
         # try:
-
-        #     if state not in self.state_space:
-        #         raise ValueError("Unavailable discrete state in feature vector transition")
-        #     if action not in self.action_space[state]:
-        #         raise ValueError("Unavailable action in feature vector transition")
+        #     if (not self.if_state_legal(state)) or \
+        #             (not self.if_action_legal(action)):
+        #         raise ValueError("state or action illeagal \
+        #             in feature vector transformation!")
         # except ValueError as v_e:
-        #     print v_e
-        #     sys.exit(0)
+        #     sys.exit(v_e)
 
-        # feature = np.zeros(self.element_num_qfunc)
-        # count = 0
-        # for discrete_state_index in self.action_space.keys():   # Count the position of state-action map
-        #     if discrete_state_index != state:          # and assign 1 to it in sparse feature vector
-        #         count += len(self.action_space[discrete_state_index])
-        #     else:
-        #         for action_index in self.action_space[discrete_state_index]:
-        #             if action_index != action:
-        #                 count += 1
-        #             else:
-        #                 feature[count] = 1
-        #                 feature = np.array([int(i) for i in feature])
-        #                 return feature
-        try:
-            if (not self.if_state_legal(state)) or \
-                    (not self.if_action_legal(action)):
-                raise ValueError("state or action illeagal \
-                    in feature vector transformation!")
-        except ValueError as v_e:
-            sys.exit(v_e)
+        # feature_vector = []
 
-        feature_vector = []
+        # if isinstance(state, collections.Iterable):
+        #     feature_vector += list(state)
+        # else:
+        #     feature_vector.append(state)
 
-        if isinstance(state, collections.Iterable):
-            feature_vector += list(state)
-        else:
-            feature_vector.append(state)
+        # if isinstance(action, collections.Iterable):
+        #     feature_vector += list(action)
+        # else:
+        #     feature_vector.append(action)
 
-        if isinstance(action, collections.Iterable):
-            feature_vector += list(action)
-        else:
-            feature_vector.append(action)
+        # feature_vector = np.array([feature_vector]).T
+        # return feature_vector
 
-        feature_vector = np.array([feature_vector]).T
+        feature_vector = np.array([np.append(state, action)]).T
         return feature_vector
-
 
 if __name__ == '__main__':
     import gym

@@ -1,4 +1,5 @@
 import numpy as np
-a = np.empty((0, 3))
-b = np.array([[1, 2, 3]])
-print a.shape, b.shape
+import gym
+
+a = np.arange(-0.07, 0.07, 0.001)
+print a
