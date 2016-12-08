@@ -169,8 +169,9 @@ class OSKQ(object):
     def get_epsilon_greedy_action(
         self,
         state,
-        epsilon=0
+        epsilon
     ):
+        # pdb.set_trace()
         if rd.random_sample() < epsilon or \
                 self._if_dict_empty():
             action = self._get_random_action()
@@ -183,6 +184,9 @@ class OSKQ(object):
                 state,
                 action
             )
+            if Qfunc is None:
+                action = self._get_random_action()
+                return action
             if max_value < Qfunc:
                 return_action = deepcopy(action)
                 max_value = Qfunc
@@ -195,7 +199,7 @@ class OSKQ(object):
         return return_action
 
     def get_optimal_action(self, state):
-        action = self.get_epsilon_greedy_action(state)
+        action = self.get_epsilon_greedy_action(state, 0)
         return action
 
     def _get_Qfunc(
@@ -203,6 +207,7 @@ class OSKQ(object):
             state,
             action
     ):
+        # pdb.set_trace()
         # pdb.set_trace()
         feature_vector = self._trans_state_action_to_feature_vector(
             state,
@@ -216,11 +221,21 @@ class OSKQ(object):
             self.__mu_2
         )
 
-        Qfunc = kernel_select_func.T.dot(
-            self.__theta * self._gaussian_kernel(
+        if np.count_nonzero(kernel_select_func) == 0:
+            self._add_feature_vector_to_dict(feature_vector)
+            kernel_select_func = self._kernel_select_func(
                 self.__dict,
-                feature_vector
-            )
+                feature_vector,
+                self.__mu_2
+                )
+
+        gaussian_kernel = self._gaussian_kernel(
+            self.__dict,
+            feature_vector
+        )
+
+        Qfunc = kernel_select_func.T.dot(
+            self.__theta * gaussian_kernel
         )
 
         Qfunc = np.sum(Qfunc)
@@ -290,9 +305,11 @@ class OSKQ(object):
     ):
         # print epsilon_greedy_action
         # pdb.set_trace()
+        # pdb.set_trace()
         state_bar, step_reward, done, info = self._take_action(
             epsilon_greedy_action
         )
+
         if done:
             return state_bar, step_reward, done
 
@@ -339,6 +356,7 @@ class OSKQ(object):
 
             total_reward = 0
             theta_previous = deepcopy(self.__theta)
+            # pdb.set_trace()
 
             for num_step in range(self.__max_step_per_episode):
                 # pdb.set_trace()
@@ -347,14 +365,14 @@ class OSKQ(object):
                     self.__epsilon
                 )
 
+                self._update_dict(state, epsilon_greedy_action)
+
                 state_bar, step_reward, done = self._run_episode(
                     state,
                     epsilon_greedy_action
                 )
                 if done:
                     break
-
-                self._update_dict(state, epsilon_greedy_action)
 
                 # pdb.set_trace()
                 state = state_bar
