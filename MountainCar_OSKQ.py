@@ -10,8 +10,8 @@ __auther__ = "Zhiwei"
 # Learning Parameter
 precise = [8, 8]
 
-mu_1 = 0.01
-mu_2 = 0.02
+mu_1 = 0.04
+mu_2 = 0.08
 learning_rate = 0.001
 discount_factor = 0.9
 discount_of_learning_rate = 0.9
@@ -20,7 +20,7 @@ regularize_factor = 0.0001  # 0.0001
 epsilon = 0.1
 strandard_deviation = 1
 
-NUM_EPISODE = 1000
+NUM_EPISODE = 500
 MAX_STEP_PER_EPISODE = 500
 REWARD_THREASHOLD = -150
 # Definition of dependencies
@@ -32,7 +32,7 @@ observation_space = (
 )
 
 # print observation_space
-MountainCar_universal_action_space = [i for i in xrange(0, env.action_space.n)]
+MountainCar_universal_action_space = [0, 2]
 state_action_space = StateActionSpace_MountainCar_OSKQ(
     observation_space,
     precise,

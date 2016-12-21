@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.13)  20 DEC 2016 19:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.13)  21 DEC 2016 15:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -220,25 +220,21 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen142
 \l_MT_below_shortintertext_sep=\dimen143
 )
-(./Report.aux
-
-LaTeX Warning: Label `IEEEhowto:kopka' multiply defined.
-
-)
+(./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 354.
-LaTeX Font Info:    ... okay on input line 354.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 354.
-LaTeX Font Info:    ... okay on input line 354.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 354.
-LaTeX Font Info:    ... okay on input line 354.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 354.
-LaTeX Font Info:    ... okay on input line 354.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 354.
-LaTeX Font Info:    ... okay on input line 354.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 354.
-LaTeX Font Info:    ... okay on input line 354.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 352.
+LaTeX Font Info:    ... okay on input line 352.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 352.
+LaTeX Font Info:    ... okay on input line 352.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 352.
+LaTeX Font Info:    ... okay on input line 352.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 352.
+LaTeX Font Info:    ... okay on input line 352.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 352.
+LaTeX Font Info:    ... okay on input line 352.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 352.
+LaTeX Font Info:    ... okay on input line 352.
 
 -- Lines per column: 56 (exact).
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -329,113 +325,48 @@ e
 \Gin@req@height=\dimen146
 \Gin@req@width=\dimen147
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 413.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 411.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 413.
+LaTeX Font Info:    Try loading font information for U+msa on input line 411.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 413.
+LaTeX Font Info:    Try loading font information for U+msb on input line 411.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 6842) in paragraph at lines 447--448
-\OT1/ptm/m/n/10 ap-prox-i-ma-tion main-teined unsovled. In prac-ti-cal large
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 447--448
-\OT1/ptm/m/n/10 scale prob-lems, smart value func-tion ap-prox-i-ma-tion
- []
-
-
-Underfull \hbox (badness 3557) in paragraph at lines 447--448
-\OT1/ptm/m/n/10 com-plex-ity be-cause large scale RL prob-lems e.g. Go
- []
-
-
-Underfull \hbox (badness 1442) in paragraph at lines 447--448
-\OT1/ptm/m/n/10 within con-ti-nous/action spaces suf-fer from the curse of
- []
-
-
-Underfull \hbox (badness 3039) in paragraph at lines 447--448
-\OT1/ptm/m/n/10 in-creases ex-po-nen-tially with grow-ing num-ber of states
- []
-
-
-Underfull \hbox (badness 2608) in paragraph at lines 447--448
-\OT1/ptm/m/n/10 step in RL al-go-rithm de-vel-op-ment. There are serveral
- []
-
-
-Underfull \hbox (badness 6510) in paragraph at lines 447--448
-\OT1/ptm/m/n/10 value func-tion ap-prox-i-ma-tion tech-niques de-vel-oped in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
-\OT1/ptm/m/n/10 re-cent re-searches, e.g. lin-ear func-tion ap-prox-i-ma-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
-\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 IntrotoRL\OT1/cmr/m/n/10 ]$ \OT1/ptm/m/n/10 a
-nd $\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 Ananalysisoflinearmodels\OT1/cmr/m/n/10 ]
-$\OT1/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
-\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 linearvalue[]unctionapproximation\OT1/cmr/m/n
-/10 ]$\OT1/ptm/m/n/10 , re-gres-sion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
-\OT1/ptm/m/n/10 tree $\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 treebasedbatchmodeRL\OT
-1/cmr/m/n/10 ]$ \OT1/ptm/m/n/10 and kernel-method
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
-\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 Kernel \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 
-basedleastsquarepolicyiteration\OT1/cmr/m/n/10 ]$\OT1/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
 []\OT1/ptm/m/n/10 Another widely con-cerned is-sure is con-ver-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
 \OT1/ptm/m/n/10 gence of the value func-tion ap-prox-i-ma-tion. As
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
 \OT1/ptm/m/n/10 Tsitsiklis$\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 AnAnalysisofTDlear
 ning\OT1/cmr/m/n/10 ]$ \OT1/ptm/m/n/10 pointed out that
  []
 
 
-Underfull \hbox (badness 6758) in paragraph at lines 449--450
+Underfull \hbox (badness 6758) in paragraph at lines 447--448
 \OT1/ptm/m/n/10 even though the lin-ear value func-tion ap-prox-i-ma-tion
  []
 
 
-Underfull \hbox (badness 1603) in paragraph at lines 449--450
+Underfull \hbox (badness 1603) in paragraph at lines 447--448
 \OT1/ptm/m/n/10 the great needs, value func-tion ap-prox-i-ma-tion was still
  []
 
 
-Underfull \hbox (badness 4353) in paragraph at lines 449--450
+Underfull \hbox (badness 4353) in paragraph at lines 447--448
 \OT1/ptm/m/n/10 value func-tion ap-prox-i-ma-tion. Sutton$\OT1/cmr/m/n/10 [\OML
 /cmm/m/it/10 AconvergentO\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 )]$
 
@@ -445,8 +376,7 @@ Underfull \hbox (badness 4353) in paragraph at lines 449--450
 
 
 ]
-[2]
-** WARNING: \IEEEbiography is locked out when in conference mode (line 683).
+[2] (./Report.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -460,36 +390,32 @@ Before submitting the final camera ready copy, remember to:
 
 [3
 
-] (./Report.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 3583 strings out of 493014
- 56618 string characters out of 6133350
- 131966 words of memory out of 5000000
- 7064 multiletter control sequences out of 15000+600000
- 43160 words of font info for 97 fonts, out of 8000000 for 9000
+ 3582 strings out of 493014
+ 56684 string characters out of 6133350
+ 131933 words of memory out of 5000000
+ 7065 multiletter control sequences out of 15000+600000
+ 39768 words of font info for 88 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 51i,15n,27p,2047b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fo
-nts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times
-/utmri8a.pfb>
-Output written on Report.pdf (3 pages, 159567 bytes).
+ 51i,15n,27p,2015b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.e
+nc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pf
+b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-
+dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts
+/type1/urw/times/utmri8a.pfb>
+Output written on Report.pdf (3 pages, 160655 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream

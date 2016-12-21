@@ -120,7 +120,11 @@ class OSKQ(object):
         phi_bar,
         mu
     ):
-        dist = 2 - 2 * self._gaussian_kernel(phi, phi_bar)
+        phi_copy = deepcopy(phi)
+        phi_copy[:, 1] *= 3
+        phi_bar_copy = deepcopy(phi_bar)
+        phi_bar_copy[1, 0] *= 3
+        dist = 2 - 2 * self._gaussian_kernel(phi_copy, phi_bar_copy)
         kernel_select_func = (dist < mu).astype(int)
 
         return kernel_select_func
@@ -139,23 +143,56 @@ class OSKQ(object):
         gaussian_kernel_input = gaussian_kernel_input.dot(
             gaussian_kernel_input.T
         )
+
         gaussian_kernel_input = np.array([np.diag(
             gaussian_kernel_input
         )]
         ).T
+
         gaussian_kernel = np.exp(
             -gaussian_kernel_input / (self.__sigma * self.__sigma * 2.0)
         )
         return gaussian_kernel
 
-    def _take_action(self, action):
-        observation_bar, step_reward, done, info = self.__env.step(
+    def _take_action(self, state, action):
+
+        # observation, step_reward, done, info = self.__env.step(
+        #     action
+        # )
+        # state_bar = self._trans_observation_to_state(observation)
+
+        feature_vector = self._trans_state_action_to_feature_vector(
+            state,
             action
         )
-        state_var = self._trans_observation_to_state(
-            observation_bar
+        state_bar = state
+        kernel_select_func = self._kernel_select_func(
+            self.__dict,
+            feature_vector,
+            self.__mu_2
         )
-        return state_var, step_reward, done, info
+
+        count = 0
+        while list(kernel_select_func) == list(
+                self._kernel_select_func(
+                    self.__dict,
+                    self._trans_state_action_to_feature_vector(
+                        state_bar,
+                        action
+                    ),
+                    self.__mu_2
+                )
+        ):
+            if count == 20:
+                return state_bar, step_reward, done, info, True
+            observation_bar, step_reward, done, info = self.__env.step(
+                action
+            )
+            state_bar = self._trans_observation_to_state(
+                observation_bar
+            )
+            count += 1
+        return state_bar, step_reward, done, info, False
 
     def _if_dict_empty(self):
         if self.__dict.shape[0] == 0:
@@ -222,21 +259,20 @@ class OSKQ(object):
         )
 
         if np.count_nonzero(kernel_select_func) == 0:
-            self._add_feature_vector_to_dict(feature_vector)
+            self._update_dict(state, action)
             kernel_select_func = self._kernel_select_func(
                 self.__dict,
                 feature_vector,
                 self.__mu_2
-                )
+            )
 
         gaussian_kernel = self._gaussian_kernel(
             self.__dict,
             feature_vector
         )
 
-        Qfunc = kernel_select_func.T.dot(
+        Qfunc = kernel_select_func * \
             self.__theta * gaussian_kernel
-        )
 
         Qfunc = np.sum(Qfunc)
 
@@ -298,47 +334,6 @@ class OSKQ(object):
         state = self._trans_observation_to_state(observation)
         return state
 
-    def _run_episode(
-        self,
-        state,
-        epsilon_greedy_action
-    ):
-        # print epsilon_greedy_action
-        # pdb.set_trace()
-        # pdb.set_trace()
-        state_bar, step_reward, done, info = self._take_action(
-            epsilon_greedy_action
-        )
-
-        if done:
-            return state_bar, step_reward, done
-
-        # pdb.set_trace()
-        optimal_action = self.get_optimal_action(state_bar)
-        state_greedy_action_Qfunc = self._get_Qfunc(
-            state,
-            epsilon_greedy_action
-        )
-
-        state_optimal_action_Qfunc = self._get_Qfunc(
-            state_bar,
-            optimal_action
-        )
-
-        # pdb.set_trace()
-        delta = step_reward + self.__gamma * state_optimal_action_Qfunc - \
-            state_greedy_action_Qfunc
-
-        self.__e = self._update_eligibility_trace(
-            state,
-            epsilon_greedy_action
-
-        )
-        # pdb.set_trace()
-        self.__theta = self._update_weights(delta)
-
-        return state_bar, step_reward, done
-
     def learn(self):
         """ Update the learned parameters
             Input:
@@ -350,7 +345,7 @@ class OSKQ(object):
                 i: float, set of interest for s_t, a_t [0,1] """
 
         for num_episode in range(self.__num_episode):
-            print "Episode: ", num_episode
+            # print "Episode: ", num_episode
 
             state = self._init_enviroment()
 
@@ -367,33 +362,70 @@ class OSKQ(object):
 
                 self._update_dict(state, epsilon_greedy_action)
 
-                state_bar, step_reward, done = self._run_episode(
+                state_bar, step_reward, done, info, if_break = self._take_action(
                     state,
                     epsilon_greedy_action
                 )
+
+                if if_break:
+                    break
+                    # pass
+                # pdb.set_trace()
+                optimal_action = self.get_optimal_action(state_bar)
+
+                # pdb.set_trace()
+
+                state_greedy_action_Qfunc = self._get_Qfunc(
+                    state,
+                    epsilon_greedy_action
+                )
+
+                state_optimal_action_Qfunc = self._get_Qfunc(
+                    state_bar,
+                    optimal_action
+                )
+
+                # pdb.set_trace()
+                delta = step_reward + self.__gamma * state_optimal_action_Qfunc - \
+                    state_greedy_action_Qfunc
+
+                self.__e = self._update_eligibility_trace(
+                    state,
+                    epsilon_greedy_action
+
+                )
+                # pdb.set_trace()
+                self.__theta = self._update_weights(delta)
+
                 if done:
                     break
-
                 # pdb.set_trace()
                 state = state_bar
 
                 total_reward += step_reward
 
-            print total_reward
-            if total_reward != -500:
+            if total_reward != -self.__max_step_per_episode and not if_break:
+                # self.__alpha *= 0.99
                 print "FuckFuckFuckFuckFuckFuckFuckFuckFuckFuckFuckFuckFuck"
-            print self.__dict.shape[0]
-            if (num_episode + 1) % 500 == 0:
-                pdb.set_trace()
+            # if (num_episode + 1) % 200 == 0:
+            #     pdb.set_trace()
             # self.__total_reward_history.append(total_reward)
             # if total_reward > self.__max_total_reward:
-                # self.__max_total_reward = total_reward
+            # self.__max_total_reward = total_reward
+
+            # if (num_episode + 1) % 100 == 1:
+            #     pdb.set_trace()
 
             if theta_previous.shape == self.__theta.shape:
                 theta_diff = theta_previous - self.__theta
                 norm_theta_diff = np.linalg.norm(theta_diff)
-            if 'norm_theta_diff' in locals():
-                print norm_theta_diff
+            if not if_break:
+                print "Episode: ", num_episode
+                print total_reward
+                print self.__dict.shape[0]
+
+                if 'norm_theta_diff' in locals():
+                    print norm_theta_diff
             # print nortd
             # self.__theta_diff_history.append(norm_theta_diff)
 

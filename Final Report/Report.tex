@@ -197,21 +197,19 @@
 % *** SPECIALIZED LIST PACKAGES ***
 %
 %\usepackage{algorithmic}
-% algorithmic.sty was written by Peter Williams and Rogerio Brito.
-% This package provides an algorithmic environment fo describing algorithms.
-% You can use the algorithmic environment in-text or within a figure
-% environment to provide for a floating algorithm. Do NOT use the algorithm
-% floating environment provided by algorithm.sty (by the same authors) or
+% algorithmic.sty was written by Peter Williams and Rogerio Brito. This
+% package provides an algorithmic environment fo describing algorithms. You
+% can use the algorithmic environment in-text or within a figure environment
+% to provide for a floating algorithm. Do NOT use the algorithm floating
+% environment provided by algorithm.sty (by the same authors) or
 % algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
 % algorithm float types and packages that provide these will not provide
 % correct IEEE style captions. The latest version and documentation of
-% algorithmic.sty can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
-% There is also a support site at:
-% http://algorithms.berlios.de/index.html
-% Also of interest may be the (relatively newer and more customizable)
-% algorithmicx.sty package by Szasz Janos:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+% algorithmic.sty can be obtained at: http://www.ctan.org/tex-
+% archive/macros/latex/contrib/algorithms/ There is also a support site at:
+% http://algorithms.berlios.de/index.html Also of interest may be the
+% (relatively newer and more customizable) algorithmicx.sty package by Szasz
+% Janos: http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
 
 
 
@@ -442,9 +440,9 @@ reinforcement learning, Q-Learning, function approximation, sparsification, slec
 
 
 \section{Introduction}
-Reinforecement learning (RL) approaches to the classic predict and control problems base on dynamic programming (DP) and markov decision process (MDP) model, which proofed to be useful but computational expensive. Sutton and Barto{[INtro RL]} proposed temporal difference (TD) learning framework and its variations as the extension of DP. One of the nice properties of TD learning is its combination with value function approximation and it made the algorithm possible to learn from complicated learning tasks.
+Reinforecement learning (RL) approaches to the classic predict and control problems base on dynamic programming (DP) and markov decision process (MDP) model, which proofed to be useful but computational expensive. Sutton and Barto [1] proposed temporal difference (TD) learning framework and its variations as the extension of DP. One of the nice properties of TD learning is its combination with value function approximation and it made the algorithm possible to learn from complicated learning tasks.
 
-But there are still two problems about value function approximation mainteined unsovled. In practical large scale problems, smart value function approximation strategy is alwags required to reduce the computational complexity because large scale RL problems e.g. Go within continous/action spaces suffer from the curse of dimensionality, which means the computational complexity increases exponentially with growing number of states and actions. This problem arises as a main subproblem in RL and is generally considered as the most important step in RL algorithm development. There are serveral value function approximation techniques developed in recent researches, e.g. linear function approximation $[Intro to RL]$ and $[An analysis of linear models]$, $[linear value_function approximation]$, regression tree $[tree based batch mode RL]$ and kernel-method $[Kernel-based least square policy iteration]$, $[kernel-based reinforcement learning]$, which can deal with a specific set of problems. More generally, after deep learning $[deep learning]$ concept and deep neuro network were introduced into RL, the perforemance has been significantly improved since Alpha Go from Deep Mind, a company owned by Google, beated one of the best human go players, Lee Sedong. Furthermore, deep Q-network (DQN)[Human-level control through deep reinforcement learning] based Q function Approximator was also turned out to be smarter than human player in some Atri-game playing. Regularization plays not only an important role in computational complexity reduction $[Regularization and Feature Selection in]$ and it is also considered as an ideal feature selection technique for traditional tabular algorithmthanks to the sparse property of $\ell1$ norm $[Regularized  Off-policy learning]$. In this paper,  regularization is also applied an the tabular algorithm RO-TD($\lambda$) to compare with the algorithm OSK-TD($\lambda$), which equipped with another feature selection strategy, in term of the efficency of sparsification.
+But there are still two problems about value function approximation mainteined unsovled. In practical large scale problems, smart value function approximation strategy is alwags required to reduce the computational complexity because large scale RL problems e.g. Go within continous/action spaces suffer from the curse of dimensionality, which means the computational complexity increases exponentially with growing number of states and actions. This problem arises as a main subproblem in RL and is generally considered as the most important step in RL algorithm development. There are serveral value function approximation techniques developed in recent researches, e.g. linear function approximation \cite{sutton1998reinforcement}\cite{tsitsiklis1997analysis}, regression tree\cite{ernst2005tree} and kernel-method $[Kernel-based least square policy iteration]$, $[kernel-based reinforcement learning]$, which can deal with a specific set of problems. More generally, after deep learning $[deep learning]$ concept and deep neuro network were introduced into RL, the perforemance has been significantly improved since Alpha Go from Deep Mind, a company owned by Google, beated one of the best human go players, Lee Sedong. Furthermore, deep Q-network (DQN)[Human-level control through deep reinforcement learning] based Q function Approximator was also turned out to be smarter than human player in some Atri-game playing. Regularization plays not only an important role in computational complexity reduction $[Regularization and Feature Selection in]$ and it is also considered as an ideal feature selection technique for traditional tabular algorithmthanks to the sparse property of $\ell1$ norm $[Regularized  Off-policy learning]$. In this paper,  regularization is also applied an the tabular algorithm RO-TD($\lambda$) to compare with the algorithm OSK-TD($\lambda$), which equipped with another feature selection strategy, in term of the efficency of sparsification.
 
 Another widely concerned issure is convergence of the value function approximation. As Tsitsiklis$[An Analysis of TD learning]$ pointed out that even though the linear value function approximation converges in most online learning problem setting, but an algorithm could still diverge if either of the conditions is not satisfied, when states are sampled from distributions independent of the dynamics of the Markov chain of interst, we will this point of view later in the experiment. It's a servere problem in RL application, however, because of the great needs, value function approximation was still applied in many off-line TD algorithms like Q-learning at that time while ignoring the potential risk of divergent value function approximation. Sutton$[A convergent O(n)]$ $[fast gradient descend method for TD learning]$ solved off-line learning problem of off-policy learning by introducing a new object function, mean-squre projected bellman error (MSPBE) and performing stochastic gradient mehtod an it.
 
@@ -494,7 +492,7 @@ The basic idea of temporal difference learning is looking back to the previous s
   e(s_t) = R_{t+1} + \gamma V(s_{t+1}) - V(s_t)
 \end{equation}
 
-As the one of the most important extension of TD algorithm, the off-policy learning procedure Q-Learning, whose update form is,
+As one of the most important extension of TD algorithm, the off-policy learning procedure Q-Learning, whose update form is,
 \begin{equation}
   \begin{split}
     &Q(s_t, a_t) = Q(s_t, a_t) + \alpha [R_{t+1} + \\
@@ -502,7 +500,7 @@ As the one of the most important extension of TD algorithm, the off-policy learn
   \end{split}  
 \end{equation}
 , directly approximates $q^*$, the optimal action-value function, independent of the policy being followed.
-Based on the TD method, eligibility keeps track on the several prior state and how the action-value function should be updated when a new observation is revceived. In Q($\lambda$)
+Based on the TD method, eligibility keeps track on the several prior state and how the action-value function should be updated when a new observation is revceived. More specifically, eligibility is a temporal record of occured events e.g. states or actions, then propagates the attenuated TD error back and finally updates the parameters of the previous states. Combined with eligibility trace, In tabular Q($\lambda$), which also used as the main framewok of this paper, 
 \subsection{TD($\lambda$) with feature dictionary}
 \subsection{Objective Function}
 
@@ -618,7 +616,7 @@ Based on the TD method, eligibility keeps track on the several prior state and h
 % starts a section numbered zero.)
 %
 
-
+  
 \appendices
 \section{Proof of the First Zonklar Equation}
 
@@ -631,12 +629,12 @@ The authors would like to thank...
 
 % Can use something like this to put references on a page
 % by themselves when using endfloat and the captionsoff option.
-\ifCLASSOPTIONcaptionsoff
-  \newpage
-\fi
+% \ifCLASSOPTIONcaptionsoff
+%   \newpage
+% \fi
 
 
-
+\newpage
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
 % adjust value as needed - may need to be readjusted if
@@ -659,15 +657,20 @@ The authors would like to thank...
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,reference}
 
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-\end{thebibliography}
+% \begin{thebibliography}{1}
+% \bibitem{Reinforcement learning: An introduction}
+% R. S. Sutton and A. G. Barto, \emph{Reinforcement learning: An introduction}, 2nd~ed. \hskip 1em plus
+%   0.5em minus 0.4em\relax Cambridge, MA: MIT Press, 1998.
+% \bibitem{An analysis of temporal-difference learning with function approximation}
+% J. N. Tsitsiklis and B. Van Roy, "An analysis of temporal-difference learning with function approximation," in \emph{IEEE Transactions on Automatic Control}, vol. 42, no. 5, pp. 674–690, May 1997.
+% \bibitem{An analysis of linear models, linear value-function approximation, and feature selection for reinforcement learning}
+% R. Parr, L. Li, G. Taylor, C. Painter-Wakefield, and M. L. Littman, “An analysis of linear models, linear value-function approximation, and feature selection for reinforcement learning,” in \emph{Proceedings of the 25th international conference on Machine learning}, Helsinki, Finland, Jul. 2008, pp. 752-759.
+% \bibitem{Tree-based batch mode reinforcement learning.}
+% Ernst, Damien, Pierre Geurts, and Louis Wehenkel, "Tree-based batch mode reinforcement learning," in Journal of Machine Learning Research 6.Apr (2005): 503-556. 
+% \end{thebibliography}
 
 % biography section
 % 
@@ -680,10 +683,10 @@ H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
 %\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{picture}}]{John Doe}
-% \blindtext
-[1] R. S. Sutton and A. G. Barto, Reinforcement learning: An introduction, 2nd ed. Cambridge, MA: MIT Press, 1998.
-\end{IEEEbiography}
+% \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{picture}}]{John Doe}
+% % \blindtext
+% [1] R. S. Sutton and A. G. Barto, Reinforcement learning: An introduction, 2nd ed. Cambridge, MA: MIT Press, 1998.
+% \end{IEEEbiography}
 
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate

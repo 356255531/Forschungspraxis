@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
 
-from Toolbox import RGGQLambda
-from Toolbox import GGQLambda
-from Toolbox import StateActionSpace_MountainCar
+from Toolbox.algorithm import RGGQLambda
+from Toolbox.algorithm import GGQLambda
+from Toolbox.StateActionSpace import StateActionSpace_MountainCar
 
 __auther__ = "Zhiwei"
 
@@ -55,7 +55,7 @@ learning_agent_GGQLambda = GGQLambda(
     state_action_space.action_space
 )
 
-learning_agent = learning_agent_GGQLambda
+learning_agent = learning_agent_RGGQLambda
 
 # Run algorithm
 Qfunc_error_history = []

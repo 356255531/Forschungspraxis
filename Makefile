@@ -7,4 +7,4 @@ MountainCar: clean
 	rm -f Toolbox/*.pyc
 
 clean:
-	rm -f Toolbox/*.pyc
+	find . -name \*.pyc -delete
