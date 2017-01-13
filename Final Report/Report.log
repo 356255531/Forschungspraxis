@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.13)  13 JAN 2017 09:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.13)  13 JAN 2017 20:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -220,21 +220,77 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen142
 \l_MT_below_shortintertext_sep=\dimen143
 )
-(./Report.aux)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count110
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip51
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+********************************************************
+Package `algorithm2e' Release 5.1 -- october 19 2015 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (christophe.fiorio@umontpellier.fr)
+********************************************************
+\skiptotal=\skip52
+\skiplinenumber=\skip53
+\skiprule=\skip54
+\skiphlne=\skip55
+\skiptext=\skip56
+\skiplength=\skip57
+\algomargin=\skip58
+\skipalgocfslide=\skip59
+\algowidth=\dimen144
+\inoutsize=\dimen145
+\inoutindent=\dimen146
+\interspacetitleruled=\dimen147
+\interspacealgoruled=\dimen148
+\interspacetitleboxruled=\dimen149
+\algocf@ruledwidth=\skip60
+\algocf@inoutbox=\box30
+\algocf@inputbox=\box31
+\AlCapSkip=\skip61
+\AlCapHSkip=\skip62
+\algoskipindent=\skip63
+\algocf@nlbox=\box32
+\algocf@hangingbox=\box33
+\algocf@untilbox=\box34
+\algocf@skipuntil=\skip64
+\algocf@capbox=\box35
+\algoheightruledefault=\skip65
+\algoheightrule=\skip66
+\algotitleheightruledefault=\skip67
+\algotitleheightrule=\skip68
+\c@algocfline=\count111
+\c@algocfproc=\count112
+\c@algocf=\count113
+\algocf@algoframe=\box36
+\algocf@algobox=\box37
+) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 352.
-LaTeX Font Info:    ... okay on input line 352.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 352.
-LaTeX Font Info:    ... okay on input line 352.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 352.
-LaTeX Font Info:    ... okay on input line 352.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 352.
-LaTeX Font Info:    ... okay on input line 352.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 352.
-LaTeX Font Info:    ... okay on input line 352.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 352.
-LaTeX Font Info:    ... okay on input line 352.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 358.
+LaTeX Font Info:    ... okay on input line 358.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 358.
+LaTeX Font Info:    ... okay on input line 358.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 358.
+LaTeX Font Info:    ... okay on input line 358.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 358.
+LaTeX Font Info:    ... okay on input line 358.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 358.
+LaTeX Font Info:    ... okay on input line 358.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 358.
+LaTeX Font Info:    ... okay on input line 358.
 
 -- Lines per column: 56 (exact).
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -260,20 +316,20 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count110
+\Gread@gobject=\count114
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
-\scratchdimen=\dimen144
-\scratchbox=\box30
-\nofMPsegments=\count112
-\nofMParguments=\count113
+\scratchcounter=\count115
+\scratchdimen=\dimen150
+\scratchbox=\box38
+\nofMPsegments=\count116
+\nofMParguments=\count117
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count114
-\MPscratchDim=\dimen145
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen151
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
 \everyMPtoPDFconversion=\toks23
 ))) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
@@ -322,60 +378,60 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\Gin@req@height=\dimen146
-\Gin@req@width=\dimen147
+\Gin@req@height=\dimen152
+\Gin@req@width=\dimen153
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 411.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 417.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 411.
+LaTeX Font Info:    Try loading font information for U+msa on input line 417.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 411.
+LaTeX Font Info:    Try loading font information for U+msb on input line 417.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
 
  []
 
 
-Underfull \hbox (badness 6842) in paragraph at lines 446--447
+Underfull \hbox (badness 6842) in paragraph at lines 452--453
 \OT1/ptm/m/n/10 ap-prox-i-ma-tion main-teined unsovled. In prac-ti-cal large
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 446--447
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 \OT1/ptm/m/n/10 scale prob-lems, smart value func-tion ap-prox-i-ma-tion
  []
 
 
-Underfull \hbox (badness 3557) in paragraph at lines 446--447
+Underfull \hbox (badness 3557) in paragraph at lines 452--453
 \OT1/ptm/m/n/10 com-plex-ity be-cause large scale RL prob-lems e.g. Go
  []
 
 
-Underfull \hbox (badness 1442) in paragraph at lines 446--447
+Underfull \hbox (badness 1442) in paragraph at lines 452--453
 \OT1/ptm/m/n/10 within con-ti-nous/action spaces suf-fer from the curse of
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 446--447
+Underfull \hbox (badness 1728) in paragraph at lines 452--453
 \OT1/ptm/m/n/10 to be smarter than hu-man player in some Atri-games.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 446--447
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
@@ -383,18 +439,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 448--449
 
 
 ]
-Underfull \hbox (badness 2617) in paragraph at lines 450--451
+Underfull \hbox (badness 2617) in paragraph at lines 456--457
 \OT1/ptm/m/n/10 based fea-ture se-lec-tive al-go-rithm OSK-TD($\OML/cmm/m/it/10
  ^^U$\OT1/ptm/m/n/10 ) [[]] and
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 450--451
+Underfull \hbox (badness 1371) in paragraph at lines 456--457
 \OT1/ptm/m/n/10 used tech-niques in the al-go-rithms to be com-pared. An
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 450--451
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
@@ -408,7 +464,7 @@ Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no Î in font ptmr7t!
 Missing character: There is no ¸ in font ptmr7t!
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--552
+Underfull \hbox (badness 10000) in paragraph at lines 556--558
 
  []
 
@@ -424,33 +480,37 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4] (./Report.aux) ) 
+[4] (./Report.aux) )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 1061 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 3608 strings out of 493014
- 57040 string characters out of 6133350
- 134979 words of memory out of 5000000
- 7087 multiletter control sequences out of 15000+600000
- 41476 words of font info for 95 fonts, out of 8000000 for 9000
+ 4575 strings out of 493014
+ 72433 string characters out of 6133350
+ 160492 words of memory out of 5000000
+ 8040 multiletter control sequences out of 15000+600000
+ 42583 words of font info for 96 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 51i,19n,27p,2031b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r
-.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.
-pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
-fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-
-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts
-/type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (4 pages, 183246 bytes).
+ 51i,19n,27p,2031b,2460s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc
+}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist
+/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
+e1/urw/times/utmri8a.pfb>
+Output written on Report.pdf (4 pages, 186700 bytes).
 PDF statistics:
  82 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream

@@ -1,4 +1,3 @@
-
 %% bare_conf.tex
 %% V1.3
 %% 2007/01/11
@@ -67,7 +66,14 @@
 \usepackage{mathrsfs}
 \usepackage{amsfonts}
 \usepackage{mathtools}
-% Add the compsoc option for Computer Society conferences.
+\usepackage{amsbsy}
+
+\usepackage[ruled,vlined]{algorithm2e}
+\makeatletter
+\newcommand{\removelatexerror}{\let\@latex@error\@gobble}
+\makeatother% Add the compsoc option for Computer Society conferences.
+
+
 %
 % If IEEEtran.cls has not been installed into the LaTeX system files,
 % manually specify the path to it like:
@@ -408,7 +414,7 @@ Email: hanzw356255531@icloud.com}
 % Even with the lineraly growing of state or action number, the computational expense increases exponentially. Hence, a sparse presentation of Q-Functions would be one smart solution to this kind of problem. 
 \begin{abstract}
 %\boldmath
-In this paper, a comparison of three value function approximation based reinforcement learning algorithms is presented to evaluate their performance on solving continuous state space control problem. They are GQ($\lambda$), $\ell1$ norm regularized off-policy TD($\lambda$) and online selective kernel-based TD($\lambda$). For convenience, these algorithms will be called GQ($\lambda$), RO-TD($\lambda$) and OSK-TD($\lambda$) in rest of the paper. The comparison standard concentrates mainly on the total reward, convergence and efficiency of the algorithms. The classic TD($\lambda$) framework Q-Learning is applied and adapted by compared algorithms in parameter learning. Note, other RL framework choice like Sarsa($\lambda$) could also be possible, but won't be discussed here. GQ($\lambda$), which minimize the mean-squre projected bellman error(MSPBE) with gradient descend, is a very powerful and straightforward learning method under small scale or well-defined discrete space setting condition. However, because of the curve of dimensionality, the algorithm could be less computational efficient as the increasing number of state. To overcome this issue, one $\ell1$ regularity term was inserted to the objective function in RO-GQ($\lambda$) algorithm. The sparsity generated in the learned parameters helps significantly reduce the computational complexity of RO-GQ($\lambda$) and therefore it has a better performance in these problems. Alternatively, OSK-TD($\lambda$) provides another solution for sparsification, which is less computational complex and can be runned online. OSK-TD includes two precedures, a dictionary consists of feature vector is online generated and refreshed with a criteria for whether and how to add a new feature in dictionary. In the second step, a kernel selective function $\beta$(s) selects the best matched feature vector in dictionary for the selective kernel-based Q-function representation. 
+In this paper, a comparison of three value function approximation based reinforcement learning algorithms is presented to evaluate their performance on solving continuous state space control problem. They are GQ($\lambda$), $\ell1$ norm regularized off-policy TD($\lambda$) and online selective kernel-based TD($\lambda$). For convenience, these algorithms will be called GQ($\lambda$), RO-TD($\lambda$) and OSK-TD($\lambda$) in rest of the paper. The comparison standard concentrates mainly on the total reward, convergence and efficiency of the algorithms. The classic TD($\lambda$) framework Q-Learning is applied and adapted by compared algorithms in parameter learning. Note, other RL framework choice like Sarsa($\lambda$) could also be possible, but won't be discussed here. GQ($\lambda$), which minimize the mean-squre projected bellman error(MSPBE) with gradient descend, is a very powerful and straightforward learning method under small scale or well-defined discrete space setting condition. However, because of the curve of dimensionality, the algorithm could be less computational efficient as the increasing number of state. To overcome this issue, one $\ell1$ regularity term was inserted to the objective function in RO-GQ($\lambda$) algorithm. The sparsity generated in the learned parameters helps significantly reduce the computational complexity of RO-GQ($\lambda$) and therefore it has a better performance in these problems. Alternatively, OSK-TD($\lambda$) provides another solution for sparsification, which is less computational complex and can be runned online. OSK-TD includes two procedures, a dictionary consists of feature vector is online generated and refreshed with a criteria for whether and how to add a new feature in dictionary. In the second step, a kernel selective function $\beta$(s) selects the best matched feature vector in dictionary for the selective kernel-based Q-function representation. 
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
@@ -601,11 +607,47 @@ where
 \begin{equation}
 \kappa_t=(1-\beta_t)(1-\lambda_t) \ \textup{and} \ e_t=\phi_t+(1-\beta_t)\lambda_t\rho_t\phi_{t-1}.
 \end{equation}
-
+Then we give the pseudocode of GQ($\lambda$)\\
+{
+\removelatexerror% Nullify \@latex@error
+\begin{algorithm}[H]
+	\textup{Initialization $\pmb{\theta}$ arbitrarily and $\pmb{\omega}$ = 0} \\
+	\Repeat({ (for each episode)}){}{
+		\textup{Initialize $\pmb{e}$ = 0}\\
+		\textup{$S\leftarrow$ initial state of episode}\\
+		\Repeat({(for each step of episode)}){\textup{$S^{'}$ is terminal}}{
+	  		\textup{$A\leftarrow$ action selected by policy $b$ in state $S$}\\
+	  		\textup{Take action}\ A,\ \textup{observe next state,}\ $S^{'}$\\
+	  		$\bar{\phi}\leftarrow 0$\\ 
+	  \textup{For all $a \in \mathcal{A}(s)$:$\bar{\phi}\leftarrow\bar{\phi}+\pi(S^{'}, a)\phi(S^{'}, a)$}\\
+	  $\rho = \frac{\pi(S, A)}{b(S, A)}$\\
+	  \textup{GQlearn($\phi(S, A),\bar{\phi},$}\\
+	  \textup{\ \ \ \ \ \ \ \ \ \ \ \ \ \ $\lambda(S^{'}),\gamma(S^{'}), r(S, A, S^{'}), \rho, I(S)$)}\\
+	  $S\leftarrow S^{'}$
+  	}
+  	}
+	\caption{GQ($\lambda$)}
+\end{algorithm}
+}
+{
+\removelatexerror% Nullify \@latex@error
+\begin{algorithm}[H]
+$\delta\leftarrow R+\lambda \pmb{\theta}^{\top} \bar{\phi}-\pmb{\theta}^{\top}\phi$\\
+$\pmb{e}\leftarrow \rho \pmb{e} + I \phi$\\
+$\pmb{\theta} \leftarrow \pmb{\theta}+ \alpha (\delta \pmb{e} -\gamma(1-\lambda)(\omega^{\top}\pmb{e})\bar{\phi}))$\\
+$\pmb{\omega}\leftarrow\pmb{\omega}+\alpha\eta(\delta\pmb{e}-(\pmb{\omega}^{\top}\phi)\phi)$\\
+$\pmb{e}\leftarrow\gamma\lambda\pmb{e}$\\
+ \caption{GQlearn($\phi,\bar{\phi},\lambda,\gamma, R, \rho, I$)}
+\end{algorithm}
+}
 \section{RO-GQ($\lambda$)}
-RO-GQ($\lambda$) is a novel $\ell1$ regularized off-policy convergent TD-learning algorithm, which is able to learn sparse representations from value function approximation with low computational complexity. The algorithmic framework underlying RO-TD integrates two key ideas: off-policy convergent gradient TD methods, such as TDC, and a convex-concave saddle-point formulation of non-smooth convex optimization, which enables first-order solvers and feature selection using online convex regularization.
+RO-GQ($\lambda$) is a novel $\ell1$ regularized off-policy convergent TD-learning algorithm with low computational complexity, which is able to learn sparse representations of value function by performing $\ell1$ regularization in learning procedure. The algorithmic framework of RO-TD integrates two key schemas: off-policy convergent gradient TD methods and a convex-concave saddle-point formulation of non-smooth convex optimization ($\ell1$ regularization term in objective function), which enables first-order solvers and feature selection using online convex regularization.
+\subsection{Proximal Gradient and Saddle-Point First-Order Algorithms}
+\subsection{Convex-concave Saddle-Point First Order Algorithms}
+\subsection{Objective Function}
+\subsection{GQ($\lambda$) Design}
+\section{OSK-TD}
 \subsection{Online Kernel-Based Sparcification}
-\subsubsection{sbsbsb}
 \subsection{Kernel Selective Function}
 \subsection{Kernel-Based Action-Value Function}
 
