@@ -648,7 +648,9 @@ $\pmb{e}\leftarrow\gamma\lambda\pmb{e}$\\
 \end{algorithm}
 }
 \section{RO-GQ($\lambda$)}
-RO-GQ($\lambda$) is a novel $\ell1$ regularized off-policy convergent TD-learning algorithm with low computational complexity, which is able to learn sparse representations of value function by performing $\ell1$ regularization in learning procedure. The algorithmic framework of RO-TD integrates two key schemas: off-policy convergent gradient TD methods and a convex-concave saddle-point formulation of non-smooth convex optimization ($\ell1$ regularization term in objective function）, which enables first-order solvers and feature selection using online convex regularization. fuck
+RO-GQ($\lambda$) is a novel $\ell1$ regularized off-policy convergent TD-learning algorithm with low computational complexity, which is able to learn sparse representations of value function by performing $\ell1$ regularization in learning procedure. The algorithmic framework of RO-TD integrates two key schemas: off-policy convergent gradient TD methods and a convex-concave saddle-point formulation of non-smooth convex optimization ($\ell1$ regularization term in objective function, which enables first-order solvers and feature selection using online convex regularization. \\
+
+Due to the special objective function used in RO-GQ($\lambda$), we present here the mathematical background needed by optimization procedure.
 \subsection{Proximal Gradient and Saddle-Point First-Order Algorithms}
 Minimization of a composite objective function is useful in enforcing various structure , such as sparsity in case of $\ell1$ regularization on machine learning task. As well known property, $\ell1$ regularization is able to generate sparse representation optimization problem but can also lead to not-differentiability of objective function. Here we introduce proximal gradient method\cite{sra2012optimization}, which can be shown to be an efficient solution to non-differentiable convex problem caused by subdifferential of $\ell1$ regularization.\\
 The basic form of proximal mapping associated with a convex function $h$ is defined as:
@@ -673,6 +675,14 @@ where $f(x)$ is a convex and differentiable loss function and $h(x)$ is a convex
 \end{equation}
 where $\alpha_t$ is a step-size factor. And meanwhile it's also cheap for computing.
 \subsection{Convex-concave Saddle-Point First Order Algorithms}
+Another novel idea of RO-GQ($\lambda$) is a convex-concave saddle-point representation for regularized TD learning. A convex-concave saddle-point problem can be described as
+\begin{equation}
+	SadVal=\inf_{x\in\mathcal{X}}\sup_{y\in\mathcal{{Y}}}\xi(x,y),
+\end{equation}
+where $\mathcal{X, Y}$ are nonempty closed convex sets and a continuous cost function $\xi$ is convex in variable $x\in\mathcal{X}$ and concave in variable $y\in\mathcal{Y}$. The problem can also be written in form of primal-dual pair 
+\begin{equation}
+Opt(P)=\min_{}
+\end{equation}
 \subsection{Objective Function}
 \subsection{RO-GQ($\lambda$) Design}
 {
