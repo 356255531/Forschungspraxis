@@ -71,6 +71,12 @@
 \usepackage[ruled,vlined]{algorithm2e}
 \makeatletter
 \newcommand{\removelatexerror}{\let\@latex@error\@gobble}
+\newcommand{\nosemic}{\renewcommand{\@endalgocfline}{\relax}}% Drop semi-colon ;
+\newcommand{\dosemic}{\renewcommand{\@endalgocfline}{\algocf@endline}}% Reinstate semi-colon ;
+\newcommand{\pushline}{\Indp}% Indent
+\newcommand{\popline}{\Indm\dosemic}% Undent
+\let\oldnl\nl% Store \nl in \oldnl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}% Remove line number for one line	
 \makeatother% Add the compsoc option for Computer Society conferences.
 
 
@@ -457,7 +463,7 @@ In this paper, we consider up-to-date algorithms GQ($\lambda$) \cite{maei2010gq}
 
 \section{RL and Background}
 \subsection{Framework and Notation}
-In this paper, we consider infinite markov decision process with discrete state space $\mathcal{S}$ and discrete action space $\mathcal{A}$. A  MDP can be defined as tuple ($\mathcal{S}$, $\mathcal{A}$, $\mathcal{P}$, $r$, $\gamma$), where $\mathcal{P}$ represents the transition probability matrix and it is also defined as the one-step dynamics of enviroment by given state and action. $[Intro to rl]$ Given any state and action, $s$ and $a$, the probability of each possible state transition to next state $s'$, is a function $Pr:\mathcal{S}\times\mathcal{S}\times\mathcal{A}\mapsto[0, 1]$
+In this paper, we consider infinite markov decision process with discrete state space $\mathcal{S}$ and discrete action space $\mathcal{A}$. A  MDP can be defined as tuple ($\mathcal{S}$, $\mathcal{A}$, $\mathcal{P}$, $r$, $\gamma$), where $\mathcal{P}$ represents the transition probability matrix and it is also defined as the one-step dynamics of enviroment by given state and action. \cite{sutton1998reinforcement} Given any state and action, $s$ and $a$, the probability of each possible state transition to next state $s'$, is a function $Pr:\mathcal{S}\times\mathcal{S}\times\mathcal{A}\mapsto[0, 1]$
 \begin{equation}
   p(s'|s, a)=Pr\{S_{t+1}=s'|S_t=s,A_t=a\}
 \end{equation}
@@ -609,6 +615,7 @@ where
 \end{equation}
 Then we give the pseudocode of GQ($\lambda$)\\
 {
+\LinesNumbered
 \removelatexerror% Nullify \@latex@error
 \begin{algorithm}[H]
 	\textup{Initialization $\pmb{\theta}$ arbitrarily and $\pmb{\omega}$ = 0} \\
@@ -621,8 +628,7 @@ Then we give the pseudocode of GQ($\lambda$)\\
 	  		$\bar{\phi}\leftarrow 0$\\ 
 	  \textup{For all $a \in \mathcal{A}(s)$:$\bar{\phi}\leftarrow\bar{\phi}+\pi(S^{'}, a)\phi(S^{'}, a)$}\\
 	  $\rho = \frac{\pi(S, A)}{b(S, A)}$\\
-	  \textup{GQlearn($\phi(S, A),\bar{\phi},$}\\
-	  \textup{\ \ \ \ \ \ \ \ \ \ \ \ \ \ $\lambda(S^{'}),\gamma(S^{'}), r(S, A, S^{'}), \rho, I(S)$)}\\
+	  	\textup{GQlearn($\phi(S, A)$, $\bar{\phi}$, $\lambda(S^{'})$,$ \gamma(S^{'})$, $r(S, A, S^{'})$, $\rho$, $I(S)$)}\\
 	  $S\leftarrow S^{'}$
   	}
   	}
@@ -630,6 +636,7 @@ Then we give the pseudocode of GQ($\lambda$)\\
 \end{algorithm}
 }
 {
+\LinesNumbered
 \removelatexerror% Nullify \@latex@error
 \begin{algorithm}[H]
 $\delta\leftarrow R+\lambda \pmb{\theta}^{\top} \bar{\phi}-\pmb{\theta}^{\top}\phi$\\
@@ -643,9 +650,47 @@ $\pmb{e}\leftarrow\gamma\lambda\pmb{e}$\\
 \section{RO-GQ($\lambda$)}
 RO-GQ($\lambda$) is a novel $\ell1$ regularized off-policy convergent TD-learning algorithm with low computational complexity, which is able to learn sparse representations of value function by performing $\ell1$ regularization in learning procedure. The algorithmic framework of RO-TD integrates two key schemas: off-policy convergent gradient TD methods and a convex-concave saddle-point formulation of non-smooth convex optimization ($\ell1$ regularization term in objective function）, which enables first-order solvers and feature selection using online convex regularization. fuck
 \subsection{Proximal Gradient and Saddle-Point First-Order Algorithms}
+Minimization of a composite objective function is useful in enforcing various structure , such as sparsity in case of $\ell1$ regularization on machine learning task. As well known property, $\ell1$ regularization is able to generate sparse representation optimization problem but can also lead to not-differentiability of objective function. Here we introduce proximal gradient method\cite{sra2012optimization}, which can be shown to be an efficient solution to non-differentiable convex problem caused by subdifferential of $\ell1$ regularization.\\
+The basic form of proximal mapping associated with a convex function $h$ is defined as:
+\begin{equation}
+	prox_h(x)=\arg\min_{u}(h(u)+\frac{1}{2}||u-x||^2)l
+\end{equation}
+In case of $\ell1$ regularity term in objective function, which can be written in its general form $h(x)=\rho||x||_1(\rho > 0)$, the proximal operator is turned out to be a entry-wise soft-threshold operator denoted as $S_\rho(\cdot)$ and we obtain:
+\begin{equation}
+	\begin{split}
+		&prox_h(x)_i\\
+		&=S_\rho(x_i)\\
+		&=max(x_i-\rho,0)-max(-x_i-\rho, 0),
+	\end{split}
+\end{equation}
+where $i$ is the index and $\rho$ is the threshold. When the optimization problem is 
+\begin{equation}
+	x^*=\arg\min_{x\in\mathcal{X}}(f(x)+h(x)),
+\end{equation}
+where $f(x)$ is a convex and differentiable loss function and $h(x)$ is a convex but non-differentiable regularization term. After performing proximal gradient method, the iterative update of $x$ is
+\begin{equation}
+	x_{t+1}=prox_{\alpha_t h}(x_t-\alpha_t \nabla f(x_t)).
+\end{equation}
+where $\alpha_t$ is a step-size factor. And meanwhile it's also cheap for computing.
 \subsection{Convex-concave Saddle-Point First Order Algorithms}
 \subsection{Objective Function}
-\subsection{GQ($\lambda$) Design}
+\subsection{RO-GQ($\lambda$) Design}
+{
+	\removelatexerror% Nullify \@latex@error
+	\LinesNumbered
+	\begin{algorithm}[H]
+		\pushline\dosemic\nonl \textup{Let $\pi$ be some fixed policy of an MDP $M$, and let the sample set $S={s_i, r_i, s_i^{'}}_{i=1}^N$. Let $\phi$ be some fixed basis.}\\
+
+		\Repeat({(for each step of episode)}){$t=N$}{
+	  		\textup{Compute $\phi_t, \phi_t^{'}$ and TD error $\delta_t=(r_t+\gamma\phi_t^{'\top}\theta_t)-\phi_t^\top\theta_t$}\\
+	  		\textup{Compute $y_t^\top A_t, A_tx_t-b_t$ in Equation (), ()}\\
+			\textup{Compute $x_{t+1}, y_{t+1}$ as in Equation ()}\\
+			\textup{Set $t\leftarrow t+1$}
+  		}
+  		\textup{Compute $\bar{x_N}, \bar{y_t}$ as in Equation () with $t=N$}
+ 		\caption{RO-GQ($\lambda$)}
+	\end{algorithm}
+}
 \section{OSK-TD}
 \subsection{Online Kernel-Based Sparcification}
 \subsection{Kernel Selective Function}
@@ -739,7 +784,7 @@ RO-GQ($\lambda$) is a novel $\ell1$ regularized off-policy convergent TD-learnin
 % stfloats package.
 
 
-
+\section{Experiment}
 \section{Conclusion}
 
 
@@ -761,14 +806,14 @@ RO-GQ($\lambda$) is a novel $\ell1$ regularized off-policy convergent TD-learnin
 %
 
   
-\appendices
-\section{Proof of the First Zonklar Equation}
+%\appendices
+%\section{Proof of the First Zonklar Equation}
 
 % use section* for acknowledgement
-\section*{Acknowledgment}
+%\section*{Acknowledgment}
 
 
-The authors would like to thank..
+%The authors would like to thank..
 
 
 % Can use something like this to put references on a page
