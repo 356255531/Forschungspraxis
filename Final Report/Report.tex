@@ -681,7 +681,10 @@ Another novel idea of RO-GQ($\lambda$) is a convex-concave saddle-point represen
 \end{equation}
 where $\mathcal{X, Y}$ are nonempty closed convex sets and a continuous cost function $\xi$ is convex in variable $x\in\mathcal{X}$ and concave in variable $y\in\mathcal{Y}$. The problem can also be written in form of primal-dual pair 
 \begin{equation}
-Opt(P)=\min_{}
+  \begin{split}
+    &Opt(P)=\min_{x\in\mathcal{X}}\bar{\phi}(x),\ \bar{\phi}(x)=\sup_{y\in\mathcal{Y}}\phi(x, y)\\
+    &Opt(D)=\max_{y\in\mathcal{Y}}wenti(y),\ wenti(y)=\inf_{x\in\mathcal{Y}}\phi(x, y)
+  \end{split}
 \end{equation}
 \subsection{Objective Function}
 \subsection{RO-GQ($\lambda$) Design}
@@ -697,10 +700,15 @@ Opt(P)=\min_{}
 			\textup{Compute $x_{t+1}, y_{t+1}$ as in Equation ()}\\
 			\textup{Set $t\leftarrow t+1$}
   		}
-  		\textup{Compute $\bar{x_N}, \bar{y_t}$ as in Equation () with $t=N$}
+  		\textup{Compute $\bar{x_N}, \bar{y_t}$ as in Equation () with $t=N$}.
  		\caption{RO-GQ($\lambda$)}
 	\end{algorithm}
 }
+$\phi$ possesses saddle-points if and only if optimization problem $P$ and $D$ have the equal optimal values or equivalently,
+\begin{equation}
+  Opt(P) = Opt(D).
+\end{equation}
+This property could be significant helpful when solving For example, a minimization problem which aims to minimize a well structured subdifferential convex objective function $f(x) = \sup_{y\in\mathcal{Y}}\phi(x, y)$ over $x$, can be converted to a dual maximization problem, whose objective function is a differentiable convex function $f^{'}(x)=\inf_{x\in\mathcal{X}}\phi(x, y)$.
 \section{OSK-TD}
 \subsection{Online Kernel-Based Sparcification}
 \subsection{Kernel Selective Function}
