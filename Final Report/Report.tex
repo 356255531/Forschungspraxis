@@ -695,6 +695,36 @@ $\phi$ possesses saddle-points if and only if optimization problem $P$ and $D$ h
 
 This property could be particularly helpful when solving, for example, a minimization problem which aims to minimize a well structured subdifferential convex objective function $\bar{\phi}(x) = \sup_{y\in\mathcal{Y}}\phi(x, y)$ over $x$, which is not solvable to many convex optimization techniques, where smoothness is required. By applying this property it can be converted to a dual maximization problem over $y$, whose objective function is a differentiable convex function $\underset{\bar{}}{\phi}(y)=\inf_{x\in\mathcal{X}}\phi(x, y)$. Therefore, convex-concave saddle-point approach is a possible solution for $\ell1$ norm problem.
 \subsection{Objective Function}
+Regarding the iterative update form used in TDC \cite{sutton2009fast} 
+\begin{equation}
+			\theta_{k+1} = \theta_{k}+\alpha_{k}\delta_k\phi_k -\alpha\gamma\phi_{k}^{'}(\phi_k^\top\omega_{k}),
+\end{equation}
+where
+\begin{equation} 
+	\omega_{k+1}=\omega_{k}+\beta_{k}(\delta_{k}-\phi_{k}^\top\omega_{k})\phi_k,
+\end{equation}
+we combine the two iterations and reformulate it in one iterative equation as following,
+\begin{equation}
+	x_{t+1} = x_t-\alpha_t(A_tx_t-b_t),	
+\end{equation}
+where
+\begin{equation}
+\begin{split}
+	&A_t = 	\begin{bmatrix} 
+				\eta\phi_t\phi_t^\top & \eta\phi_t(\phi_t-\gamma\phi_t^{'})^\top \\ 
+				\gamma\phi_t^{'}\phi_t^\top & \phi_t(\phi_t-\gamma\phi_t^{'})^\top 
+			\end{bmatrix},\\
+	&b_t=\begin{bmatrix}\eta r_t \phi_t \\ r_t\phi_t \end{bmatrix},\ \ \ \  x_t=\begin{bmatrix} \omega_t \\ \theta_t\end{bmatrix}.
+\end{split}
+\end{equation}
+Its one-step analytic form should satisfy the linear equation
+\begin{equation}
+	Ax = b,
+\end{equation}
+where matrix $A, x$ can be derived by taking the expectation of its value alone the infinite episode, which equal to
+\begin{equation}
+	A = \mathbb{E}_t[A_t(\phi_t, \phi_t^{'})],\ \ b = \mathbb{E}_t[b_t(\phi_t, r_t)],\ \ x=\begin{bmatrix} \omega \\ \theta\end{bmatrix}.
+\end{equation}
 \subsection{RO-GQ($\lambda$) Design}
 {
 	\removelatexerror% Nullify \@latex@error
