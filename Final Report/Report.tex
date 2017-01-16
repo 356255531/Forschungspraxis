@@ -67,9 +67,10 @@
 \usepackage{amsfonts}
 \usepackage{mathtools}
 \usepackage{amsbsy}
-
 \usepackage[ruled,vlined]{algorithm2e}
+\usepackage{accents}
 \makeatletter
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
 \newcommand{\removelatexerror}{\let\@latex@error\@gobble}
 \newcommand{\nosemic}{\renewcommand{\@endalgocfline}{\relax}}% Drop semi-colon ;
 \newcommand{\dosemic}{\renewcommand{\@endalgocfline}{\algocf@endline}}% Reinstate semi-colon ;
@@ -372,7 +373,7 @@
 % use a multiple column layout for up to three different
 % affiliations
 \author{\IEEEauthorblockN{Zhiwei Han}
-\IEEEauthorblockA{Chair of Data Processing\\Faculty of Electrical Engineering and Information Technology\\
+\IEEEauthorblockA{Faculty of Electrical Engineering and Information Technology\\
 Technical University of Munich\\
 Arcisstr. 21, Munich, 80333\\
 Email: hanzw356255531@icloud.com}
@@ -510,9 +511,9 @@ As one of the most important extension of TD algorithm, the off-policy learning 
     &\gamma \max_{a\in A}Q(s_{t+1}, a) - Q(s_t, a_t)]\\
   \end{split}  
 \end{equation}
-, directly approximates $Q^*$, the optimal action-value function, independent of the policy being followed.
+, directly approximates $Q^*$, the optimal action-value function, independent of the policy being followed.\\
 
-Based on the TD method, eligibility keeps track on several prior states and how the action-value function should be updated when a new observation is revceived. More precisely, eligibility is a temporal record of occured events e.g. states or actions, and propagates the attenuated TD error back then finally updates the parameters of the previous states. The famous combinations of Q-learning and eligibility trace are Watkins’s Q($\lambda$) \cite{watkins1992q} and Peng’s Q($\lambda$) \cite{peng1996incremental} for different update rules of eligibility trace. 
+Based on the TD method, eligibility keeps track on several prior states and how the action-value function should be updated when a new observation is revceived. More precisely, eligibility is a temporal record of occured events e.g. states or actions, and propagates the attenuated TD error back then finally updates the parameters of the previous states. The famous combinations of Q-learning and eligibility trace are Watkins’s Q($\lambda$) \cite{watkins1992q} and Peng’s Q($\lambda$) \cite{peng1996incremental} for different update rules of eligibility trace. \\
 
 The tabular version of Q($\lambda$) is a special case of linear action-value function approximation based Q($\lambda$). With a sparse feature vector $\phi$ for a given state and action pair, only one entry in learned parameter vector $\theta$ is going to be chosen when doing a vector multiplication. And this entry serves exactly as the Q-Function for the given feature vector.
 \begin{equation}
@@ -598,7 +599,7 @@ where a second modifiable parameter $\omega\in\mathbb{R}^n$ is used to avoid cac
 \begin{equation}
   \omega\approx \mathbb{E}_b[\phi^\top \phi]^{-1}\mathbb{E}_b[\delta^{\lambda\beta\rho}\phi],
 \end{equation}
-, finally the forward and backward view update of $GQ(\lambda)$ are given as the proof in \cite{maei2010gq}
+finally the forward and backward view update of $GQ(\lambda)$ are given as the proof in \cite{maei2010gq}
 \begin{equation}
 \begin{split}
   &\textup{Forward:}\\
@@ -675,17 +676,24 @@ where $f(x)$ is a convex and differentiable loss function and $h(x)$ is a convex
 \end{equation}
 where $\alpha_t$ is a step-size factor. And meanwhile it's also cheap for computing.
 \subsection{Convex-concave Saddle-Point First Order Algorithms}
-Another novel idea of RO-GQ($\lambda$) is a convex-concave saddle-point representation for regularized TD learning. A convex-concave saddle-point problem can be described as
+Another novel idea of RO-GQ($\lambda$) is a convex-concave saddle-point representation for regularized TD learning. A convex-concave saddle-point problem can be described as \cite{sra2012optimization}
 \begin{equation}
 	SadVal=\inf_{x\in\mathcal{X}}\sup_{y\in\mathcal{{Y}}}\xi(x,y),
 \end{equation}
-where $\mathcal{X, Y}$ are nonempty closed convex sets and a continuous cost function $\xi$ is convex in variable $x\in\mathcal{X}$ and concave in variable $y\in\mathcal{Y}$. The problem can also be written in form of primal-dual pair 
+where $x\in\mathcal{X}, y\in\mathcal{Y}$ are non-empty closed convex sets and a continuous convex cost function $\xi$ is convex in variable $x\in\mathcal{X}$ and concave in variable $y\in\mathcal{Y}$. By definition, solutions to convex-concave saddle-point problem (31) ($x^*,y^*$) should be in form of $\phi(x, y^*)\geq\phi(x^*, y^*)\geq\phi(x^*, y)$ for every $x\in\mathcal{X}$ and $y\in\mathcal{Y}$. The problem can also be written in form of primal-dual pair 
 \begin{equation}
   \begin{split}
     &Opt(P)=\min_{x\in\mathcal{X}}\bar{\phi}(x),\ \bar{\phi}(x)=\sup_{y\in\mathcal{Y}}\phi(x, y)\\
-    &Opt(D)=\max_{y\in\mathcal{Y}}wenti(y),\ wenti(y)=\inf_{x\in\mathcal{Y}}\phi(x, y)
+    &Opt(D)=\max_{y\in\mathcal{Y}}\underset{\bar{}}{\phi}(y),\ \underset{\bar{}}{\phi}(y)=\inf_{x\in\mathcal{Y}}\phi(x, y).
   \end{split}
 \end{equation}
+
+$\phi$ possesses saddle-points if and only if optimization problem $P$ and $D$ have the equal optimal values or equivalently,
+\begin{equation}
+  Opt(P) = Opt(D).
+\end{equation}
+
+This property could be particularly helpful when solving, for example, a minimization problem which aims to minimize a well structured subdifferential convex objective function $\bar{\phi}(x) = \sup_{y\in\mathcal{Y}}\phi(x, y)$ over $x$, which is not solvable to many convex optimization techniques, where smoothness is required. By applying this property it can be converted to a dual maximization problem over $y$, whose objective function is a differentiable convex function $\underset{\bar{}}{\phi}(y)=\inf_{x\in\mathcal{X}}\phi(x, y)$. Therefore, convex-concave saddle-point approach is a possible solution for $\ell1$ norm problem.
 \subsection{Objective Function}
 \subsection{RO-GQ($\lambda$) Design}
 {
@@ -704,11 +712,9 @@ where $\mathcal{X, Y}$ are nonempty closed convex sets and a continuous cost fun
  		\caption{RO-GQ($\lambda$)}
 	\end{algorithm}
 }
-$\phi$ possesses saddle-points if and only if optimization problem $P$ and $D$ have the equal optimal values or equivalently,
-\begin{equation}
-  Opt(P) = Opt(D).
-\end{equation}
-This property could be significant helpful when solving For example, a minimization problem which aims to minimize a well structured subdifferential convex objective function $f(x) = \sup_{y\in\mathcal{Y}}\phi(x, y)$ over $x$, can be converted to a dual maximization problem, whose objective function is a differentiable convex function $f^{'}(x)=\inf_{x\in\mathcal{X}}\phi(x, y)$.
+
+
+
 \section{OSK-TD}
 \subsection{Online Kernel-Based Sparcification}
 \subsection{Kernel Selective Function}
