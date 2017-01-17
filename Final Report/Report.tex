@@ -490,7 +490,7 @@ If $V^{\pi}$, $R^{\pi}$ are vectorized with length $|\mathcal{S}|$ and the dimen
 \begin{equation}
 V^\pi=TV^\pi=R^\pi + \gamma P^\pi V^\pi
 \end{equation}
-, where $T$ is the Bellman operator and $V^\pi$ is the fix point of Bellman operation.
+, where $T$ is the Bellman operator and $V^\pi$ is the fix point of Bellman operation.\\ 
 
 In rest of this paper, value function is replaced of action-value function, which maps each state and action, instead of only state, to a number representation, as we mainly focus on control problem.
 
@@ -766,16 +766,20 @@ Denote $y_t=[y_{1, t}:y_{2, t}]$, where $y_{1, t},\ y_{2, t}$ are column vectors
 	&y_t^\top A_t = \begin{bmatrix}
 						X_1 & X_2
 					\end{bmatrix}\\
+	\textup{where,}\\
 	&X_1 = \eta\phi_t^\top(y_{1, t}^\top\phi_t)+\gamma(1-\gamma)e_t^\top(y_{2, t}\bar{\phi}_{t+1})\\
 	&X_2 = (\phi_t-\gamma\bar{\phi}_{t+1})^\top(\eta y_{1, t}^\top+y_{2, t}^\top)e_t\\
-	% \textup{and}\\
-	% &A_tx_t - b_t = \begin{bmatrix}
-	% 					Y_1 & Y_2
-	% 				\end{bmatrix}\\
-	% &Y_1=-\eta(\delta_t e_t - \phi_t^\top\omega_t\phi_t)//
-	% &Y_2
+	\textup{and}\\
+	&A_tx_t - b_t = \begin{bmatrix}
+	 					Y_1 \\
+	 					Y_2
+	 				\end{bmatrix}\\
+	\textup{where,}\\
+	&Y_1=-\eta(\delta_t e_t - \phi_t^\top\omega_t\phi_t)\\
+	&Y_2=\gamma(1-\gamma)(e_t^\top\omega_t)\bar{\phi}_{t+1} - \delta_t e_t,
 \end{split}
 \end{equation}
+where eligibility traces $e_t$, and $\bar{\phi}_t,T^{\pi\lambda}$ are defined in \cite{maei2010gq}. The pseudocode of RO-GQ($\lambda$) is given as follows.\\ 
 {
 	\removelatexerror% Nullify \@latex@error
 	\LinesNumbered
@@ -799,8 +803,31 @@ Denote $y_t=[y_{1, t}:y_{2, t}]$, where $y_{1, t},\ y_{2, t}$ are column vectors
 \subsection{Online Kernel-Based Sparcification}
 \subsection{Kernel Selective Function}
 \subsection{Kernel-Based Action-Value Function}
+\subsection{Design of OSK-TD}
+{
+	\removelatexerror% Nullify \@latex@error
+	\LinesNumbered
+	\begin{algorithm}[H]
+		\textup{Initialize parameters($\epsilon, \alpha,\lambda, \mu_1, \mu_2$) and empty sample dictionary $D$}\\
 
-
+		\Repeat({(for each episode)}){$s$ is terminal}{
+	  		$s\leftarrow$ action given by $\pi$ (e.g., $\epsilon$-greedy) for $s$\\
+	  		Take action $\alpha$, observe reward $r$, next state $s^{'}$\\
+	  		$\delta \leftarrow r+\gamma\tilde{V}(s^{'})-\tilde{V}(s)$,\\
+	  		\dosemic\nonl where $\tilde{V}$(s) is computed by ()\\
+  		
+  			\Repeat({(for each element $d_i\in D$)}){}{
+	  			$s_i, e_i, \theta_i \leftarrow$ get state, eligibility trace and weight associated with $d_i$\\
+	  			$e_t\leftarrow \gamma\lambda e_i+\beta(s, s_i)k(s_i, s)$\\
+	  			$\theta_i \leftarrow \theta_i + \alpha\delta e_i$
+  			}
+  			compute the minimum distance according to ()\\
+  			update the sample dictionary $D$ according to ()\\
+  			$s\leftarrow s_{'}$
+  		}
+ 		\caption{OSK-TD}
+	\end{algorithm}
+}
 
 % needed in second column of first page if using \IEEEpubid{}
 %\IEEEpubidadjcol
@@ -889,6 +916,8 @@ Denote $y_t=[y_{1, t}:y_{2, t}]$, where $y_{1, t},\ y_{2, t}$ are column vectors
 
 
 \section{Experiment}
+\subsection{Experiment Setting}
+\subsection{Experiment Result}
 \section{Conclusion}
 
 
