@@ -79,6 +79,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/relsize/relsize.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/relsize/relsize.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/bezos/accents.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/bezos/accents.sty
 INPUT Report.aux
 INPUT Report.aux
 OUTPUT Report.aux

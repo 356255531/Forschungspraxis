@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex Report"] 1484496951 "Report.aux" "Report.bbl" "Report" 1484498623
+["bibtex Report"] 1484585008 "Report.aux" "Report.bbl" "Report" 1484585122
   "/usr/local/texlive/2016/texmf-dist/bibtex/bib/IEEEtran/IEEEabrv.bib" 1440712899 20898 a5d2167c380db7dfff810b085c77ed63 ""
   "/usr/local/texlive/2016/texmf-dist/bibtex/bst/IEEEtran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "Report.aux" 1484498622 3439 2f754bf6df11dfe3d8683045194973d2 ""
+  "Report.aux" 1484585122 3493 18d3b541c813f81bce3f64249b3356f1 ""
   "Report.bcf" 0 -1 0 ""
   "reference.bib" 1484402423 5088 dcedf45bae0436f3b4d6b6fd27b418e4 ""
   (generated)
-  "Report.bbl"
   "Report.blg"
-["pdflatex"] 1484498622 "Report.tex" "Report.pdf" "Report" 1484498623
+  "Report.bbl"
+["pdflatex"] 1484585121 "Report.tex" "Report.pdf" "Report" 1484585122
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm" 1136768653 2228 e564491c42a4540b5ebb710a75ff306c ""
@@ -49,6 +49,7 @@
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty" 1459635588 4115 318a66090112f3aa3f415aeb6fe8540f ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty" 1456875012 2431 fe3078ec12fc30287f568596f8e0b948 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty" 1454284088 5159 a08c9bbd48fc492f15b22e458bef961f ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/bezos/accents.sty" 1287181805 6919 4d8e953be6e2c3cc4cc3d9942a582fd2 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1459978653 3103 f32642b1cd56c010cdfb6545539b7f0b ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty" 1462915952 14391 bd64a9e5d07473b936423b5f3280ed2c ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty" 1428932888 8125 557ab9f1bfa80d369fb45a914aa8a3b4 ""
@@ -66,10 +67,10 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1481624118 3520373 10b922a6d674e58c020d8c1ed37983be ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "Report.aux" 1484498622 3439 2f754bf6df11dfe3d8683045194973d2 ""
-  "Report.bbl" 1484496976 4563 dae7f2c80b1aea94c43bf62dc1ea7017 "bibtex Report"
-  "Report.tex" 1484498621 49617 2e3e7036918d899e7ad73e39f2ac5154 ""
+  "Report.aux" 1484585122 3493 18d3b541c813f81bce3f64249b3356f1 ""
+  "Report.bbl" 1484585008 4563 dae7f2c80b1aea94c43bf62dc1ea7017 "bibtex Report"
+  "Report.tex" 1484585120 51508 908f097fc0915dc132dbad95eb553ded ""
   (generated)
-  "Report.pdf"
   "Report.log"
   "Report.aux"
+  "Report.pdf"
