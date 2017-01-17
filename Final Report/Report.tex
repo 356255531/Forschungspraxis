@@ -240,7 +240,6 @@
 % latest version and documentation can be obtained at:
 % http://www.ctan.org/tex-archive/macros/latex/required/tools/
 
-
 %\usepackage{mdwmath}
 %\usepackage{mdwtab}
 % Also highly recommended is Mark Wooding's extremely powerful MDW tools,
@@ -780,6 +779,8 @@ Denote $y_t=[y_{1, t}:y_{2, t}]$, where $y_{1, t},\ y_{2, t}$ are column vectors
 \end{split}
 \end{equation}
 where eligibility traces $e_t$, and $\bar{\phi}_t,T^{\pi\lambda}$ are defined in \cite{maei2010gq}. The pseudocode of RO-GQ($\lambda$) is given as follows.\\ 
+
+
 {
 	\removelatexerror% Nullify \@latex@error
 	\LinesNumbered
@@ -796,12 +797,36 @@ where eligibility traces $e_t$, and $\bar{\phi}_t,T^{\pi\lambda}$ are defined in
  		\caption{RO-GQ($\lambda$)}
 	\end{algorithm}
 }
-
-
-
+\newpage
 \section{OSK-TD}
+OSK-TD is a novel online sparse TD learning algorithm, which is consist of two main procedures: online kernel-based sparsification and parameter update for selective kernel function based value function. A distance threshold is set to indicate if a new comming sample should be added into an online sparsified dictionary according to the kernel distance between it and the nearest sample in the dictionary. What's more, the parameters of a selective kernel-based value function  approximation with TD learning algorithm combined with gradient descend technique. 
 \subsection{Online Kernel-Based Sparcification}
+Online sparsification aims to reduce the complexity of value function approximation and thus makes itself closer to the goal of real time use purpose. In ths subsection, we introduce a new sparsification technique, which based on the kernel distance in reproducing kernel Hilbert space (RKHS).\\
+
+In this kernel distance-based sparsification approach, we start with an empty sample dictionary $D_0 = \emptyset$. If a sample with feature vector $\phi$ comes at time slice $t$ and the current sample dictionary is $D_t = \{\phi_1, \phi_2,..., \phi_{|D_t|}\}$, the feature vector $\phi$ should be immediately added into dictionary only when $\kappa(\phi, \phi_{min}) < \mu_1$, where $|D_t|$ is the size of sample dictionary, $\kappa$ is a chosen kernel function and $\mu_1$ is a preset distance threshold associated to the inner product defined in the RKHS. More formally, the adding criteria can be formulated as
+\begin{equation}
+  \delta_t = \min_{s_i\in D_t}||\phi(s_i)-\phi||^2 \mu_1,
+\end{equation}
+after applying the kernel trick, namely subsituting $\kappa(s_1, s_2)=\phi(s_1)^\top\phi(s_2)$, we obtain
+\begin{equation}
+  \begin{split}
+    &\delta_t = \min_{s_i\in D_t}||\phi(s_i)-\phi||^2 \mu_1,\\
+    &=\min_{s_i\in D_t}\{\phi(s_i)^\top\phi(s_t) - 2\phi^\top\phi(s_i)+\phi\phi\}\\
+    &=\min_{s_i\in D_t}\{\kappa(s_i, s_i)-2\kappa(\phi, \phi_t)+\kappa(\phi, \phi)\}.
+  \end{split}
+\end{equation}
+Thus, the update rule for the sample dictionary $D$ is
+\begin{equation}
+  D_t =
+      \begin{cases}
+          D_{t-1},& \text{if } \delta_t\leq \mu_1\\
+          D_{t-1}\cup \{\phi\}, & \text{otherwise}
+      \end{cases}
+\end{equation}
+
+The computational complexity of of the kernel distance-based sparsifiation procedure is $O(|D_t|)$, which is very computational efficient and thus makes the online sparsification possible. But as mentioned in \cite{tsitsiklis1997analysis}\cite{sutton2009convergent}, such sample-based sparsification approach could lead to divergence of RL algorithm, because there is guarantee for convergece only when applying linear value function approximation in a on-policy learning. However, some algorithms still converges in practical problems.
 \subsection{Kernel Selective Function}
+
 \subsection{Kernel-Based Action-Value Function}
 \subsection{Design of OSK-TD}
 {
