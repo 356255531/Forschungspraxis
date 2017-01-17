@@ -421,7 +421,7 @@ Email: hanzw356255531@icloud.com}
 % Even with the lineraly growing of state or action number, the computational expense increases exponentially. Hence, a sparse presentation of Q-Functions would be one smart solution to this kind of problem. 
 \begin{abstract}
 %\boldmath
-In this paper, a comparison of three value function approximation based reinforcement learning algorithms is presented to evaluate their performance on solving continuous state space control problem. They are GQ($\lambda$), $\ell1$ norm regularized off-policy TD($\lambda$) and online selective kernel-based TD($\lambda$). For convenience, these algorithms will be called GQ($\lambda$), RO-TD($\lambda$) and OSK-TD($\lambda$) in rest of the paper. The comparison standard concentrates mainly on the total reward, convergence and efficiency of the algorithms. The classic TD($\lambda$) framework Q-Learning is applied and adapted by compared algorithms in parameter learning. Note, other RL framework choice like Sarsa($\lambda$) could also be possible, but won't be discussed here. GQ($\lambda$), which minimize the mean-squre projected bellman error(MSPBE) with gradient descend, is a very powerful and straightforward learning method under small scale or well-defined discrete space setting condition. However, because of the curve of dimensionality, the algorithm could be less computational efficient as the increasing number of state. To overcome this issue, one $\ell1$ regularity term was inserted to the objective function in RO-GQ($\lambda$) algorithm. The sparsity generated in the learned parameters helps significantly reduce the computational complexity of RO-GQ($\lambda$) and therefore it has a better performance in these problems. Alternatively, OSK-TD($\lambda$) provides another solution for sparsification, which is less computational complex and can be runned online. OSK-TD includes two procedures, a dictionary consists of feature vector is online generated and refreshed with a criteria for whether and how to add a new feature in dictionary. In the second step, a kernel selective function $\beta$(s) selects the best matched feature vector in dictionary for the selective kernel-based Q-function representation. 
+In this paper, a comparison of three value function approximation based reinforcement learning algorithms is presented to evaluate their performance on solving continuous state space control problem. They are GQ($\lambda$), $\ell1$ norm regularized off-policy TD($\lambda$) and online selective kernel-based TD($\lambda$). For convenience, these algorithms will be called GQ($\lambda$), RO-TD($\lambda$) and OSK-TD($\lambda$) in rest of the paper. The comparison standard concentrates mainly on the total reward, convergence and efficiency of the algorithms. The classic TD($\lambda$) framework Q-Learning is applied and adapted by compared algorithms in parameter learning. Note, other RL framework choice like Sarsa($\lambda$) could also be possible, but won't be discussed here. GQ($\lambda$), which minimize the mean-squre projected Bellman error(MSPBE) with gradient descend, is a very powerful and straightforward learning method under small scale or well-defined discrete space setting condition. However, because of the curve of dimensionality, the algorithm could be less computational efficient as the increasing number of state. To overcome this issue, one $\ell1$ regularity term was inserted to the objective function in RO-GQ($\lambda$) algorithm. The sparsity generated in the learned parameters helps significantly reduce the computational complexity of RO-GQ($\lambda$) and therefore it has a better performance in these problems. Alternatively, OSK-TD($\lambda$) provides another solution for sparsification, which is less computational complex and can be runned online. OSK-TD includes two procedures, a dictionary consists of feature vector is online generated and refreshed with a criteria for whether and how to add a new feature in dictionary. In the second step, a kernel selective function $\beta$(s) selects the best matched feature vector in dictionary for the selective kernel-based Q-function representation. 
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
@@ -458,7 +458,7 @@ Reinforecement learning (RL) approaches to classic predict and control problems 
 
 But there are still two problems about value function approximation mainteined unsovled. In practical large scale problems, smart value function approximation strategy is alwags required to reduce the computational complexity because large scale RL problems e.g. Go within continous/action spaces suffer from the curse of dimensionality, which means the computational complexity increases exponentially with growing number of states and actions. This problem arises as a main subproblem in RL and is generally considered as the most important step in RL algorithm development. There are serveral value function approximation techniques developed in recent researches, e.g. linear function approximation \cite{sutton1998reinforcement} \cite{tsitsiklis1997analysis}, regression tree \cite{ernst2005tree} and kernel-method \cite{xu2007kernel}\cite{ormoneit2002kernel}, which can deal with a specific set of problems. More generally, after deep learning \cite{lecun2015deep} concept and deep neural network were introduced into RL, the perforemance has been significantly improved since Alpha Go of Deep Mind, a company owned by Google, beated one of the best human Go players, Lee Sedong. Furthermore, the learning agent equipped with deep Q-network (DQN) \cite{mnih2015human} based Q function Approximator was also turned out to be smarter than human player in some Atri-games. Regularization could be another solution to this problem, it plays not only an important role in preventing overfitting and is also considered as an ideal feature selection technique for in algorithms with value function approximation thanks to the sparsity generated by $\ell1$ norm reguarization\cite{kolter2009regularization} \cite{liu2012regularized}. In this paper, the tabular algorithm RO-TD($\lambda$) with $\ell1$ norm reguarization is compared with the algorithm OSK-TD($\lambda$) \cite{chen2013online}, which equipped with another feature selection strategy, in term of the efficency of sparsification.\\
 
-Another widely concerned issure is convergence of the value function approximation. As Tsitsiklis \cite{tsitsiklis1997analysis} pointed out that even though the linear value function approximation converges in most online learning problem setting, but an algorithm could still diverge if either of the conditions is not satisfied, when a off-line learning is perform, because states are sampled from distributions independent of the dynamics of the Markov chain of interst, or a nonlinear value function approximation is used. We will also point out this kind of view later in the experiment. It's a servere problem in RL application, however, because of the great needs, value function approximation was still applied in many off-line TD algorithms like Q-learning at that time while ignoring the potential risk of divergent value function approximation. Sutton \cite{sutton1998reinforcement}\cite{sutton2009fast} solved off-line learning problem of off-policy learning by introducing a new object function, \textit{mean-squre projected bellman error} (\textup{MSPBE}) and performing stochastic gradient mehtod an it.\\
+Another widely concerned issure is convergence of the value function approximation. As Tsitsiklis \cite{tsitsiklis1997analysis} pointed out that even though the linear value function approximation converges in most online learning problem setting, but an algorithm could still diverge if either of the conditions is not satisfied, when a off-line learning is perform, because states are sampled from distributions independent of the dynamics of the Markov chain of interst, or a nonlinear value function approximation is used. We will also point out this kind of view later in the experiment. It's a servere problem in RL application, however, because of the great needs, value function approximation was still applied in many off-line TD algorithms like Q-learning at that time while ignoring the potential risk of divergent value function approximation. Sutton \cite{sutton1998reinforcement}\cite{sutton2009fast} solved off-line learning problem of off-policy learning by introducing a new object function, \textit{mean-squre projected Bellman error} (\textup{MSPBE}) and performing stochastic gradient mehtod an it.\\
 
 In this paper, we consider up-to-date algorithms GQ($\lambda$) \cite{maei2010gq}, RO-GQ($\lambda$) \cite{liu2012regularized} based on the traditional tabular algorithm framework (without value function approximation), kernel-based feature selective algorithm OSK-TD($\lambda$) \cite{chen2013online} and their comparison. The rest of this paper is organized as flollows. In Section \uppercase\expandafter{\romannumeral2}, an introduction on MDPs as well as the TD learning framework is given. \uppercase\expandafter{\romannumeral3} presents the used techniques in the algorithms to be compared. An algorithmetic introduction and comparison between three algorithm is proposed in the section \uppercase\expandafter{\romannumeral4}. And in section \uppercase\expandafter{\romannumeral5} the experimental result on the classic RL problem settings Mountain Car and Carto Car are provided to visulization the effectiveness of compared algorithm. At the \uppercase\expandafter{\romannumeral6} section gives a conclussion and future work.\\
 
@@ -490,7 +490,7 @@ If $V^{\pi}$, $R^{\pi}$ are vectorized with length $|\mathcal{S}|$ and the dimen
 \begin{equation}
 V^\pi=TV^\pi=R^\pi + \gamma P^\pi V^\pi
 \end{equation}
-, where $T$ is the bellman operator and $V^\pi$ is the fix point of bellman operation.
+, where $T$ is the Bellman operator and $V^\pi$ is the fix point of Bellman operation.
 
 In rest of this paper, value function is replaced of action-value function, which maps each state and action, instead of only state, to a number representation, as we mainly focus on control problem.
 
@@ -499,7 +499,7 @@ The basic idea of temporal difference learning is looking back to the previous s
 \begin{equation}
   V(s_t) = V(s_t) + \alpha \delta(s_t)
 \end{equation}
-, where $\alpha$ is the learning rate and $\delta$ is the bellman error, which defined as
+, where $\alpha$ is the learning rate and $\delta$ is the Bellman error, which defined as
 \begin{equation}
   \delta(s_t) = R_{t+1} + \gamma V(s_{t+1}) - V(s_t)
 \end{equation}
@@ -544,7 +544,7 @@ In TD methods, the idea is to replace the \textup{MSE} with \textit{mean-square 
 \begin{equation}
     \textup{MSBE}(\theta):=||V_\theta-TV_\theta||^2_D.
 \end{equation}
-This is the objective function used by the most important prior effort to develop gradient-descent algorithms. But the prior algorithms like TD, LSTD, and GTD don't sufficiently converge to the minimum of \textup{MSE} as bellman operator typically is irrespective of  value function approximation structure. Hence, it is not be able to represent value function approximation for any $\theta$, although it follows the dynamics of Markov Decision Process (MDP).\\
+This is the objective function used by the most important prior effort to develop gradient-descent algorithms. But the prior algorithms like TD, LSTD, and GTD don't sufficiently converge to the minimum of \textup{MSE} as Bellman operator typically is irrespective of  value function approximation structure. Hence, it is not be able to represent value function approximation for any $\theta$, although it follows the dynamics of Markov Decision Process (MDP).\\
 By introducing the project operator in linear approximation architecture
 \begin{equation}
   \Pi = \Phi(\Phi^\top D\Phi)^{-1}\Phi^\top D ,
@@ -595,7 +595,7 @@ After taking the negative gradient of objective function as the optimization dir
   &\approx \mathbb{E}[\delta^{\lambda\beta\rho}\phi]-\mathbb{E}_b[\nabla g^{\lambda \beta\rho}\phi^\top ]\omega,
   \end{split}
 \end{equation}
-where a second modifiable parameter $\omega\in\mathbb{R}^n$ is used to avoid caculating the inverse matrix and double sampling \cite{sutton1998reinforcement},
+where a second modifiable parameter $\omega\in\mathbb{R}^n$ is used to avoid caculating the inverse matrix and double sampling   \cite{sutton1998reinforcement},
 \begin{equation}
   \omega\approx \mathbb{E}_b[\phi^\top \phi]^{-1}\mathbb{E}_b[\delta^{\lambda\beta\rho}\phi],
 \end{equation}
@@ -678,9 +678,9 @@ where $\alpha_t$ is a step-size factor. And meanwhile it's also cheap for comput
 \subsection{Convex-concave Saddle-Point First Order Algorithms}
 Another novel idea of RO-GQ($\lambda$) is a convex-concave saddle-point representation for regularized TD learning. A convex-concave saddle-point problem can be described as \cite{sra2012optimization}
 \begin{equation}
-	SadVal=\inf_{x\in\mathcal{X}}\sup_{y\in\mathcal{{Y}}}\xi(x,y),
+	SadVal=\inf_{x\in\mathcal{X}}\sup_{y\in\mathcal{{Y}}}\phi(x,y),
 \end{equation}
-where $x\in\mathcal{X}, y\in\mathcal{Y}$ are non-empty closed convex sets and a continuous convex cost function $\xi$ is convex in variable $x\in\mathcal{X}$ and concave in variable $y\in\mathcal{Y}$. By definition, solutions to convex-concave saddle-point problem (31) ($x^*,y^*$) should be in form of $\phi(x, y^*)\geq\phi(x^*, y^*)\geq\phi(x^*, y)$ for every $x\in\mathcal{X}$ and $y\in\mathcal{Y}$. The problem can also be written in form of primal-dual pair 
+where $x\in\mathcal{X}, y\in\mathcal{Y}$ are non-empty closed convex sets and a continuous convex cost function $\phi(x, y)$ is convex in variable $x\in\mathcal{X}$ and concave in variable $y\in\mathcal{Y}$. By definition, solutions to convex-concave saddle-point problem (31) ($x^*,y^*$) should be in form of $\phi(x, y^*)\geq\phi(x^*, y^*)\geq\phi(x^*, y)$ for every $x\in\mathcal{X}$ and $y\in\mathcal{Y}$. The problem can also be written in form of primal-dual pair 
 \begin{equation}
   \begin{split}
     &Opt(P)=\min_{x\in\mathcal{X}}\bar{\phi}(x),\ \bar{\phi}(x)=\sup_{y\in\mathcal{Y}}\phi(x, y)\\
@@ -695,14 +695,23 @@ $\phi$ possesses saddle-points if and only if optimization problem $P$ and $D$ h
 
 This property could be particularly helpful when solving, for example, a minimization problem which aims to minimize a well structured subdifferential convex objective function $\bar{\phi}(x) = \sup_{y\in\mathcal{Y}}\phi(x, y)$ over $x$, which is not solvable to many convex optimization techniques, where smoothness is required. By applying this property it can be converted to a dual maximization problem over $y$, whose objective function is a differentiable convex function $\underset{\bar{}}{\phi}(y)=\inf_{x\in\mathcal{X}}\phi(x, y)$. Therefore, convex-concave saddle-point approach is a possible solution for $\ell1$ norm problem.
 \subsection{Objective Function}
-Regarding the iterative update form used in TDC \cite{sutton2009fast} 
+Regarding the TDC algorithm \cite{sutton2009fast},whose update is
 \begin{equation}
-			\theta_{k+1} = \theta_{k}+\alpha_{k}\delta_k\phi_k -\alpha\gamma\phi_{k}^{'}(\phi_k^\top\omega_{k}),
-\end{equation}
+			\theta_{t+1} = \theta_{t}+\alpha_{t}\delta_t\phi_t -\alpha\gamma\phi_{t}^{'}(\phi_t^\top\omega_{t}),
+\end{equation} 
 where
 \begin{equation} 
-	\omega_{k+1}=\omega_{k}+\beta_{k}(\delta_{k}-\phi_{k}^\top\omega_{k})\phi_k,
+	\omega_{t+1}=\omega_{t}+\beta_{t}(\delta_{t}-\phi_{t}^\top\omega_{t})\phi_t,
 \end{equation}
+we obtain its generalization by combining it with eligibility trace and off-line learning
+\begin{equation}
+			\theta_{t+1} = \theta_{t}+\alpha_{t}[\delta_te_t -\gamma(1-\gamma)\omega_t^\top e_t\bar{\phi}_{t+1}],
+\end{equation} 
+where
+\begin{equation} 
+	\omega_{t+1}=\omega_{t}+\beta_{t}(\delta_{t}e_t-\omega_{t}\phi_{t}\phi_t).
+\end{equation}
+
 we combine the two iterations and reformulate it in one iterative equation as following,
 \begin{equation}
 	x_{t+1} = x_t-\alpha_t(A_tx_t-b_t),	
@@ -711,21 +720,36 @@ where
 \begin{equation}
 \begin{split}
 	&A_t = 	\begin{bmatrix} 
-				\eta\phi_t\phi_t^\top & \eta\phi_t(\phi_t-\gamma\phi_t^{'})^\top \\ 
-				\gamma\phi_t^{'}\phi_t^\top & \phi_t(\phi_t-\gamma\phi_t^{'})^\top 
+				\eta\phi_t\phi_t^\top & \eta e_t (\phi_t-\gamma\bar{\phi}_{t+1})^\top \\ 
+				\gamma(1-\gamma)\bar{\phi}_{t+1}e_t^\top & e_t(\phi_t-\gamma\bar{\phi}_{t+1})^\top 
 			\end{bmatrix},\\
-	&b_t=\begin{bmatrix}\eta r_t \phi_t \\ r_t\phi_t \end{bmatrix},\ \ \ \  x_t=\begin{bmatrix} \omega_t \\ \theta_t\end{bmatrix}.
+	&b_t=\begin{bmatrix}\eta r_t e_t \\ r_te_t \end{bmatrix},\ \ \ \  x_t=\begin{bmatrix} \omega_t \\ \theta_t\end{bmatrix}.
 \end{split}
 \end{equation}
-Its one-step analytic form should satisfy the linear equation
+Thus, its one-step linear equation
 \begin{equation}
 	Ax = b,
 \end{equation}
-where matrix $A, x$ can be derived by taking its expectation alone the infinite episode, which equal to
+should be satisfied where matrix $A, x$ can be derived by taking its expectation alone the infinite episode, which equal to
 \begin{equation}
 	A = \mathbb{E}_t[A_t(\phi_t, \phi_t^{'})],\ \ b = \mathbb{E}_t[b_t(\phi_t, r_t)],\ \ x=\begin{bmatrix} \omega \\ \theta\end{bmatrix}.
 \end{equation}
+
+Before describing objective function, there are still some concerns from the perspective of convex optimization and reinforcement learning. First, $A$ is neither positive definite or symmetric, hence the convexity of objective function, which required by usual optimization algorithm, can not be guaranteed. Second concern is we do not have any knowledge about $A, b$, they must be separable within the objective function so that it can be approximated by sampling (stochastically solvable). Furthermore, to avoid double sampling we should ensure no Bellman residual or its derivative involved in objective function as double sampling is a necessary method for getting unbiased estimator where Bellman residual is included within objective function. Consequently, based all the listed limits and requirement of objective functions above, we finally present the regularized objective function as
+\begin{equation}
+	L(x)=||Ax-b||_m+h(x),
+\end{equation}
+where $m$ is a conjugate number.
 \subsection{RO-GQ($\lambda$) Design}
+By definition a conjugate norm can be written as 
+\begin{equation}
+	||\xi||_* = \max_{x}\big\{\big<\xi, x\big>:||x||<1\big\},
+\end{equation}
+similarly, the regularized objective function can be converted in
+\begin{equation}
+	L(x)=||Ax-b||_m+h(x)= \max_{||y||_n\leq 1} y^\top(Ax-b)+h(x),
+\end{equation}
+where $m,\ n$ are conjugate numbers.\\
 {
 	\removelatexerror% Nullify \@latex@error
 	\LinesNumbered
