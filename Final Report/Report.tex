@@ -652,7 +652,7 @@ $\pmb{e}\leftarrow\gamma\lambda\pmb{e}$\\
 RO-GQ($\lambda$) is a novel $\ell1$ regularized off-policy convergent TD-learning algorithm with low computational complexity, which is able to learn sparse representations of value function by performing $\ell1$ regularization in learning procedure. The algorithmic framework of RO-TD integrates two key schemas: off-policy convergent gradient TD methods and a convex-concave saddle-point formulation of non-smooth convex optimization ($\ell1$ regularization term in objective function, which enables first-order solvers and feature selection using online convex regularization. \\
 
 Due to the special objective function used in RO-GQ($\lambda$), we present here the mathematical background needed by optimization procedure.
-\subsection{Proximal Gradient and Saddle-Point First-Order Algorithms}
+\subsection{Proximal Gradient Method}
 Minimization of a composite objective function is useful in enforcing various structure , such as sparsity in case of $\ell1$ regularization on machine learning task. As well known property, $\ell1$ regularization is able to generate sparse representation optimization problem but can also lead to not-differentiability of objective function. Here we introduce proximal gradient method\cite{sra2012optimization}, which can be shown to be an efficient solution to non-differentiable convex problem caused by subdifferential of $\ell1$ regularization.\\
 The basic form of proximal mapping associated with a convex function $h$ is defined as:
 \begin{equation}
@@ -675,7 +675,7 @@ where $f(x)$ is a convex and differentiable loss function and $h(x)$ is a convex
 	x_{t+1}=prox_{\alpha_t h}(x_t-\alpha_t \nabla f(x_t)).
 \end{equation}
 where $\alpha_t$ is a step-size factor. And meanwhile it's also cheap for computing.
-\subsection{Convex-concave Saddle-Point First Order Algorithms}
+\subsection{Convex-concave Saddle-Point First Order Algorithm}
 Another novel idea of RO-GQ($\lambda$) is a convex-concave saddle-point representation for regularized TD learning. A convex-concave saddle-point problem can be described as \cite{sra2012optimization}
 \begin{equation}
 	SadVal=\inf_{x\in\mathcal{X}}\sup_{y\in\mathcal{{Y}}}\phi(x,y),
@@ -741,7 +741,7 @@ Before describing objective function, there are still some concerns from the per
 \end{equation}
 where $m$ is a conjugate number.
 \subsection{RO-GQ($\lambda$) Design}
-By definition a conjugate norm can be written as 
+By definition a conjugate norm can be written as \cite{sra2012optimization}
 \begin{equation}
 	||\xi||_* = \max_{x}\big\{\big<\xi, x\big>:||x||<1\big\},
 \end{equation}
@@ -749,7 +749,33 @@ similarly, the regularized objective function can be converted in
 \begin{equation}
 	L(x)=||Ax-b||_m+h(x)= \max_{||y||_n\leq 1} y^\top(Ax-b)+h(x),
 \end{equation}
-where $m,\ n$ are conjugate numbers.\\
+where $m,\ n$ are conjugate numbers. Using the appoach in \cite{nemirovski2009robust} with proximal gradient method, the optimization problem can be formulated as a iterative update as follows,
+\begin{equation}
+\begin{split}
+	&x_{t+\frac{1}{2}}=x_t-\alpha_tA_t^\top\ \ ,\ \ y_{t+\frac{1}{2}}=y_t+\alpha_t(A_tx_t-b_t)\\
+	&x_{t+1}=prox_{\alpha_th}(x_{t+\frac{1}{2}})\ \ ,\ \ y_{t+1}=\Pi_n(y_{t+\frac{1}{2}})
+\end{split}
+\end{equation}
+Accordingto \cite{sra2012optimization}\cite{nedic2009subgradient}, the averaging step, which is particularly important for convergence, gives the $approximate $ convex-concave saddle-point as follows,
+\begin{equation}
+	\bar{x}_t = \bigg(\sum_{i=0}^{t}a_i\bigg)^{-1}\sum_{i=0}^ta_ix_i\ ,\ \bar{y}_t=\bigg(\sum_{i=0}^{t}a_i\bigg)^{-1}\sum_{i=0}^ta_iy_i
+\end{equation}
+Denote $y_t=[y_{1, t}:y_{2, t}]$, where $y_{1, t},\ y_{2, t}$ are column vectors of equal length, we obtain
+\begin{equation}
+\begin{split}
+	&y_t^\top A_t = \begin{bmatrix}
+						X_1 & X_2
+					\end{bmatrix}\\
+	&X_1 = \eta\phi_t^\top(y_{1, t}^\top\phi_t)+\gamma(1-\gamma)e_t^\top(y_{2, t}\bar{\phi}_{t+1})\\
+	&X_2 = (\phi_t-\gamma\bar{\phi}_{t+1})^\top(\eta y_{1, t}^\top+y_{2, t}^\top)e_t\\
+	\textup{and}\\
+	&A_tx_t - b_t = \begin{bmatrix}
+						Y_1 & Y_2
+					\end{bmatrix}\\
+	&Y_1=-\eta(\delta_t e_t - \phi_t^\top\omega_t\phi_t)//
+	&Y_2
+\end{split}
+\end{equation}
 {
 	\removelatexerror% Nullify \@latex@error
 	\LinesNumbered
