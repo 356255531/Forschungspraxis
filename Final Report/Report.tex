@@ -805,12 +805,12 @@ Online sparsification aims to reduce the complexity of value function approximat
 
 In this kernel distance-based sparsification approach, we start with an empty sample dictionary $D_0 = \emptyset$. If a sample with feature vector $\phi$ comes at time slice $t$ and the current sample dictionary is $D_t = \{\phi_1, \phi_2,..., \phi_{|D_t|}\}$, the feature vector $\phi$ should be immediately added into dictionary only when $\kappa(\phi, \phi_{min}) < \mu_1$, where $|D_t|$ is the size of sample dictionary, $\kappa$ is a chosen kernel function and $\mu_1$ is a pre-set distance threshold associated to the inner product defined in the RKHS. More formally, the adding criteria can be formulated as
 \begin{equation}
-  \delta_t = \min_{s_i\in D_t}||\phi(s_i)-\phi||^2 \mu_1,
+  \delta_t = \min_{s_i\in D_t}||\phi(s_i)-\phi||^2,
 \end{equation}
 after applying the kernel trick, namely substituting $\kappa(s_1, s_2)=\phi(s_1)^\top\phi(s_2)$, we obtain
 \begin{equation}
   \begin{split}
-    &\delta_t = \min_{s_i\in D_t}||\phi(s_i)-\phi||^2 \mu_1,\\
+    &\delta_t = \min_{s_i\in D_t}||\phi(s_i)-\phi||^2 ,\\
     &=\min_{s_i\in D_t}\{\phi(s_i)^\top\phi(s_t) - 2\phi^\top\phi(s_i)+\phi\phi\}\\
     &=\min_{s_i\in D_t}\{\kappa(s_i, s_i)-2\kappa(\phi, \phi_t)+\kappa(\phi, \phi)\}.
   \end{split}
@@ -855,8 +855,48 @@ Since the sparsified dictionary $D$ consists of several subdictionaries $D_i$, w
            		0, & \text{otherwise}
       		\end{cases}.
 \end{equation}
-Selective kernel-based value function can be described as a procedure of selecting  the value functions $V_i$ from the \{$V_1, V_2,..., V_n$\} and summing up them with kernel-distance weights.
+
+Selective kernel-based value function can be described as a procedure of selecting  the value functions $V_i \in \{V_1, V_2,..., V_n$\} associated to the corresponding subspace $S_i \in \{S_1, S_2,..., S_n\}$ and summing up them with kernel-distance weights. Similar to the selective function $\beta_1$ used in dictionary based online sparsification, we propose another selective function $\beta_2$ to select the appropriate subset of samples in dictionary $D$ associated to the selected subspaces $S_i \in S$.
+\begin{equation}
+  \beta_2(s, s_i) =
+      \begin{cases}
+			1,& s_i \text{\ is appropriate to approximate s}\\
+           	0, & \text{otherwise}
+      \end{cases},
+\end{equation}
+where $s\in S, s_i \in D$.
+
+Therefore, after combing the equations we obtain the general form of selective kernel-based value function as follows
+\begin{equation}
+	\widetilde{V}(s)=\sum_{i=1}^{|D|}\theta_i \beta(s, s_i)\kappa{s, s_i}, 
+\end{equation}
+where $|D|$ is the size of the sparsified dictionary $D$.
 \subsection{Design of OSK-TD}
+In this section, we consider the kernel function choice and at the end OSK-TD is proposed from the algorithmic  perspective.\\
+
+The choice of kernel function plays an important role in kernel-based learning schema. In different problems, algorithms using different kernel functions can  have significantly different behaviours and performances. In OSK-TD the kernel function consists of two parts, the basic kernel function and the selective function. As already proofed in the related work as well as experience, Gaussian kernel function 
+\begin{equation}
+	\kappa(s, s_{'}) = e^{-\frac{||s-s^{'}||^2}{2\sigma^2}}
+\end{equation}
+is chosen as the basic kernel function. Recall the kernel distance definition in (49) for the second issue, the kernel distance from the new coming sample $s_t$ to a sample $s_i$ in sparsified dictionary $D$ at time step $t$ is $d(s_i, s_t)=2-2\kappa(s_t, s_i)$ after applying the kernel trick. The kernel-distance based selection function selects exactly the samples in the sparsfied dictionary $D$, which is closer to the new coming sample in RKHS, because the samples far away from coming sample is more likely to be irrelevant and thus possesses a poor representation of value function. Therefore, the selective function can be defined as
+\begin{equation}
+  \beta_2(s_t, s_i) =
+      \begin{cases}
+			1,& d(s_t, s_i)\ <\ \mu_2\\
+           	0, & \text{otherwise}
+      \end{cases}.
+\end{equation}
+
+The goal of algorithm is to find a optimal parameter $\Theta^* =\{\theta_1^*, \theta_2^*,...\theta_{|D|}^*\}$, where $|D|$ is the size of sparsified dictionary $|D|$, such that minimize the generalization error in form as
+\begin{equation}
+	E(\Phi)=\int p(s)\bigg(\sum_{i=1}^{|D|}\theta_i\beta_2(s, s_i)\kappa(s, s_i)-V(s)\bigg)^2,
+\end{equation}
+where $|D|$ is the size of sparsified dictionary $D$. Gradient method is integrated in OSK-TD und able to decrease the generalization error by updating the parameter vectors in direction of reversal gradient with a step size $\alpha$.\\
+
+Finally, we give the pseudocode of OSK-TD. Note, because OSK-TD is a prediction version and thus instead of TD($\lambda$) we give the online selective kernel-based TD learning in Q($\lambda$) framework.
+\begin{equation}
+	\Phi_{t+1} \leftarrow \Phi_t + \alpha(V(s_t)) 
+\end{equation}
 {
 	\removelatexerror% Nullify \@latex@error
 	\LinesNumbered
