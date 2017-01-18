@@ -892,11 +892,19 @@ The goal of algorithm is to find a optimal parameter $\Theta^* =\{\theta_1^*, \t
 	E(\Phi)=\int p(s)\bigg(\sum_{i=1}^{|D|}\theta_i\beta_2(s, s_i)\kappa(s, s_i)-V(s)\bigg)^2,
 \end{equation}
 where $|D|$ is the size of sparsified dictionary $D$. Gradient method is integrated in OSK-TD und able to decrease the generalization error by updating the parameter vectors in direction of reversal gradient with a step size $\alpha$.\\
-
-Finally, we give the pseudocode of OSK-TD. Note, because OSK-TD is a prediction version and thus instead of TD($\lambda$) we give the online selective kernel-based TD learning in Q($\lambda$) framework.
 \begin{equation}
-	\Phi_{t+1} \leftarrow \Phi_t + \alpha(V(s_t)) 
+	\Theta_{t+1} =\Theta_t + \alpha\delta\nabla_{\Theta_t}\widetilde{V}(s_t) ,
 \end{equation}
+where $\alpha$ is the learning rate, $\delta=r+\gamma \widetilde{V}(s^{'})-\widetilde{V}(s)$, where $\gamma$ is the discount factor, and 
+$\nabla_{\Theta_t}={[\beta_2(s, s_i)\kappa(s, s_i)]^{|D|}_{i=1}}^\top$\\
+
+Thus, the elementary update rule of OSK-TD can be derived into form of TD($\lambda$) as follows,
+\begin{equation}
+	\theta_{i, t+1} = \theta_{i, t}+\alpha \delta_t e_{i, t},
+\end{equation}
+where $\delta_t = r_{t}+\gamma \widetilde{V}(s_{t+1})-\widetilde{V}(s_t)$, $e_{i, t+1} = \gamma \lambda e_{i, t}+\beta(s, s_t)\kappa(s,s_t)$ and each $\theta_{i, }, e_{i, t}$ is associate with the $i$th row in $\Theta$ at time step $t$.\\
+
+Finally, we give the pseudocode of OSK-TD. Note, because OSK-TD is a prediction version and thus instead of TD($\lambda$) we give the online selective kernel-based TD learning in Q($\lambda$) framework.\\
 {
 	\removelatexerror% Nullify \@latex@error
 	\LinesNumbered
