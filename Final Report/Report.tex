@@ -819,18 +819,43 @@ Thus, the update rule for the sample dictionary $D$ is
 \begin{equation}
   D_t =
       \begin{cases}
-          D_{t-1},& \text{if } \delta_t\leq \mu_1\\
-          D_{t-1}\cup \{\phi\}, & \text{otherwise}
-      \end{cases}
+          D_{t-1}\cup \{\phi\}, & \text{if } \beta_1(D_{t-1},\phi)\text{ is true}\\
+          D_{t-1},& \text{otherwise}
+      \end{cases},
+\end{equation}
+where $\beta_1$ is a selective function, 
+\begin{equation}
+  \beta_1(D, \phi) =
+      \begin{cases}
+			\text{true },& \delta_t\ <\ \mu_1\\
+           	\text{false }, & \text{otherwise}
+      \end{cases}.
 \end{equation}
 
 The computational complexity of of the kernel distance-based sparsifiation procedure is $O(|D_t|)$, which is very computational efficient and thus makes the online sparsification possible. But as mentioned in \cite{tsitsiklis1997analysis}\cite{sutton2009convergent}, such sample-based sparsification approach could lead to divergence of RL algorithm, because there is guarantee for convergece only when applying linear value function approximation in a on-policy learning. However, some algorithms still converges in practical problems.
 \subsection{Selective Kernel-Based Action-Value Function}
 After a sparsified dictionary is constructed, a selective kernel based function based approach (validity in \cite{chen2013online}) is used to provide a better accuracy in value function approximation.\\
 
-The intuition of the approximation architecture comes from the concept selective ensemble learning (SEL) \cite{hansen1990neural} \cite{liu1999ensemble}, which basically train a finite number of weaker learner and combine their result to attempt to produce a strong learner. It already proofed in related work, assume  each weaker leaner is trained independently until its accuracy is more than 50\%, then more weak learners are used, the lower the liklihood of a generalization error by averaging the predictions of all the weak learners. \\
+The intuition of the approximation architecture comes from the concept selective ensemble learning (SEL) \cite{hansen1990neural} \cite{liu1999ensemble}, which basically train a finite number of weaker learners and combine their result to attempt to produce a strong learner. It already proofed in related work, assume  each weaker leaner is trained independently until its accuracy is more than 50\%, then more weak learners are used, the lower the liklihood of a generalization error by averaging the predictions of all the weak learners. \\
+\begin{figure}[ht]
+	\centering
+  \includegraphics[scale=0.1]{SEL.png}
+	\caption{State Space $S$ consists of several subspaces $\{S_1$, $S_2$,..., $S_n\}$, the value function $V$ of a fix point in $S$ defined by combing the value functions $\{V_1, V_2,...,V_n\}$ of each subspace $S_i\ for\ i\in \{1, 2,..., n\}$}
+	\label{fig1}
+\end{figure}
 
-In OSK-TD, by following this philosophy we divide the state space into several subspaces, each subspace can be viewed as a weak learner. Consequently, after combing the kernel-value-weighted prediction of each subspace we would get a better approximated value function with lower generalization error.
+In OSK-TD, by following this philosophy we divide the whole state space into several subspaces, each subspace can be viewed as a weak learner. Consequently, after combing the kernel-value-weighted prediction of each subspace we would get a better approximated value function with lower generalization error. More generally, the task is to find the optimal local value functions $\{V_1, V_2, ...,V_n\}$ of the subspaces in Fig. 1 and the rule about how to combine them together.\\
+
+As an online TD learning algorithm, the sample dictionary $D_i$ for each subspace $S_i$ should be online dynamically constructed by inserting the feature vectors $\phi$ of samples into $D$ with respect to a kernel selective function $\beta_1(D, \phi)$. Assume, now we have obtained the sparsified dictionary $D$ and the next step is to optimize the parameter vectors $\theta_i$ based on the sample subdictionaries $D_i$ for each subspace $S_i$ so that we improve the generalization ability of the model.\\
+
+Since the sparsified dictionary $D$ consists of several subdictionaries $D_i$, which represent the subspaces $S_i$, where $D=\cup D_i$ and $D_i \cap D_j = \emptyset$ for any $1 \leq i,\ j \leq n$. Therefore, the kernel-based value function can be written in form of $\widetilde{V}(s)=\sum_{i=1}^nV_i(s)$ where
+\begin{equation}
+	V_i(s) =	\begin{cases}
+				\sum_{s_j\in D_t}\theta_j\kappa(s_j, s),& s\in S_i\\
+           		0, & \text{otherwise}
+      		\end{cases}.
+\end{equation}
+Selective kernel-based value function can be described as a procedure of selecting  the value functions $V_i$ from the \{$V_1, V_2,..., V_n$\} and summing up them with kernel-distance weights.
 \subsection{Design of OSK-TD}
 {
 	\removelatexerror% Nullify \@latex@error
@@ -841,8 +866,8 @@ In OSK-TD, by following this philosophy we divide the state space into several s
 		\Repeat({(for each episode)}){$s$ is terminal}{
 	  		$s\leftarrow$ action given by $\pi$ (e.g., $\epsilon$-greedy) for $s$\\
 	  		Take action $\alpha$, observe reward $r$, next state $s^{'}$\\
-	  		$\delta \leftarrow r+\gamma\tilde{V}(s^{'})-\tilde{V}(s)$,\\
-	  		\dosemic\nonl where $\tilde{V}$(s) is computed by ()\\
+	  		$\delta \leftarrow r+\gamma\widetilde{V}(s^{'})-\widetilde{V}(s)$,\\
+	  		\dosemic\nonl where $\widetilde{V}$(s) is computed by ()\\
   		
   			\Repeat({(for each element $d_i\in D$)}){}{
 	  			$s_i, e_i, \theta_i \leftarrow$ get state, eligibility trace and weight associated with $d_i$\\
