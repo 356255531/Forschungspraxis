@@ -151,7 +151,7 @@ class OSKQ(object):
 
         gaussian_kernel = np.exp(
             -gaussian_kernel_input / (self.__sigma * self.__sigma * 2.0)
-        )
+        ) / (self.sigma * (2 * np.pi) ** 0.5)
         return gaussian_kernel
 
     def _take_action(self, state, action):

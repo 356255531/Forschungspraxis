@@ -7,7 +7,7 @@ import gym
 __auther__ = "Zhiwei"
 
 
-class StateActionSpace_CartPole(object):
+class StateActionSpace_MountainCar(object):
     """
         Define a state-action space for Mountain Car problem
 
@@ -66,7 +66,7 @@ class StateActionSpace_CartPole(object):
             state_space: list, [state1(tuple), state2(tuple),.....]
             action_space: dict, {state1(tuple):actions(list), .....}
             element_num_afunc: integer """
-        super(StateActionSpace_CartPole, self).__init__()
+        super(StateActionSpace_MountainCar, self).__init__()
         self.continuous_space = continuous_space
         self.precise = precise
         self.actions = actions
@@ -140,15 +140,6 @@ class StateActionSpace_CartPole(object):
             if observation[i] == self.upper_band[i]:
                 discrete_state[i] = self.precise[i] - 1
 
-        if observation[1] < -5:
-            discrete_state[1] = 0
-        if observation[3] < -5:
-            discrete_state[3] = 0
-        if observation[1] > 5:
-            discrete_state[1] = self.precise[1] - 1
-        if observation[3] > 5:
-            discrete_state[3] = self.precise[3] - 1
-
         discrete_state = tuple(discrete_state)
 
         return discrete_state
@@ -195,7 +186,7 @@ class StateActionSpace_CartPole(object):
 
 
 if __name__ == '__main__':
-    # state_action_space = StateActionSpace_CartPole(
+    # state_action_space = StateActionSpace_MountainCar(
     #     ([-1.2, -0.07], [0.6, 0.07]),
     #     [3, 3],
     #     [0, 1]
@@ -212,4 +203,4 @@ if __name__ == '__main__':
     #     print list(feature_vector).index(1)
 
     env = gym.make('CartPole-v0')
-    print env.action_space.n
+    print env.observation_space.low, env.observation_space.high

@@ -3,14 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
 
-from Toolbox import RGGQLambda
-from Toolbox import GGQLambda
-from Toolbox import StateActionSpace_CartPole
+from Toolbox.algorithm import RGGQLambda
+from Toolbox.algorithm import GGQLambda
+from Toolbox.StateActionSpace import StateActionSpace_CartPole
 
 __auther__ = "Zhiwei"
 
 # Learning Parameter
-precise = [40, 2, 8, 2]
+precise = [100, 100, 100, 100]
 
 learning_rate = 0.1
 discount_factor = 0.9
