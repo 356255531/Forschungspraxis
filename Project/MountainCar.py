@@ -25,8 +25,8 @@ mu_1 = 0.04
 mu_2 = 0.08
 sigma = 1
 # Macro
-NUM_STEP = 500
-NUM_EPISODE = 500
+NUM_STEP = 200
+NUM_EPISODE = 200
 REWARD_THREASHOLD = -100
 # Definition of dependencies
 env = gym.make('MountainCar-v0')
@@ -74,216 +74,262 @@ learning_agent_GGQLambda = GGQLambda(
 
 learning_agent = learning_agent_GGQLambda
 
-# Run algorithm
-Qfunc_error_history = []
-total_reward_episode = []
-time_history = []
-max_reward = -float("inf")
-for i_episode in range(NUM_EPISODE):
-    time_start = time.clock()
-    observation = env.reset()
-    observation_bar = deepcopy(observation)
-    discret_state = state_action_space._m_observation_to_discrete_state(
-        observation
-    )
-    discret_state_bar = deepcopy(discret_state)
+for ave_times in xrange(1, 100):
+    # Run algorithm
+    Qfunc_error_history = []
+    total_reward_episode = []
+    time_history = []
+    max_reward = -float("inf")
+    for i_episode in range(NUM_EPISODE):
+        time_start = time.clock()
+        observation = env.reset()
+        observation_bar = deepcopy(observation)
+        discret_state = state_action_space._m_observation_to_discrete_state(
+            observation
+        )
+        discret_state_bar = deepcopy(discret_state)
 
-    action = learning_agent._m_GreedyPolicy(
-        discret_state,
-        state_action_space
-    )
+        action = learning_agent._m_GreedyPolicy(
+            discret_state,
+            state_action_space
+        )
 
-    phi = state_action_space._m_discrete_state_to_feature(
-        discret_state,
-        action
-    )
+        phi = state_action_space._m_discrete_state_to_feature(
+            discret_state,
+            action
+        )
 
-    rho = 1
+        rho = 1
 
-    total_reward = 0
-    Qfunc_previous = deepcopy(learning_agent.theta)
-    learning_agent.e = np.zeros(learning_agent.num_element_qfunc)
+        total_reward = 0
+        Qfunc_previous = deepcopy(learning_agent.theta)
+        learning_agent.e = np.zeros(learning_agent.num_element_qfunc)
 
-    for t in range(NUM_STEP):
-        while set(discret_state) == set(discret_state_bar):
-            observation_bar, step_reward, done, info = env.step(action)
+        for t in range(NUM_STEP):
+            while set(discret_state) == set(discret_state_bar):
+                observation_bar, step_reward, done, info = env.step(action)
 
+                if done:
+                    if total_reward > REWARD_THREASHOLD:
+                        learning_agent.epsilon *= 0.999
+                    print "Episode finished after {} timesteps in GQ(lambda)".format(t + 1)
+                    break
+
+                discret_state_bar = state_action_space._m_observation_to_discrete_state(
+                    observation_bar
+                )
+
+            action_bar = learning_agent._m_GreedyPolicy(
+                discret_state_bar,
+                state_action_space
+            )
+            phi_bar = state_action_space._m_discrete_state_to_feature(
+                discret_state_bar,
+                action_bar
+            )
+
+            if isinstance(learning_agent, RGGQLambda):  # for adapting the
+                                                        # parameter setting
+                                                        # of different algorithm
+                learning_agent._m_Learn(phi,
+                                        phi_bar,
+                                        step_reward,
+                                        rho,
+                                        0.5
+                                        )
+            else:
+                learning_agent._m_Learn(phi,
+                                        phi_bar,
+                                        step_reward,
+                                        step_reward,
+                                        rho,
+                                        1
+                                        )
+
+            observation = observation_bar
+            phi = phi_bar
+            action = action_bar
+            discret_state = discret_state_bar
+            total_reward += step_reward
             if done:
                 if total_reward > REWARD_THREASHOLD:
                     learning_agent.epsilon *= 0.999
-                print "Episode finished after {} timesteps".format(t + 1)
+                print "Episode finished after {} timesteps in GQ(lambda)".format(t + 1)
                 break
+        time_end = time.clock()
+        time_consumed = time_end - time_start
+        time_history.append(time_consumed)
 
-            discret_state_bar = state_action_space._m_observation_to_discrete_state(
-                observation_bar
-            )
+        if total_reward > max_reward:
+            max_reward = total_reward
 
-        action_bar = learning_agent._m_GreedyPolicy(
-            discret_state_bar,
-            state_action_space
+        total_reward_episode.append(total_reward)   # Add total reward to reward history
+
+        delta_q_func = Qfunc_previous - learning_agent.theta
+        Qfunc_difference_this_episode = np.dot(
+            delta_q_func,
+            delta_q_func
         )
-        phi_bar = state_action_space._m_discrete_state_to_feature(
-            discret_state_bar,
-            action_bar
+        Qfunc_error_history.append(     # Add error to error history
+            Qfunc_difference_this_episode
         )
 
-        if isinstance(learning_agent, RGGQLambda):  # for adapting the
-                                                    # parameter setting
-                                                    # of different algorithm
-            learning_agent._m_Learn(phi,
-                                    phi_bar,
-                                    step_reward,
-                                    rho,
-                                    0.5
-                                    )
-        else:
-            learning_agent._m_Learn(phi,
-                                    phi_bar,
-                                    step_reward,
-                                    step_reward,
-                                    rho,
-                                    1
-                                    )
+        if i_episode % 10 == 0:
+            print i_episode, "th episode completed"
+            print "Q update is", Qfunc_difference_this_episode
+            print "Maximal reward is", max_reward, "\n"
 
-        observation = observation_bar
-        phi = phi_bar
-        action = action_bar
-        discret_state = discret_state_bar
-        total_reward += step_reward
-        if done:
-            if total_reward > REWARD_THREASHOLD:
-                learning_agent.epsilon *= 0.999
-            print "Episode finished after {} timesteps".format(t + 1)
-            break
-    if total_reward > max_reward:
-        max_reward = total_reward
+    Qfunc_error_history = np.array(Qfunc_error_history)
+    if 'Qfunc_error_history_ave' not in locals():
+        Qfunc_error_history_ave = Qfunc_error_history
+    else:
+        Qfunc_error_history_ave = Qfunc_error_history_ave + (Qfunc_error_history - Qfunc_error_history_ave) / (ave_times * 1.0)
 
-    total_reward_episode.append(total_reward)   # Add total reward to reward history
+    total_reward_episode = np.array(total_reward_episode)
+    if 'total_reward_episode_ave' not in locals():
+        total_reward_episode_ave = total_reward_episode
+    else:
+        total_reward_episode_ave = total_reward_episode_ave + (total_reward_episode - total_reward_episode_ave) / (ave_times * 1.0)
 
-    delta_q_func = Qfunc_previous - learning_agent.theta
-    Qfunc_difference_this_episode = np.dot(
-        delta_q_func,
-        delta_q_func
-    )
-    Qfunc_error_history.append(     # Add error to error history
-        Qfunc_difference_this_episode
-    )
+    time_history = np.array(time_history)
+    if 'time_history_ave' not in locals():
+        time_history_ave = time_history
+    else:
+        time_history_ave = time_history_ave + (time_history - time_history_ave) / (ave_times * 1.0)
 
-    time_end = time.clock()
-    time_consumed = time_end - time_start
-    time_history.append(time_consumed)
-
-    if i_episode % 10 == 0:
-        print i_episode, "th episode completed"
-        print "Q update is", Qfunc_difference_this_episode
-        print "Maximal reward is", max_reward, "\n"
-
+Qfunc_error_history = Qfunc_error_history_ave
+total_reward_episode = total_reward_episode_ave
+time_history = time_history_ave
 
 learning_agent = learning_agent_RGGQLambda
 
 # Run algorithm
-Qfunc_error_history_2 = []
-total_reward_episode_2 = []
-max_reward = -float("inf")
-time_history_2 = []
-for i_episode in range(NUM_EPISODE):
-    time_start = time.clock()
-    observation = env.reset()
-    observation_bar = deepcopy(observation)
-    discret_state = state_action_space._m_observation_to_discrete_state(
-        observation
-    )
-    discret_state_bar = deepcopy(discret_state)
+for x in xrange(1, 100):
+    Qfunc_error_history_2 = []
+    total_reward_episode_2 = []
+    max_reward = -float("inf")
+    time_history_2 = []
+    for i_episode in range(NUM_EPISODE):
+        time_start = time.clock()
+        observation = env.reset()
+        observation_bar = deepcopy(observation)
+        discret_state = state_action_space._m_observation_to_discrete_state(
+            observation
+        )
+        discret_state_bar = deepcopy(discret_state)
 
-    action = learning_agent._m_GreedyPolicy(
-        discret_state,
-        state_action_space
-    )
+        action = learning_agent._m_GreedyPolicy(
+            discret_state,
+            state_action_space
+        )
 
-    phi = state_action_space._m_discrete_state_to_feature(
-        discret_state,
-        action
-    )
+        phi = state_action_space._m_discrete_state_to_feature(
+            discret_state,
+            action
+        )
 
-    rho = 1
+        rho = 1
 
-    total_reward = 0
-    Qfunc_previous = deepcopy(learning_agent.theta)
-    learning_agent.e = np.zeros(learning_agent.num_element_qfunc)
+        total_reward = 0
+        Qfunc_previous = deepcopy(learning_agent.theta)
+        learning_agent.e = np.zeros(learning_agent.num_element_qfunc)
 
-    for t in range(NUM_STEP):
-        while set(discret_state) == set(discret_state_bar):
-            observation_bar, step_reward, done, info = env.step(action)
+        for t in range(NUM_STEP):
+            while set(discret_state) == set(discret_state_bar):
+                observation_bar, step_reward, done, info = env.step(action)
 
+                if done:
+                    if total_reward > REWARD_THREASHOLD:
+                        learning_agent.epsilon *= 0.999
+                    print "Episode finished after {} timesteps".format(t + 1)
+                    break
+
+                discret_state_bar = state_action_space._m_observation_to_discrete_state(
+                    observation_bar
+                )
+
+            action_bar = learning_agent._m_GreedyPolicy(
+                discret_state_bar,
+                state_action_space
+            )
+            phi_bar = state_action_space._m_discrete_state_to_feature(
+                discret_state_bar,
+                action_bar
+            )
+
+            if isinstance(learning_agent, RGGQLambda):  # for adapting the
+                                                        # parameter setting
+                                                        # of different algorithm
+                learning_agent._m_Learn(phi,
+                                        phi_bar,
+                                        step_reward,
+                                        rho,
+                                        0.5
+                                        )
+            else:
+                learning_agent._m_Learn(phi,
+                                        phi_bar,
+                                        step_reward,
+                                        step_reward,
+                                        rho,
+                                        1
+                                        )
+
+            observation = observation_bar
+            phi = phi_bar
+            action = action_bar
+            discret_state = discret_state_bar
+            total_reward += step_reward
             if done:
                 if total_reward > REWARD_THREASHOLD:
                     learning_agent.epsilon *= 0.999
                 print "Episode finished after {} timesteps".format(t + 1)
                 break
+        if total_reward > max_reward:
+            max_reward = total_reward
 
-            discret_state_bar = state_action_space._m_observation_to_discrete_state(
-                observation_bar
-            )
+        total_reward_episode_2.append(total_reward)   # Add total reward to reward history
 
-        action_bar = learning_agent._m_GreedyPolicy(
-            discret_state_bar,
-            state_action_space
+        delta_q_func = Qfunc_previous - learning_agent.theta
+        Qfunc_difference_this_episode = np.dot(
+            delta_q_func,
+            delta_q_func
         )
-        phi_bar = state_action_space._m_discrete_state_to_feature(
-            discret_state_bar,
-            action_bar
+        Qfunc_error_history_2.append(     # Add error to error history
+            Qfunc_difference_this_episode
         )
 
-        if isinstance(learning_agent, RGGQLambda):  # for adapting the
-                                                    # parameter setting
-                                                    # of different algorithm
-            learning_agent._m_Learn(phi,
-                                    phi_bar,
-                                    step_reward,
-                                    rho,
-                                    0.5
-                                    )
-        else:
-            learning_agent._m_Learn(phi,
-                                    phi_bar,
-                                    step_reward,
-                                    step_reward,
-                                    rho,
-                                    1
-                                    )
+        time_end = time.clock()
+        time_consumed = time_end - time_start
+        time_history_2.append(time_consumed)
 
-        observation = observation_bar
-        phi = phi_bar
-        action = action_bar
-        discret_state = discret_state_bar
-        total_reward += step_reward
-        if done:
-            if total_reward > REWARD_THREASHOLD:
-                learning_agent.epsilon *= 0.999
-            print "Episode finished after {} timesteps".format(t + 1)
-            break
-    if total_reward > max_reward:
-        max_reward = total_reward
+        if i_episode % 10 == 0:
+            print i_episode, "th episode completed"
+            print "Q update is", Qfunc_difference_this_episode
+            print "Maximal reward is", max_reward, "\n"
+        Qfunc_error_history = np.array(Qfunc_error_history)
 
-    total_reward_episode_2.append(total_reward)   # Add total reward to reward history
+    Qfunc_error_history_2 = np.array(Qfunc_error_history_2)
+    if 'Qfunc_error_history_ave_2' not in locals():
+        Qfunc_error_history_ave_2 = Qfunc_error_history_2
+    else:
+        Qfunc_error_history_ave_2 = Qfunc_error_history_ave_2 + (Qfunc_error_history_2 - Qfunc_error_history_ave_2) / (ave_times * 1.0)
 
-    delta_q_func = Qfunc_previous - learning_agent.theta
-    Qfunc_difference_this_episode = np.dot(
-        delta_q_func,
-        delta_q_func
-    )
-    Qfunc_error_history_2.append(     # Add error to error history
-        Qfunc_difference_this_episode
-    )
+    total_reward_episode_2 = np.array(total_reward_episode_2)
+    if 'total_reward_episode_ave_2' not in locals():
+        total_reward_episode_ave_2 = total_reward_episode_2
+    else:
+        total_reward_episode_ave_2 = total_reward_episode_ave_2 + (total_reward_episode_2 - total_reward_episode_ave_2) / (ave_times * 1.0)
 
-    time_end = time.clock()
-    time_consumed = time_end - time_start
-    time_history_2.append(time_consumed)
+    time_history_2 = np.array(time_history_2)
+    if 'time_history_ave_2' not in locals():
+        time_history_ave_2 = time_history_2
+    else:
+        time_history_ave_2 = time_history_ave_2 + (time_history_2 - time_history_ave_2) / (ave_times * 1.0)
 
-    if i_episode % 10 == 0:
-        print i_episode, "th episode completed"
-        print "Q update is", Qfunc_difference_this_episode
-        print "Maximal reward is", max_reward, "\n"
+Qfunc_error_history_2 = Qfunc_error_history_ave_2
+total_reward_episode_2 = total_reward_episode_ave_2
+time_history_2 = time_history_ave_2
 
 # learning_agent = learning_agent_OSKQ
 # # Run algorithm
