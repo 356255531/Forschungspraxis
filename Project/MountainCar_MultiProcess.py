@@ -14,10 +14,10 @@ from Toolbox.StateActionSpace import StateActionSpace_MountainCar
 __auther__ = "Zhiwei"
 
 
-def GGQLambda_same_parameter(ave_times=20,
+def GGQLambda_same_parameter(mu_2=0.08,
+                             ave_times=20,
                              learning_rate=0.1,
-                             eligibility_factor=0.9,
-                             mu_2=0.8):
+                             eligibility_factor=0.9):
     """
         ave_times=20,
         learning_rate=0.1,
@@ -183,10 +183,10 @@ def GGQLambda_same_parameter(ave_times=20,
         pickle.dump(time_history, f)
 
 
-def RGGQLambda_same_parameter(ave_times=20,
+def RGGQLambda_same_parameter(mu_2=0.08,
+                              ave_times=20,
                               learning_rate=0.1,
-                              eligibility_factor=0.9,
-                              mu_2=0.8):
+                              eligibility_factor=0.9):
     """
         ave_times=20,
         learning_rate=0.1,
@@ -355,10 +355,10 @@ def RGGQLambda_same_parameter(ave_times=20,
         pickle.dump(time_history_2, f)
 
 
-def OSK_Q_same_parameter(ave_times=20,
+def OSK_Q_same_parameter(mu_2=0.08,
+                         ave_times=20,
                          learning_rate=0.1,
-                         eligibility_factor=0.9,
-                         mu_2=0.8):
+                         eligibility_factor=0.9):
     """
         ave_times=20,
         learning_rate=0.1,
@@ -885,44 +885,40 @@ def same_parameter_run(eligibility_factor=0.9, mu_2=0.8):
 
 
 def main():
-    OSK_Q_same_parameter()
-    # processes = []
-    # for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-    #     for mu_2 in [0.4, 0.8]:
-    #         processes.append(multiprocessing.Process(
-    #             target=same_parameter_run,
-    #             args=(eligibility_factor, mu_2,)))
-    #         # total_reward_episode, total_reward_episode_2, total_reward_episode_3, \
-    #         #     time_history, time_history_2, time_history_3 = \
-    #         #     same_parameter_run(eligibility_factor, mu_2)
-    #         # if "total_reward_episode_set" not in locals():
-    #         #     total_reward_episode_set = [total_reward_episode]
-    #         # else:
-    #         #     total_reward_episode_set.append(total_reward_episode)
-    #         # if "total_reward_episode_set_2" not in locals():
-    #         #     total_reward_episode_set_2 = [total_reward_episode_2]
-    #         # else:
-    #         #     total_reward_episode_set_2.append(total_reward_episode_2)
-    #         # if "total_reward_episode_set_3" not in locals():
-    #         #     total_reward_episode_set_3 = [total_reward_episode_3]
-    #         # else:
-    #         #     total_reward_episode_set_3.append(total_reward_episode_3)
-    #         # if "time_history_set" not in locals():
-    #         #     time_history_set = [time_history]
-    #         # else:
-    #         #     time_history_set.append(time_history)
-    #         # if "time_history_set_2" not in locals():
-    #         #     time_history_set_2 = [time_history_2]
-    #         # else:
-    #         #     time_history_set_2.append(time_history_2)
-    #         # if "time_history_set_3" not in locals():
-    #         #     time_history_set_3 = [time_history_3]
-    #         # else:
-    #         #     time_history_set_3.append(time_history_3)
-    # for process in processes:
-    #     process.start()
-    # for process in processes:
-    #     process.join()
+    ave_times = 20
+    processes = []
+    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
+        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+            processes.append(multiprocessing.Process(
+                target=GGQLambda_same_parameter,
+                args=(0.08, ave_times, learning_rate, eligibility_factor,)))
+    for process in processes:
+        process.start()
+    for process in processes:
+        process.join()
+
+    processes = []
+    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
+        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+            processes.append(multiprocessing.Process(
+                target=GGQLambda_same_parameter,
+                args=(0.08, ave_times, learning_rate, eligibility_factor,)))
+    for process in processes:
+        process.start()
+    for process in processes:
+        process.join()
+
+    processes = []
+    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
+        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+            for mu_2 in [0.04, 0.08]:
+                processes.append(multiprocessing.Process(
+                    target=GGQLambda_same_parameter,
+                    args=(mu_2, 20, learning_rate, eligibility_factor,)))
+    for process in processes:
+        process.start()
+    for process in processes:
+        process.join()
 
     # font = {'family': 'normal',
     #         'size': 10}
