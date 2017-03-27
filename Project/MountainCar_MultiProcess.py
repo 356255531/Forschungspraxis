@@ -885,35 +885,30 @@ def same_parameter_run(eligibility_factor=0.9, mu_2=0.8):
 
 
 def main():
-    process = multiprocessing.Process(
-        target=GGQLambda_same_parameter,
-        args=(0.08, 1, 0.1, 0.9,))
-    process.start()
-    process.join()
-    # ave_times = 20
-    # processes = []
-    # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
-    #     for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-    #         processes.append(multiprocessing.Process(
-    #             target=GGQLambda_same_parameter,
-    #             args=(0.08, ave_times, learning_rate, eligibility_factor,)))
+    ave_times = 20
+    processes = []
+    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
+        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+            processes.append(multiprocessing.Process(
+                target=GGQLambda_same_parameter,
+                args=(0.08, ave_times, learning_rate, eligibility_factor,)))
 
-    # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
-    #     for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-    #         processes.append(multiprocessing.Process(
-    #             target=GGQLambda_same_parameter,
-    #             args=(0.08, ave_times, learning_rate, eligibility_factor,)))
+    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
+        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+            processes.append(multiprocessing.Process(
+                target=GGQLambda_same_parameter,
+                args=(0.08, ave_times, learning_rate, eligibility_factor,)))
 
-    # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
-    #     for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-    #         for mu_2 in [0.04, 0.08]:
-    #             processes.append(multiprocessing.Process(
-    #                 target=GGQLambda_same_parameter,
-    #                 args=(mu_2, 20, learning_rate, eligibility_factor,)))
-    # for process in processes:
-    #     process.start()
-    # for process in processes:
-    #     process.join()
+    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
+        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+            for mu_2 in [0.04, 0.08]:
+                processes.append(multiprocessing.Process(
+                    target=GGQLambda_same_parameter,
+                    args=(mu_2, 20, learning_rate, eligibility_factor,)))
+    for process in processes:
+        process.start()
+    for process in processes:
+        process.join()
 
     # font = {'family': 'normal',
     #         'size': 10}
