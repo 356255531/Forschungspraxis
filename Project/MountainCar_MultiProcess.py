@@ -17,7 +17,8 @@ __auther__ = "Zhiwei"
 if "darwin" == platform:
     path = "/Users/Finn/Dropbox/Lehrveranstaltungen/Forschungspraxis/Project/data/MountainCar/"
 else:
-    path = "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/"
+    path = "/root/WorkSpace/Forschungspraxis/Project/data/MountainCar/"
+    # path = "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/"
 
 
 def GGQLambda_same_parameter(mu_2=0.08,
@@ -895,25 +896,25 @@ def same_parameter_run(eligibility_factor=0.9, mu_2=0.8):
 def main():
     ave_times = 20
     pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
-    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
-        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-            processes.append(multiprocessing.Process(
-                target=GGQLambda_same_parameter,
-                args=(0.08, ave_times, learning_rate, eligibility_factor,)))
+    # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
+    #     for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+    #         pool.apply_async(GGQLambda_same_parameter,
+    #                          (0.08, ave_times, learning_rate, eligibility_factor,))
 
     for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
         for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
             for regularize_factor in [0.001, 0.003, 0.01, 0.03]:
-                processes.append(multiprocessing.Process(
-                    target=RGGQLambda_same_parameter,
-                    args=(0.08, ave_times, learning_rate, eligibility_factor, regularize_factor)))
+                pool.apply_async(RGGQLambda_same_parameter,
+                                 (0.08, ave_times, learning_rate, eligibility_factor, regularize_factor))
 
-    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
-        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-            for mu_2 in [0.04, 0.08]:
-                processes.append(multiprocessing.Process(
-                    target=OSK_Q_same_parameter,
-                    args=(mu_2, 20, learning_rate, eligibility_factor,)))
+    # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
+    #     for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+    #         for mu_2 in [0.04, 0.08]:
+    #             pool.apply_async(OSK_Q_same_parameter,
+    #                              (mu_2, 20, learning_rate, eligibility_factor,))
+
+    pool.close()
+    pool.join()
 
     # pool = multiprocessing.Pool(4)
     # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
