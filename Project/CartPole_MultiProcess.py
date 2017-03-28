@@ -390,6 +390,7 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
     mu_1 = 0.04
     sigma = 1
     # Macro
+
     NUM_STEP = 200
     NUM_EPISODE = 500
     AVE_TIMES = ave_times
