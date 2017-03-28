@@ -523,7 +523,7 @@ def main():
             for mu_2 in [0.04, 0.08]:
                 pool.apply_async(
                     GGQLambda_MultiProcess_Ave,
-                    (mu_2, 20, learning_rate, eligibility_factor,))
+                    (mu_2, ave_times, learning_rate, eligibility_factor,))
 
     pool.close()
     pool.join()
