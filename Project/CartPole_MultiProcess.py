@@ -943,7 +943,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+#    main()
+	GGQLambda_same_parameter()
 # # Run learned policy an simulator
 # for i_episode in range(10):
 #     observation = env.reset()
