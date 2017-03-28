@@ -140,13 +140,13 @@ class StateActionSpace_CartPole(object):
             if observation[i] == self.upper_band[i]:
                 discrete_state[i] = self.precise[i] - 1
 
-        if observation[1] < -5:
+        if observation[1] < -1:
             discrete_state[1] = 0
-        if observation[3] < -5:
+        if observation[3] < -1:
             discrete_state[3] = 0
-        if observation[1] > 5:
+        if observation[1] > 1:
             discrete_state[1] = self.precise[1] - 1
-        if observation[3] > 5:
+        if observation[3] > 1:
             discrete_state[3] = self.precise[3] - 1
 
         discrete_state = tuple(discrete_state)
