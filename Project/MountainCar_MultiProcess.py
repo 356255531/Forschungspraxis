@@ -20,10 +20,10 @@ else:
     path = "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/"
 
 
-def GGQLambda_same_parameter(mu_2=0.08,
-                             ave_times=20,
-                             learning_rate=0.1,
-                             eligibility_factor=0.9):
+def GGQLambda_MultiProcess_Ave(mu_2=0.08,
+                               ave_times=20,
+                               learning_rate=0.1,
+                               eligibility_factor=0.9):
     """
         ave_times=20,
         learning_rate=0.1,
@@ -189,11 +189,11 @@ def GGQLambda_same_parameter(mu_2=0.08,
         pickle.dump(time_history, f)
 
 
-def RGGQLambda_same_parameter(mu_2=0.08,
-                              ave_times=20,
-                              learning_rate=0.1,
-                              eligibility_factor=0.9,
-                              regularize_factor=0.0001):
+def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
+                                ave_times=20,
+                                learning_rate=0.1,
+                                eligibility_factor=0.9,
+                                regularize_factor=0.0001):
     """
         ave_times=20,
         learning_rate=0.1,
@@ -370,10 +370,10 @@ def RGGQLambda_same_parameter(mu_2=0.08,
         pickle.dump(sparsity, f)
 
 
-def OSK_Q_same_parameter(mu_2=0.08,
-                         ave_times=20,
-                         learning_rate=0.1,
-                         eligibility_factor=0.9):
+def OSK_Q_MultiProcess_Ave(mu_2=0.08,
+                           ave_times=20,
+                           learning_rate=0.1,
+                           eligibility_factor=0.9):
     """
         ave_times=20,
         learning_rate=0.1,
@@ -502,96 +502,36 @@ def OSK_Q_same_parameter(mu_2=0.08,
         pickle.dump(time_history_3, f)
 
 
-# plt.figure(1)
-# plt.subplot(311)
-# plt.plot(Qfunc_error_history)
-# plt.plot(Qfunc_error_history_2)
-# plt.plot(Qfunc_error_history_3)
-# plt.show()
-
-
 def main():
-    ave_times = 20
-    pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
+    pool = multiprocessing.Pool(4)
+    pool.apply_async(GGQLambda_MultiProcess_Ave, ())
+    pool.apply_async(RGGQLambda_MultiProcess_Ave, ())
+    pool.apply_async(OSK_Q_MultiProcess_Ave, ())
+    pool.close()
+    pool.join()
+    # ave_times = 20
+    # pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
+
     # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
     #     for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-    #         pool.apply_async(GGQLambda_same_parameter,
+    #         pool.apply_async(GGQLambda_MultiProcess_Ave,
     #                          (0.08, ave_times, learning_rate, eligibility_factor,))
 
-    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
-        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-            for regularize_factor in [0.001, 0.003, 0.01, 0.03]:
-                pool.apply_async(RGGQLambda_same_parameter,
-                                 (0.08, ave_times, learning_rate, eligibility_factor, regularize_factor))
+    # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
+    #     for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+    #         for regularize_factor in [0.001, 0.003, 0.01, 0.03]:
+    #             pool.apply_async(GGQLambda_MultiProcess_Ave,
+    #                              (0.08, ave_times, learning_rate, eligibility_factor, regularize_factor))
 
     # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
     #     for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
     #         for mu_2 in [0.04, 0.08]:
-    #             pool.apply_async(OSK_Q_same_parameter,
+    #             pool.apply_async(OSK_Q_MultiProcess_Ave,
     #                              (mu_2, 20, learning_rate, eligibility_factor,))
 
-    pool.close()
-    pool.join()
-
-    # pool = multiprocessing.Pool(4)
-    # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
-    #     for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-    #         for regularize_factor in [0.001, 0.003, 0.01, 0.03]:
-    #             pool.apply_async(RGGQLambda_same_parameter,
-    #                              (0.08, ave_times, learning_rate, eligibility_factor, regularize_factor)
-    #                              )
     # pool.close()
     # pool.join()
-    # font = {'family': 'normal',
-    #         'size': 10}
-    # matplotlib.rc('font', **font)
-
-    # fig = plt.figure(figsize=(8, 14))
-    # for line in range(2):
-    #     for column in range(4):
-    #         ax = fig.add_subplot(420 + line * 4 + column + 1)
-    #         ax.set_xlabel('Num of episode')
-    #         ax.set_ylabel('Sum of reward')
-
-    #         line_1, = plt.plot(total_reward_episode_set[line * 4 + column], label='GQ(lambda)')
-    #         line_2, = plt.plot(total_reward_episode_set_2[line * 4 + column], label='RGGQ(lambda)')
-    #         line_3, = plt.plot(total_reward_episode_set_3[line * 4 + column], label='OKS-Q')
-    # fig.legend((line_1, line_2, line_3), ("GQ(lambda)", "RGGQ(lambda)", "OKS-Q"), loc=8)
-    # fig.savefig("Total Reward.jpg")
-
-    # fig = plt.figure(figsize=(8, 14))
-    # for line in range(2):
-    #     for column in range(4):
-    #         ax = fig.add_subplot(420 + line * 4 + column + 1)
-    #         ax.set_xlabel('Num of episode')
-    #         ax.set_ylabel('Total time needed')
-
-    #         line_1, = plt.plot(time_history_set[line * 4 + column], label='GQ(lambda)')
-    #         line_2, = plt.plot(time_history_set_2[line * 4 + column], label='RGGQ(lambda)')
-    #         line_3, = plt.plot(time_history_set_3[line * 4 + column], label='OKS-Q')
-    # fig.legend((line_1, line_2, line_3), ("GQ(lambda)", "RGGQ(lambda)", "OKS-Q"), loc=8)
-    # fig.savefig("Total time consumed.jpg")
 
 
 if __name__ == '__main__':
     main()
-# # Run learned policy an simulator
-# for i_episode in range(10):
-#     observation = env.reset()
-
-#     for t in range(200):
-#         env.render()
-
-#         discret_state = state_action_space._m_observation_to_discrete_state(
-#             observation
-#         )
-#         action = learning_agent._m_GreedyPolicy(
-#             discret_state,
-#             state_action_space
-#         )
-
-#         observation, reward, done, info = env.step(action)
-
-#         if done:
-#             print("Episode finished after {} timesteps".format(t + 1))
-#             break
