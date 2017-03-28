@@ -10,3 +10,6092 @@
 [2017-03-28 15:44:34,472] Making new env: MountainCar-v0
 [2017-03-28 15:44:34,473] Making new env: MountainCar-v0
 [2017-03-28 15:44:34,474] Making new env: MountainCar-v0
+]0;IPython: Forschungspraxis/Project[2017-03-28 16:34:39,347] Making new env: MountainCar-v0
+[2017-03-28 16:34:39,347] Making new env: MountainCar-v0
+[2017-03-28 16:34:39,348] Making new env: MountainCar-v0
+[2017-03-28 16:34:39,348] Making new env: MountainCar-v0
+[2017-03-28 16:34:39,347] Making new env: MountainCar-v0
+[2017-03-28 16:34:39,347] Making new env: MountainCar-v0
+[2017-03-28 16:34:39,348] Making new env: MountainCar-v0
+[2017-03-28 16:34:39,348] Making new env: MountainCar-v0
+0 th episode completed
+Q update is 61.4301864155
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+Episode finished after 274 timesteps in RGGQ(lambda) in  2 times
+Episode finished after 274 timesteps in RGGQ(lambda) in  2 times
+0 th episode completed
+Q update is 12.0546236634
+Maximal reward is -274.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+90 th episode compl0 th episode completed
+Q update is 61.4301864155
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 60.9013311092
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th 0 th episode completed
+Q update is 61.4301864155
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 60.9013311092
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th 0 th episode completed
+Q update is 61.4301864155
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 60.9013311092
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th 0 th episode completed
+Q update is 61.4301864155
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 60.9013311092
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th 0 th episode completed
+Q update is 61.4301864155
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 60.9013311092
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th 0 th episode completed
+Q update is 61.4301864155
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 60.9013311092
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th 0 th episode completed
+Q update is 61.4301864155
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 60.9013311092
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+Episode finished after 212 timesteps in RGGQ(lambda) in  3 times
+Episode finished after 212 timesteps in RGGQ(lambda) in  3 times
+0 th episode completed
+Q update is 46.4610089353
+Maximal reward is -212.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+200 th episode completed
+Q update is 0
+episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 67.496806804
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode ceted
+Q update is 0
+Maximal reward is -274.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -274.0 
+
+0 th episode completed
+Q update is 59.1750214303
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+21episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 67.496806804
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode cepisode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 67.496806804
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode cepisode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 67.496806804
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode cepisode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 67.496806804
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode cepisode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 67.496806804
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode c0 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+Episode finished after 153 timesteps in RGGQ(lambda) in  4 times
+Episode finished after 153 timesteps in RGGQ(lambda) in  4 times
+0 th episode completed
+Q update is 4.17695381428
+Maximal reward is -153.0 
+
+Episode finished after 282 timesteps in RGGQ(lambda) in  4 times
+Episode finished after 282 timesteps in RGGQ(lambda) in  4 times
+Episode finished after 233 timesteps in RGGQ(lambda) in  4 times
+Episode finished after 233 timesteps in RGGQ(lambda) in  4 times
+Episode finished after 60 timesteps in RGGQ(lambda) in  4 times
+Episode finished after 60 timesteps in RGGQ(lambda) in  4 times
+10 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+250 th epiompleted
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 58.8092838428
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 6.0144521832e-12
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th epMaximal reward is -212.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -212.0 
+
+0 th episode completed
+Q update is 69.2380659991
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th epiompleted
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 58.8092838428
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completedompleted
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 58.8092838428
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completedompleted
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 58.8092838428
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completedompleted
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 58.8092838428
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completedompleted
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+0 th episode completed
+Q update is 58.8092838428
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completedsode completed
+Q update is 0
+Maximal reward is -60.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+370 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+380 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+390 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+400 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+410 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+420 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+430 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+440 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+450 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+460 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+470 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+480 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+490 th episode completed
+Q update is 0
+Maximal reward is -60.0 
+
+0 th episode completed
+Q update is 62.0509101991
+Maximal reward is -1000.0 
+
+10 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+20 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+30 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+40 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+50 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+60 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+70 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+80 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+90 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+100 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+110 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+120 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+130 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+140 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+150 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+160 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+170 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+180 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+190 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+200 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+210 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+220 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+230 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+240 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+250 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+260 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+270 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+280 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+290 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+300 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+310 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+320 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+330 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+340 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+350 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+360 th episode completed
+Q update is 0
+Maximal reward is -1000.0 
+
+3
