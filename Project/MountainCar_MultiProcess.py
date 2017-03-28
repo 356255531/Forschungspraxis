@@ -176,10 +176,10 @@ def GGQLambda_same_parameter(mu_2=0.08,
     total_reward_episode = total_reward_episode_ave
     time_history = time_history_ave
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/total_reward_GGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/total_reward_GGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
         pickle.dump(total_reward_episode, f)
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/time_history_GGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/time_history_GGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
         pickle.dump(time_history, f)
 
 
@@ -348,10 +348,10 @@ def RGGQLambda_same_parameter(mu_2=0.08,
     total_reward_episode_2 = total_reward_episode_ave_2
     time_history_2 = time_history_ave_2
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/total_reward_RGGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/total_reward_RGGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
         pickle.dump(total_reward_episode_2, f)
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/time_history_RGGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/time_history_RGGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
         pickle.dump(time_history_2, f)
 
 
@@ -480,10 +480,10 @@ def OSK_Q_same_parameter(mu_2=0.08,
     total_reward_episode_3 = total_reward_episode_ave_3
     time_history_3 = time_history_ave_3
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/total_reward_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/total_reward_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(total_reward_episode_3, f)
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/time_history_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/time_history_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(time_history_3, f)
 
 
@@ -646,10 +646,10 @@ def same_parameter_run(eligibility_factor=0.9, mu_2=0.8):
     total_reward_episode = total_reward_episode_ave
     time_history = time_history_ave
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/total_reward_episode-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/total_reward_episode-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(total_reward_episode, f)
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/time_history-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/time_history-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(time_history, f)
     # Run algorithm
     for ave_times in range(AVE_TIMES):
@@ -779,10 +779,10 @@ def same_parameter_run(eligibility_factor=0.9, mu_2=0.8):
     total_reward_episode_2 = total_reward_episode_ave_2
     time_history_2 = time_history_ave_2
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/total_reward_episode_2-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/total_reward_episode_2-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(total_reward_episode_2, f)
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/time_history_2-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/time_history_2-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(time_history_2, f)
 
     # Run algorithm
@@ -869,10 +869,10 @@ def same_parameter_run(eligibility_factor=0.9, mu_2=0.8):
     total_reward_episode_3 = total_reward_episode_ave_3
     time_history_3 = time_history_ave_3
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/total_reward_episode_3-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/total_reward_episode_3-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(total_reward_episode_3, f)
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/time_history_3-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/time_history_3-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(time_history_3, f)
 
 

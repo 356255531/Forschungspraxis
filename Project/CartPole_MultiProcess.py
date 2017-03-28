@@ -479,10 +479,12 @@ def OSK_Q_same_parameter(mu_2=0.08,
     total_reward_episode_3 = total_reward_episode_ave_3
     time_history_3 = time_history_ave_3
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/CartPole/total_reward_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+        "/home/zhiwei/Workspace/Forschungspraxis/Project/data/CartPole/total_reward_OSKQ-" +
+            str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(total_reward_episode_3, f)
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/CartPole/time_history_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+        "/home/zhiwei/Workspace/Forschungspraxis/Project/data/CartPole/time_history_OSKQ-" +
+            str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(time_history_3, f)
 
 
