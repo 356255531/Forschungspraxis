@@ -7,11 +7,17 @@ from copy import deepcopy
 import time
 import multiprocessing
 import pickle
+from sys import platform
 
 from Toolbox.algorithm import RGGQLambda, GGQLambda, OSKQ_New
 from Toolbox.StateActionSpace import StateActionSpace_MountainCar
 
 __auther__ = "Zhiwei"
+
+if "darwin" == platform:
+    path = "/Users/Finn/Dropbox/Lehrveranstaltungen/Forschungspraxis/Project/data/MountainCar/"
+else:
+    path = "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/"
 
 
 def GGQLambda_same_parameter(mu_2=0.08,
@@ -176,17 +182,18 @@ def GGQLambda_same_parameter(mu_2=0.08,
     total_reward_episode = total_reward_episode_ave
     time_history = time_history_ave
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/total_reward_GGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
+            path + "total_reward_GGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
         pickle.dump(total_reward_episode, f)
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/time_history_GGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
+            path + "time_history_GGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
         pickle.dump(time_history, f)
 
 
 def RGGQLambda_same_parameter(mu_2=0.08,
                               ave_times=20,
                               learning_rate=0.1,
-                              eligibility_factor=0.9):
+                              eligibility_factor=0.9,
+                              regularize_factor=0.0001):
     """
         ave_times=20,
         learning_rate=0.1,
@@ -198,7 +205,6 @@ def RGGQLambda_same_parameter(mu_2=0.08,
 
     discount_factor = 0.9
     discount_of_learning_rate = 0.999
-    regularize_factor = 0.0001  # 0.0001
     epsilon = 0.1
 
     # Macro
@@ -348,10 +354,12 @@ def RGGQLambda_same_parameter(mu_2=0.08,
     total_reward_episode_2 = total_reward_episode_ave_2
     time_history_2 = time_history_ave_2
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/total_reward_RGGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
+            path + "total_reward_RGGQ-" +
+            str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(regularize_factor), 'wb') as f:
         pickle.dump(total_reward_episode_2, f)
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/time_history_RGGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
+            path + "time_history_RGGQ-" +
+            str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(regularize_factor), 'wb') as f:
         pickle.dump(time_history_2, f)
 
 
@@ -480,10 +488,10 @@ def OSK_Q_same_parameter(mu_2=0.08,
     total_reward_episode_3 = total_reward_episode_ave_3
     time_history_3 = time_history_ave_3
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/total_reward_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            path + "total_reward_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(total_reward_episode_3, f)
     with open(
-            "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/time_history_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            path + "time_history_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(time_history_3, f)
 
 
@@ -886,7 +894,7 @@ def same_parameter_run(eligibility_factor=0.9, mu_2=0.8):
 
 def main():
     ave_times = 20
-    processes = []
+    pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
     for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
         for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
             processes.append(multiprocessing.Process(
@@ -895,9 +903,10 @@ def main():
 
     for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
         for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-            processes.append(multiprocessing.Process(
-                target=RGGQLambda_same_parameter,
-                args=(0.08, ave_times, learning_rate, eligibility_factor,)))
+            for regularize_factor in [0.001, 0.003, 0.01, 0.03]:
+                processes.append(multiprocessing.Process(
+                    target=RGGQLambda_same_parameter,
+                    args=(0.08, ave_times, learning_rate, eligibility_factor, regularize_factor)))
 
     for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
         for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
@@ -905,11 +914,16 @@ def main():
                 processes.append(multiprocessing.Process(
                     target=OSK_Q_same_parameter,
                     args=(mu_2, 20, learning_rate, eligibility_factor,)))
-    for process in processes:
-        process.start()
-    for process in processes:
-        process.join()
 
+    # pool = multiprocessing.Pool(4)
+    # for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
+    #     for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+    #         for regularize_factor in [0.001, 0.003, 0.01, 0.03]:
+    #             pool.apply_async(RGGQLambda_same_parameter,
+    #                              (0.08, ave_times, learning_rate, eligibility_factor, regularize_factor)
+    #                              )
+    # pool.close()
+    # pool.join()
     # font = {'family': 'normal',
     #         'size': 10}
     # matplotlib.rc('font', **font)

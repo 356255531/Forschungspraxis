@@ -868,7 +868,7 @@ where $s\in S, s_i \in D$.
 
 Therefore, after combing the equations we obtain the general form of selective kernel-based value function as follows
 \begin{equation}
-	\widetilde{V}(s)=\sum_{i=1}^{|D|}\theta_i \beta(s, s_i)\kappa{s, s_i}, 
+	\widetilde{V}(s)=\sum_{i=1}^{|D|}\theta_i \beta_2(s, s_i)\kappa(s, s_i), 
 \end{equation}
 where $|D|$ is the size of the sparsified dictionary $D$.
 \subsection{Design of OSK-TD}
@@ -915,15 +915,15 @@ Finally, we give the pseudocode of OSK-TD. Note, because OSK-TD is a prediction 
 	  		$s\leftarrow$ action given by $\pi$ (e.g., $\epsilon$-greedy) for $s$\\
 	  		Take action $\alpha$, observe reward $r$, next state $s^{'}$\\
 	  		$\delta \leftarrow r+\gamma\widetilde{V}(s^{'})-\widetilde{V}(s)$,\\
-	  		\dosemic\nonl where $\widetilde{V}$(s) is computed by ()\\
+	  		\dosemic\nonl where $\widetilde{V}$(s) is computed by (54)\\
   		
   			\Repeat({(for each element $d_i\in D$)}){}{
 	  			$s_i, e_i, \theta_i \leftarrow$ get state, eligibility trace and weight associated with $d_i$\\
 	  			$e_t\leftarrow \gamma\lambda e_i+\beta(s, s_i)k(s_i, s)$\\
 	  			$\theta_i \leftarrow \theta_i + \alpha\delta e_i$
   			}
-  			compute the minimum distance according to ()\\
-  			update the sample dictionary $D$ according to ()\\
+  			compute the minimum distance according to (55)\\
+  			update the sample dictionary $D$ according to (51)\\
   			$s\leftarrow s_{'}$
   		}
  		\caption{OSK-TD}
@@ -1017,12 +1017,19 @@ Finally, we give the pseudocode of OSK-TD. Note, because OSK-TD is a prediction 
 
 
 \section{Experiment}
-\subsection{Experiment Setting}
-\subsection{Experiment Result}
+In this paper, two experiments are used to demonstrate the effectiveness of the three algorithms on the continuous reinforcement learning problems: Mountain Car and Cart Pole. Theses two standard Reinforcement Learning benchmarks in the NIPS Workshop 2005 are two traditinal RL problems and also used to evaluate various of reinforcement learning algorithms. Note, because OSK-TD is a prediction algorithm. We combine OSK-TD with Q-learning to learn for the control task in the two experiments.\\
+
+The proposed algorithms' performance will be evaluated for their convergence, running time and sparsity with varied learning parameters. The same predefined parameters for each experiment are: 1. The curves are generated  by averaging the sum of rewards for 20 runs. 2. the discount factor is 0.9. 3) An episode is limited to 1000 steps.
+\subsection{Mountain Car}
+In Mountain Car simulation \cite{sutton1998reinforcement}, the learning agent needs to drive an underpowered car upon a sttep mountain road. The reward for each step is -1 until the car has reached its goal position on the top of mountain and the episode ends. There are three possible actions, full throttle forward (+1), full throttle backward (-1) and zero throttle (0). The car movement is based on the simple system dynamics, where position of the car is $x_t$ and velocity is $\dot{x_t}$. And the they are bounded by the simulator at $-2.4 \leq x_{t+1} \leq 2.4$ and $-0.20943951 \leq \dot{x}_{t+1} \leq 0.20943951$. The simulation starts at position $x_0=-0.3$ and the goal position $x_T=0.5$.\\
+
+From the learning curve in Fig.2, we can see 1. The OSK-Q algorithm fails unfortunately, it was not able to learn from the simulation even after a fine parameter tunning. The main reason maybe lack of convergence of non-linear value function approximation mentioned in \cite{tsitsiklis1997analysis}. Nevertheless, GQ($\lambda$) ane Ro-GQ($\lambda$) have successfully learned the policies from the experiment. 2. GQ($\lambda$) works more stablely and faster than the RO-GQ($\lambda$). 3. RO-GQ($\lambda$) is more sensitive to the parameter setting, especially $\lambda$ and regularization factor. 4. The higher regularization factor is, the more sparse will the action-value function and more unstable the algorithm will be.
+\subsection{Cart Pole}
+In Cart Pole simulations \cite{sutton1998reinforcement}, the learning agent needs to actively balance an unstable inverted pendulum mounted on a cart and keep it upright by moving the the cart horizontally. The reward for each step is 1 and 0 when the inverted pendulum fells (episode terminated), the goal of the experient is to keey the inverted pendulum upright as long as possible. Two possible actions are move left (-1) or right (+1) and the action has only freedom one. The system dynamics of Cart Pole is highly non-linear and more complicated than Mountain Car. The parameters are the position of cart $x_t$, the velocity of cart $\dot{x}_t$, the angle of pole $\theta_t$ and the rotation rate of pole $\dot{\theta}_t$. The are also bounded by the simulator at $-1.2 \leq x_{t+1} \leq 0.5$ and $-0.07 \leq \dot{x}_{t+1} \leq0.07$.
 \section{Conclusion}
+In this paper, three learning algorithms were proposed to deal with large scale and continuous RL problems. GQ($\lambda$) and RO-GQ($\lambda$) are traditional tabular-form learning algorithm while OSKTD is a selective kernel-based learning algorithm. For sparsification, different approaches have been applied. RO-GQ($\lambda$) generate the sparsity by minimizing a cost function with a $\ell1$ norm regularization term while OSK-Q follows a online kernel sparsification procedure.\\
 
-
-
+GQ($\lambda$)
 
 
 % if have a single appendix:
