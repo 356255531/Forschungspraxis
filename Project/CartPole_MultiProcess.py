@@ -377,7 +377,7 @@ def OSK_Q_same_parameter(mu_2=0.08,
     sigma = 1
     # Macro
     NUM_STEP = 1000
-    NUM_EPISODE = 500
+    NUM_EPISODE = 5000
     AVE_TIMES = ave_times
     REWARD_THREASHOLD = -100
     # Definition of dependencies
@@ -554,8 +554,8 @@ def main():
 
 
 if __name__ == '__main__':
-    #    main()
-    GGQLambda_same_parameter()
+    main()
+#    GGQLambda_same_parameter()
 # # Run learned policy an simulator
 # for i_episode in range(10):
 #     observation = env.reset()

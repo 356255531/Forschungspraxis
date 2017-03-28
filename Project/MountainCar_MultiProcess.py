@@ -17,8 +17,7 @@ __auther__ = "Zhiwei"
 if "darwin" == platform:
     path = "/Users/Finn/Dropbox/Lehrveranstaltungen/Forschungspraxis/Project/data/MountainCar/"
 else:
-    path = "/root/WorkSpace/Forschungspraxis/Project/data/MountainCar/"
-    # path = "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/"
+     path = "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/"
 
 
 def GGQLambda_same_parameter(mu_2=0.08,
