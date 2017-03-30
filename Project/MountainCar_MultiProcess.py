@@ -470,21 +470,21 @@ def main():
     ave_times = 30
     pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
 
-    for learning_rate in reversed([0.0001, 0.0003, 0.001, 0.003, 0.01]):
-        for eligibility_factor in reversed([0.3, 0.6, 0.9]):
+    for learning_rate in [0.0001, 0.0003, 0.001, 0.003, 0.01]:
+        for eligibility_factor in [0.3, 0.6, 0.9]:
             if not isfile(path + "time_history_GGQ-" + str(learning_rate) +
                           "-" + str(eligibility_factor)):
                 pool.apply_async(GGQLambda_MultiProcess_Ave,
                                  (ave_times, learning_rate, eligibility_factor,))
 
-            for regularize_factor in reversed([0.001, 0.003, 0.01]):
+            for regularize_factor in [0.001, 0.003, 0.01]:
                 if not isfile(path + "time_history_RGGQ-" + str(learning_rate) + "-" +
                               str(eligibility_factor) + "-" + str(regularize_factor)):
                     pool.apply_async(RGGQLambda_MultiProcess_Ave,
                                      (ave_times, learning_rate, eligibility_factor, regularize_factor,))
 
             for mu_1 in [0.04]:
-                for mu_2 in reversed([0.04, 0.08]):
+                for mu_2 in [0.04, 0.08]:
                     if not isfile(path + "time_history_OSKQ-" + str(learning_rate) + "-" +
                                   str(eligibility_factor) + "-" + str(mu_1) + "-" + str(mu_2)):
                         pool.apply_async(OSK_Q_MultiProcess_Ave,
