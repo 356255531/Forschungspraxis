@@ -476,7 +476,7 @@ def main():
     ave_times = 30
     pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
 
-    for learning_rate in reversed([0.001]):
+    for learning_rate in reversed([0.003]):
         # for learning_rate in reversed([0.0001, 0.0003, 0.001, 0.003]):
         for eligibility_factor in reversed([0.3, 0.6, 0.9]):
             if not isfile(path + "time_history_GGQ-" + str(learning_rate) +
