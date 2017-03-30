@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1480515418 "proposal.tex" "proposal.pdf" "proposal" 1480515418
+["pdflatex"] 1480515418 "proposal.tex" "proposal.pdf" "proposal" 1490865359
   "/usr/local/texlive/2015/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2015/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -68,7 +68,7 @@
   "proposal.aux" 1480515418 8 a94a2480d3289e625eea47cd1b285758 ""
   "proposal.tex" 1475838586 5567 5bd35385d88fec2bfe7b3dc161881480 ""
   (generated)
+  "proposal.log"
   "proposal.out"
   "proposal.pdf"
   "proposal.aux"
-  "proposal.log"
