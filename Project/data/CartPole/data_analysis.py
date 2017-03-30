@@ -66,7 +66,7 @@ def main():
     data = {}
     for data_type in ["time_history", "total_reward"]:
         data[data_type] = {}
-        for algo in ["GGQ"]:  # only for gq
+        for algo in ["GGQ", "RGGQ"]:  # only for gq
                 # for algo in ["GGQ", "RGGQ", "OSKQ"]:
             data[data_type][algo] = {}
             for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
@@ -96,7 +96,7 @@ def main():
                         ) as f:
                             data[data_type][algo][learning_rate][eligibility_factor] = pickle.load(f)[:200]
 
-    save_img(data)
+    # save_img(data)
 
 
 if __name__ == '__main__':

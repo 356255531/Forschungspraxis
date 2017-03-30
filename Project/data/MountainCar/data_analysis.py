@@ -16,11 +16,11 @@ def save_img(data):
             ax.set_xlabel("Episodes: learning_rate=" + str(learning_rate) + " eligibility_factor=" + str(eligibility_factor))
             ax.set_ylabel('Sum of reward')
 
-            line_1, = plt.plot(data["total_reward"]["GGQ"][learning_rate][eligibility_factor][:200])
-            line_2, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.001][:200])
-            line_3, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.003][:200])
-            line_4, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.01][:200])
-            line_5, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.03][:200])
+            line_1, = plt.plot(data["total_reward"]["GGQ"][learning_rate][eligibility_factor][:450])
+            line_2, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.001][:450])
+            line_3, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.003][:450])
+            line_4, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.01][:450])
+            line_5, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.03][:450])
             # line_6, = plt.plot(data["total_reward"]["OSKQ"][learning_rate][eligibility_factor][0.04])
             # line_7, = plt.plot(data["total_reward"]["OSKQ"][learning_rate][eligibility_factor][0.08])
     fig.legend(
@@ -50,13 +50,13 @@ def save_img(data):
             ax.set_xlabel("Episodes: learning_rate=" + str(learning_rate) + " eligibility_factor=" + str(eligibility_factor))
             ax.set_ylabel('Sum of reward')
 
-            line_1, = plt.plot(data["time_history"]["GGQ"][learning_rate][eligibility_factor][:200])
-            line_2, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.001][:200])
-            line_3, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.003][:200])
-            line_4, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.01][:200])
-            line_5, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.03][:200])
-            line_6, = plt.plot(data["time_history"]["OSKQ"][learning_rate][eligibility_factor][0.04])
-            line_7, = plt.plot(data["time_history"]["OSKQ"][learning_rate][eligibility_factor][0.08])
+            line_1, = plt.plot(data["time_history"]["GGQ"][learning_rate][eligibility_factor][:450])
+            line_2, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.001][:450])
+            line_3, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.003][:450])
+            line_4, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.01][:450])
+            line_5, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.03][:450])
+            line_6, = plt.plot(data["time_history"]["OSKQ"][learning_rate][eligibility_factor][0.04][:450])
+            line_7, = plt.plot(data["time_history"]["OSKQ"][learning_rate][eligibility_factor][0.08][:450])
 
     fig.legend(
         (line_1, line_2, line_3, line_4, line_5, line_6, line_7),
@@ -98,7 +98,7 @@ def main():
                                     data_type + "_" + algo + "-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2),
                                     'rb'
                             ) as f:
-                                data[data_type][algo][learning_rate][eligibility_factor][mu_2] = pickle.load(f)[:230]
+                                data[data_type][algo][learning_rate][eligibility_factor][mu_2] = pickle.load(f)
 
                     if "RGGQ" == algo:
                         for regularize_factor in [0.001, 0.003, 0.01, 0.03]:
@@ -106,15 +106,16 @@ def main():
                                     data_type + "_" + algo + "-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(regularize_factor),
                                     'rb'
                             ) as f:
-                                data[data_type][algo][learning_rate][eligibility_factor][regularize_factor] = pickle.load(f)[:230]
+                                data[data_type][algo][learning_rate][eligibility_factor][regularize_factor] = pickle.load(f)
 
                     if "GGQ" == algo:
                         with open(
                                 data_type + "_" + algo + "-" + str(learning_rate) + "-" + str(eligibility_factor),
                                 'rb'
                         ) as f:
-                            data[data_type][algo][learning_rate][eligibility_factor] = pickle.load(f)[:230]
-
+                            data[data_type][algo][learning_rate][eligibility_factor] = pickle.load(f)
+    import pdb
+    pdb.set_trace()
     data = data_average(data, ave_step=20)
     save_img(data)
 

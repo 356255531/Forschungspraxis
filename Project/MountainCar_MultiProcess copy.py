@@ -34,7 +34,7 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
     precise = [8, 8]
 
     discount_factor = 0.9
-    discount_of_learning_rate = 1
+    discount_of_learning_rate = 0.999
     epsilon = 0.1
 
     # Macro
@@ -57,7 +57,6 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
         MountainCar_universal_action_space
     )
 
-    # Run algorithm
     for ave_times in range(AVE_TIMES):
         learning_agent_GGQLambda = GGQLambda(
             learning_rate,
@@ -68,7 +67,7 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
             state_action_space.action_space
         )
         learning_agent = learning_agent_GGQLambda
-
+        # Run algorithm
         Qfunc_error_history = []
         total_reward_episode = []
         time_history = []
@@ -207,7 +206,7 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
     precise = [8, 8]
 
     discount_factor = 0.9
-    discount_of_learning_rate = 1
+    discount_of_learning_rate = 0.999
     epsilon = 0.1
 
     # Macro
@@ -300,7 +299,7 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
                                         phi_bar,
                                         step_reward,
                                         rho,
-                                        1
+                                        0.5
                                         )
 
                 observation = observation_bar
@@ -313,10 +312,6 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
                         learning_agent.epsilon *= 0.999
                     print "Episode finished after {} timesteps in RGGQ(lambda)".format(t + 1), "in ", ave_times + 1, "times"
                     break
-            time_end = time.clock()
-            time_consumed = time_end - time_start
-            time_history_2.append(time_consumed)
-
             if total_reward > max_reward:
                 max_reward = total_reward
 
@@ -330,6 +325,10 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
             Qfunc_error_history_2.append(     # Add error to error history
                 Qfunc_difference_this_episode
             )
+
+            time_end = time.clock()
+            time_consumed = time_end - time_start
+            time_history_2.append(time_consumed)
 
             sparsity.append(np.sum(learning_agent.theta == 0) / (learning_agent.num_element_qfunc * 1.0))
 
@@ -387,7 +386,8 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
     precise = [8, 8]
 
     discount_factor = 0.9
-    discount_of_learning_rate = 1
+    discount_of_learning_rate = 0.999
+    regularize_factor = 0.0001  # 0.0001
     epsilon = 0.1
 
     # Parameter OSK-Q
@@ -429,8 +429,8 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
 
         Qfunc_error_history_3 = []
         total_reward_episode_3 = []
-        time_history_3 = []
         max_reward = -float("inf")
+        time_history_3 = []
         for i_episode in range(NUM_EPISODE):
             time_start = time.clock()
             observation = env.reset()
