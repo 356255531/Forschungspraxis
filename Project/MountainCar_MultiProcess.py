@@ -384,8 +384,6 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
         mu_2=0.8
     """
     # Learning Parameter
-    precise = [8, 8]
-
     discount_factor = 0.9
     discount_of_learning_rate = 1
     epsilon = 0.1
@@ -393,25 +391,14 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
     # Parameter OSK-Q
     mu_1 = 0.04
     sigma = 1
+
     # Macro
     NUM_STEP = 1000
     NUM_EPISODE = 500
     AVE_TIMES = ave_times
-    REWARD_THREASHOLD = -100
+
     # Definition of dependencies
     env = gym.make('MountainCar-v0')
-
-    observation_space = (
-        env.observation_space.low,
-        env.observation_space.high
-    )
-
-    MountainCar_universal_action_space = [i for i in xrange(0, env.action_space.n)]
-    state_action_space = StateActionSpace_MountainCar(
-        observation_space,
-        precise,
-        MountainCar_universal_action_space
-    )
 
     # Run algorithm
     for ave_times in range(AVE_TIMES):
@@ -434,20 +421,12 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
         for i_episode in range(NUM_EPISODE):
             time_start = time.clock()
             observation = env.reset()
-            observation_bar = deepcopy(observation)
 
             total_reward = 0
             for t in range(NUM_STEP):
                 action = learning_agent._m_GreedyPolicy(observation)
 
-                while set(observation) == set(observation_bar):
-                    observation_bar, step_reward, done, info = env.step(action)
-
-                    if done:
-                        if total_reward > REWARD_THREASHOLD:
-                            learning_agent.epsilon *= 0.999
-                        print "Episode finished after {} timesteps in OSK-Q".format(t + 1), "in ", ave_times + 1, "times"
-                        break
+                observation_bar, step_reward, done, info = env.step(action)
 
                 action_bar = learning_agent._m_GreedyPolicy(
                     observation_bar
@@ -465,8 +444,8 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
                 action = action_bar
                 total_reward += step_reward
                 if done:
-                    if total_reward > REWARD_THREASHOLD:
-                        learning_agent.epsilon *= 0.999
+                    # if total_reward > REWARD_THREASHOLD:
+                        # learning_agent.epsilon *= 0.999
                     print "Episode finished after {} timesteps in OSK-Q(lambda)".format(t + 1), "in ", ave_times + 1, "times"
                     break
             if total_reward > max_reward:
@@ -530,5 +509,5 @@ def main():
 
 
 if __name__ == '__main__':
-    RGGQLambda_MultiProcess_Ave(0.08, 20, 0.1, 0.8, 0.001)
-    main()
+    OSK_Q_MultiProcess_Ave(0.08, 1, 0.1, 0.8)
+    # main()

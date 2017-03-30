@@ -9,7 +9,7 @@ import multiprocessing
 import pickle
 from sys import platform
 
-from Toolbox.algorithm import RGGQLambda, GGQLambda, OSKQ_New, OSKQ_New_CartPole
+from Toolbox.algorithm import RGGQLambda, GGQLambda, OSKQ_New_CartPole
 from Toolbox.StateActionSpace import StateActionSpace_CartPole
 
 __auther__ = "Zhiwei"
@@ -389,26 +389,14 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
     # Parameter OSK-Q
     mu_1 = 0.04
     sigma = 1
-    # Macro
 
+    # Macro
     NUM_STEP = 200
     NUM_EPISODE = 500
     AVE_TIMES = ave_times
     REWARD_THREASHOLD = -100
     # Definition of dependencies
     env = gym.make('CartPole-v0')
-
-    observation_space = (
-        env.observation_space.low,
-        env.observation_space.high
-    )
-
-    CartPole_universal_action_space = [i for i in xrange(0, env.action_space.n)]
-    state_action_space = StateActionSpace_CartPole(
-        observation_space,
-        precise,
-        CartPole_universal_action_space
-    )
 
     # Run algorithm
     for ave_times in range(AVE_TIMES):
@@ -426,25 +414,17 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
 
         Qfunc_error_history_3 = []
         total_reward_episode_3 = []
-        max_reward = -float("inf")
         time_history_3 = []
+        max_reward = -float("inf")
         for i_episode in range(NUM_EPISODE):
             time_start = time.clock()
             observation = env.reset()
-            observation_bar = deepcopy(observation)
 
             total_reward = 0
             for t in range(NUM_STEP):
                 action = learning_agent._m_GreedyPolicy(observation)
 
-                while set(observation) == set(observation_bar):
-                    observation_bar, step_reward, done, info = env.step(action)
-
-                    if done:
-                        if total_reward > REWARD_THREASHOLD:
-                            learning_agent.epsilon *= 0.999
-                        print "Episode finished after {} timesteps in OSK-Q".format(t + 1), "in ", ave_times + 1, "times"
-                        break
+                observation_bar, step_reward, done, info = env.step(action)
 
                 action_bar = learning_agent._m_GreedyPolicy(
                     observation_bar
@@ -531,4 +511,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    OSK_Q_MultiProcess_Ave(0.08, 1, 0.1, 0.8)
+    # main()
