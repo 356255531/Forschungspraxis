@@ -13,8 +13,8 @@ class OSKQ_New(object):
                  alpha,
                  gamma,
                  e_lambda,
-                 epsilon,
                  action_space,
+                 observation_dim,
                  sigma
                  ):
         super(OSKQ_New, self).__init__()
@@ -23,12 +23,12 @@ class OSKQ_New(object):
         self.alpha = alpha
         self.gamma = gamma
         self.e_lambda = e_lambda
-        self.epsilon = epsilon
         self.action_space = action_space
+        self.observation_dim = observation_dim
         self.sigma = sigma
 
         self.dict = np.empty(
-            shape=(0, 3)
+            shape=(0, observation_dim + 1)
         )
         self.theta = np.empty(
             shape=(0, 1)
@@ -81,7 +81,7 @@ class OSKQ_New(object):
         # pdb.set_trace()
         if already_in_dict == 0:
             self.dict = np.concatenate(
-                (self.dict, feature_vector.reshape((1, 3))),
+                (self.dict, feature_vector.reshape((1, self.observation_dim + 1))),
                 axis=0
             )
             self.theta = np.concatenate(
@@ -91,10 +91,10 @@ class OSKQ_New(object):
                 (self.eligibility_trace, np.zeros(shape=(1, 1))),
                 axis=0)
 
-    def _m_GreedyPolicy(self, observation):
+    def _m_GreedyPolicy(self, observation, epsilon):
         """
         feature_vector size (3,0)"""
-        if np.random.sample < self.epsilon:
+        if np.random.sample < epsilon:
             return rd.sample(self.action_space, 1)[0]
 
         max_Q_func = -float("inf")
@@ -102,7 +102,7 @@ class OSKQ_New(object):
             feature_vector = np.append(observation, action)
             if_exist_in_dict = np.sum(self.select_function(feature_vector, self.mu_1))
             if not if_exist_in_dict:
-                return rd.sample(self.action_space, 1)[0]
+                return action
 
             Q_func = self.get_Q_Func(feature_vector)
             if Q_func > max_Q_func:
@@ -117,7 +117,7 @@ class OSKQ_New(object):
 
         one_vector = np.ones((dict_feature_num, 1))
 
-        minuser = np.dot(one_vector, feature_vector.reshape((1, 3)))
+        minuser = np.dot(one_vector, feature_vector.reshape((1, self.observation_dim + 1)))
 
         differ_matrix = self.dict - minuser
 
@@ -174,7 +174,7 @@ if __name__ == '__main__':
         MountainCar_universal_action_space
     )
 
-    learning_agent_OSKQ = OSKQ_New(
+    learning_agent_OSKQ = OSKQ_New_CartPole(
         mu_1,
         mu_2,
         learning_rate,

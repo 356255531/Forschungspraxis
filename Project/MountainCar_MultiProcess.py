@@ -464,7 +464,7 @@ def OSK_Q_MultiProcess_Ave(ave_times=20,
             path + "total_reward_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(total_reward_episode_3, f)
     with open(
-            path + "time_history_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+            path + "time_history_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_1) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(time_history_3, f)
 
 
