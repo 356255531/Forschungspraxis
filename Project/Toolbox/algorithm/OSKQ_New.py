@@ -174,7 +174,7 @@ if __name__ == '__main__':
         MountainCar_universal_action_space
     )
 
-    learning_agent_OSKQ = OSKQ_New_CartPole(
+    learning_agent_OSKQ = OSKQ_New(
         mu_1,
         mu_2,
         learning_rate,

@@ -1,13 +1,11 @@
 import gym
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib
-from matplotlib.legend_handler import HandlerLine2D
 from copy import deepcopy
 import time
 import multiprocessing
 import pickle
 from sys import platform
+from os.path import isfile
 
 from Toolbox.algorithm import RGGQLambda, GGQLambda, OSKQ_New
 from Toolbox.StateActionSpace import StateActionSpace_MountainCar
@@ -17,7 +15,7 @@ __auther__ = "Zhiwei"
 if "darwin" == platform:
     path = "/Users/Finn/Dropbox/Lehrveranstaltungen/Forschungspraxis/Project/data/MountainCar/"
 else:
-    path = "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/"
+    path = "/home/zhiwei/Dropbox/Lehrveranstaltungen/Forschungspraxis/Project/data/MountainCar/"
 
 
 def GGQLambda_MultiProcess_Ave(ave_times=20,
@@ -130,8 +128,8 @@ def GGQLambda_MultiProcess_Ave(ave_times=20,
                 discret_state = discret_state_bar
                 total_reward += step_reward
                 if done:
-                    print "Episode finished after {} timesteps in GQ(lambda)".format(t + 1), "in ", ave_times + 1, "times"
                     break
+            print "Episode finished after {} timesteps in GQ(lambda)".format(t + 1), "in ", ave_times + 1, "times"
             time_end = time.clock()
             time_consumed = time_end - time_start
             time_history.append(time_consumed)
@@ -433,14 +431,14 @@ def OSK_Q_MultiProcess_Ave(ave_times=20,
                 if done:
                     print "Episode finished after {} timesteps in OSK-Q(lambda)".format(t + 1), "in ", ave_times + 1, "times"
                     break
+            time_end = time.clock()
+            time_consumed = time_end - time_start
+            time_history_3.append(time_consumed)
+
             if total_reward > max_reward:
                 max_reward = total_reward
 
             total_reward_episode_3.append(total_reward)   # Add total reward to reward history
-
-            time_end = time.clock()
-            time_consumed = time_end - time_start
-            time_history_3.append(time_consumed)
 
             if i_episode % 10 == 0:
                 print i_episode, "th episode completed"
@@ -461,7 +459,7 @@ def OSK_Q_MultiProcess_Ave(ave_times=20,
     total_reward_episode_3 = total_reward_episode_ave_3
     time_history_3 = time_history_ave_3
     with open(
-            path + "total_reward_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_1) + str(mu_2), 'wb') as f:
+            path + "total_reward_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_1) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(total_reward_episode_3, f)
     with open(
             path + "time_history_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_1) + "-" + str(mu_2), 'wb') as f:
@@ -469,22 +467,28 @@ def OSK_Q_MultiProcess_Ave(ave_times=20,
 
 
 def main():
-    ave_times = 20
+    ave_times = 30
     pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
 
-    for learning_rate in [0.003, 0.01, 0.03, 0.1]:
+    for learning_rate in [0.0001, 0.0003, 0.001, 0.003, 0.01]:
         for eligibility_factor in [0.3, 0.6, 0.9]:
-            pool.apply_async(GGQLambda_MultiProcess_Ave,
-                             (ave_times, learning_rate, eligibility_factor,))
+            if not isfile(path + "time_history_GGQ-" + str(learning_rate) +
+                          "-" + str(eligibility_factor)):
+                pool.apply_async(GGQLambda_MultiProcess_Ave,
+                                 (ave_times, learning_rate, eligibility_factor,))
 
             for regularize_factor in [0.001, 0.003, 0.01]:
-                pool.apply_async(RGGQLambda_MultiProcess_Ave,
-                                 (ave_times, learning_rate, eligibility_factor, regularize_factor,))
+                if not isfile(path + "time_history_RGGQ-" + str(learning_rate) + "-" +
+                              str(eligibility_factor) + "-" + str(regularize_factor)):
+                    pool.apply_async(RGGQLambda_MultiProcess_Ave,
+                                     (ave_times, learning_rate, eligibility_factor, regularize_factor,))
 
             for mu_1 in [0.04]:
                 for mu_2 in [0.04, 0.08]:
-                    pool.apply_async(OSK_Q_MultiProcess_Ave,
-                                     (ave_times, learning_rate, eligibility_factor, 2, mu_1, mu_2, ))
+                    if not isfile(path + "time_history_OSKQ-" + str(learning_rate) + "-" +
+                                  str(eligibility_factor) + "-" + str(mu_1) + "-" + str(mu_2)):
+                        pool.apply_async(OSK_Q_MultiProcess_Ave,
+                                         (ave_times, learning_rate, eligibility_factor, 2, mu_1, mu_2, ))
 
     pool.close()
     pool.join()

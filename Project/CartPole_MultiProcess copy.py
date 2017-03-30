@@ -10,18 +10,18 @@ import pickle
 from sys import platform
 
 from Toolbox.algorithm import RGGQLambda, GGQLambda, OSKQ_New
-from Toolbox.StateActionSpace import StateActionSpace_MountainCar
+from Toolbox.StateActionSpace import StateActionSpace_CartPole
 
 __auther__ = "Zhiwei"
 
+
 if "darwin" == platform:
-    path = "/Users/Finn/Dropbox/Lehrveranstaltungen/Forschungspraxis/Project/data/MountainCar/"
+    path = "/Users/Finn/Dropbox/Lehrveranstaltungen/Forschungspraxis/Project/data/CartPole/"
 else:
-    path = "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/"
+    path = "/home/zhiwei/Dropbox/Lehrveranstaltungen/Forschungspraxis/Project/data/CartPole/"
 
 
-def GGQLambda_MultiProcess_Ave(mu_2=0.08,
-                               ave_times=20,
+def GGQLambda_MultiProcess_Ave(ave_times=20,
                                learning_rate=0.1,
                                eligibility_factor=0.9):
     """
@@ -30,31 +30,28 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
         eligibility_factor=0.9,
         mu_2=0.8
     """
-    # Learning parameters
-    precise = [8, 8]
+    precise = [10, 10, 10, 10]
 
     discount_factor = 0.9
-    discount_of_learning_rate = 0.999
+    discount_of_learning_rate = 1
     epsilon = 0.1
 
     # Macro
-    NUM_STEP = 1000
-    NUM_EPISODE = 500
+    NUM_EPISODE = 600
     AVE_TIMES = ave_times
-    REWARD_THREASHOLD = -100
     # Definition of dependencies
-    env = gym.make('MountainCar-v0')
+    env = gym.make('CartPole-v0')
 
     observation_space = (
         env.observation_space.low,
         env.observation_space.high
     )
 
-    MountainCar_universal_action_space = [i for i in xrange(0, env.action_space.n)]
-    state_action_space = StateActionSpace_MountainCar(
+    CartPole_universal_action_space = [i for i in xrange(0, env.action_space.n)]
+    state_action_space = StateActionSpace_CartPole(
         observation_space,
         precise,
-        MountainCar_universal_action_space
+        CartPole_universal_action_space
     )
 
     for ave_times in range(AVE_TIMES):
@@ -67,7 +64,7 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
             state_action_space.action_space
         )
         learning_agent = learning_agent_GGQLambda
-        # Run algorithm
+
         Qfunc_error_history = []
         total_reward_episode = []
         time_history = []
@@ -75,7 +72,6 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
         for i_episode in range(NUM_EPISODE):
             time_start = time.clock()
             observation = env.reset()
-            observation_bar = deepcopy(observation)
 
             discret_state = state_action_space._m_observation_to_discrete_state(
                 observation
@@ -98,14 +94,15 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
             Qfunc_previous = deepcopy(learning_agent.theta)
             learning_agent.e = np.zeros(learning_agent.num_element_qfunc)
 
-            for t in range(NUM_STEP):
+            done = False
+            step = 0
+            while not done:
+                step += 1
                 while set(discret_state) == set(discret_state_bar):
                     observation_bar, step_reward, done, info = env.step(action)
 
                     if done:
-                        if total_reward > REWARD_THREASHOLD:
-                            learning_agent.epsilon *= 0.999
-                        print "Episode finished after {} timesteps in GQ(lambda)".format(t + 1), "in ", ave_times + 1, "times"
+                        print "Episode finished after {} timesteps in GQ(lambda)".format(step), "in ", ave_times + 1, "times"
                         break
 
                     discret_state_bar = state_action_space._m_observation_to_discrete_state(
@@ -129,15 +126,12 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
                                         1
                                         )
 
-                observation = observation_bar
                 phi = phi_bar
                 action = action_bar
                 discret_state = discret_state_bar
                 total_reward += step_reward
                 if done:
-                    if total_reward > REWARD_THREASHOLD:
-                        learning_agent.epsilon *= 0.999
-                    print "Episode finished after {} timesteps in GQ(lambda)".format(t + 1), "in ", ave_times + 1, "times"
+                    print "Episode finished after {} timesteps in GQ(lambda)".format(step), "in ", ave_times + 1, "times"
                     break
             time_end = time.clock()
             time_consumed = time_end - time_start
@@ -198,35 +192,35 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
                                 regularize_factor=0.0001):
     """
         ave_times=20,
-        learning_rate=0.1,
+        learning_rate=0.1,`
         eligibility_factor=0.9,
         mu_2=0.8
     """
-    # Learning parameters
-    precise = [8, 8]
+    # Learning Parameter
+    precise = [10, 10, 10, 10]
 
     discount_factor = 0.9
     discount_of_learning_rate = 0.999
     epsilon = 0.1
 
     # Macro
-    NUM_STEP = 1000
+    NUM_STEP = 200
     NUM_EPISODE = 500
     AVE_TIMES = ave_times
     REWARD_THREASHOLD = -100
     # Definition of dependencies
-    env = gym.make('MountainCar-v0')
+    env = gym.make('CartPole-v0')
 
     observation_space = (
         env.observation_space.low,
         env.observation_space.high
     )
 
-    MountainCar_universal_action_space = [i for i in xrange(0, env.action_space.n)]
-    state_action_space = StateActionSpace_MountainCar(
+    CartPole_universal_action_space = [i for i in xrange(0, env.action_space.n)]
+    state_action_space = StateActionSpace_CartPole(
         observation_space,
         precise,
-        MountainCar_universal_action_space
+        CartPole_universal_action_space
     )
 
     # Run algorithm
@@ -242,9 +236,9 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
         )
         learning_agent = learning_agent_RGGQLambda
 
-        sparsity = []
         Qfunc_error_history_2 = []
         total_reward_episode_2 = []
+        sparsity = []
         max_reward = -float("inf")
         time_history_2 = []
         for i_episode in range(NUM_EPISODE):
@@ -359,12 +353,10 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
     total_reward_episode_2 = total_reward_episode_ave_2
     time_history_2 = time_history_ave_2
     with open(
-            path + "total_reward_RGGQ-" +
-            str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(regularize_factor), 'wb') as f:
+            path + "total_reward_RGGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
         pickle.dump(total_reward_episode_2, f)
     with open(
-            path + "time_history_RGGQ-" +
-            str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(regularize_factor), 'wb') as f:
+            path + "time_history_RGGQ-" + str(learning_rate) + "-" + str(eligibility_factor), 'wb') as f:
         pickle.dump(time_history_2, f)
     with open(
             path + "sparsity_RGGQ-" +
@@ -383,46 +375,46 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
         mu_2=0.8
     """
     # Learning Parameter
-    precise = [8, 8]
+    precise = [10, 10, 10, 10]
 
     discount_factor = 0.9
     discount_of_learning_rate = 0.999
-    regularize_factor = 0.0001  # 0.0001
     epsilon = 0.1
 
     # Parameter OSK-Q
     mu_1 = 0.04
     sigma = 1
     # Macro
-    NUM_STEP = 1000
+
+    NUM_STEP = 200
     NUM_EPISODE = 500
     AVE_TIMES = ave_times
     REWARD_THREASHOLD = -100
     # Definition of dependencies
-    env = gym.make('MountainCar-v0')
+    env = gym.make('CartPole-v0')
 
     observation_space = (
         env.observation_space.low,
         env.observation_space.high
     )
 
-    MountainCar_universal_action_space = [i for i in xrange(0, env.action_space.n)]
-    state_action_space = StateActionSpace_MountainCar(
+    CartPole_universal_action_space = [i for i in xrange(0, env.action_space.n)]
+    state_action_space = StateActionSpace_CartPole(
         observation_space,
         precise,
-        MountainCar_universal_action_space
+        CartPole_universal_action_space
     )
 
     # Run algorithm
     for ave_times in range(AVE_TIMES):
-        learning_agent_OSKQ = OSKQ_New(
+        learning_agent_OSKQ = OSKQ_New_CartPole(
             mu_1,
             mu_2,
             learning_rate,
             discount_factor,
             eligibility_factor,
             epsilon,
-            [0, 1, 2],
+            [0, 1],
             sigma
         )
         learning_agent = learning_agent_OSKQ
@@ -434,20 +426,12 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
         for i_episode in range(NUM_EPISODE):
             time_start = time.clock()
             observation = env.reset()
-            observation_bar = deepcopy(observation)
 
             total_reward = 0
             for t in range(NUM_STEP):
                 action = learning_agent._m_GreedyPolicy(observation)
 
-                while set(observation) == set(observation_bar):
-                    observation_bar, step_reward, done, info = env.step(action)
-
-                    if done:
-                        if total_reward > REWARD_THREASHOLD:
-                            learning_agent.epsilon *= 0.999
-                        print "Episode finished after {} timesteps in OSK-Q".format(t + 1), "in ", ave_times + 1, "times"
-                        break
+                observation_bar, step_reward, done, info = env.step(action)
 
                 action_bar = learning_agent._m_GreedyPolicy(
                     observation_bar
@@ -497,38 +481,46 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
     total_reward_episode_3 = total_reward_episode_ave_3
     time_history_3 = time_history_ave_3
     with open(
-            path + "total_reward_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+        path + "total_reward_OSKQ-" +
+            str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(total_reward_episode_3, f)
     with open(
-            path + "time_history_OSKQ-" + str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
+        path + "time_history_OSKQ-" +
+            str(learning_rate) + "-" + str(eligibility_factor) + "-" + str(mu_2), 'wb') as f:
         pickle.dump(time_history_3, f)
+
+
+def if_file_exists(name):
+    pass
 
 
 def main():
     ave_times = 20
     pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
-
     for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
         for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-            pool.apply_async(GGQLambda_MultiProcess_Ave,
-                             (0.08, ave_times, learning_rate, eligibility_factor,))
+            pool.apply_async(
+                GGQLambda_MultiProcess_Ave,
+                (0.08, ave_times, learning_rate, eligibility_factor,))
 
     for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
         for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
             for regularize_factor in [0.001, 0.003, 0.01, 0.03]:
-                pool.apply_async(RGGQLambda_MultiProcess_Ave,
-                                 (0.08, ave_times, learning_rate, eligibility_factor, regularize_factor))
+                pool.apply_async(
+                    RGGQLambda_MultiProcess_Ave,
+                    (0.08, ave_times, learning_rate, eligibility_factor, regularize_factor))
 
     for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
         for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
             for mu_2 in [0.04, 0.08]:
-                pool.apply_async(OSK_Q_MultiProcess_Ave,
-                                 (mu_2, ave_times, learning_rate, eligibility_factor,))
+                pool.apply_async(
+                    OSK_Q_MultiProcess_Ave,
+                    (mu_2, ave_times, learning_rate, eligibility_factor,))
 
     pool.close()
     pool.join()
 
 
 if __name__ == '__main__':
-    RGGQLambda_MultiProcess_Ave(0.08, 20, 0.1, 0.8, 0.001)
-    main()
+    OSK_Q_MultiProcess_Ave(0.08, 1, 0.1, 0.8)
+    # main()
