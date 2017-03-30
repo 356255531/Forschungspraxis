@@ -514,7 +514,7 @@ def main():
     for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
         for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
             for regularize_factor in [0.001, 0.003, 0.01, 0.03]:
-                pool.apply_async(GGQLambda_MultiProcess_Ave,
+                pool.apply_async(RGGQLambda_MultiProcess_Ave,
                                  (0.08, ave_times, learning_rate, eligibility_factor, regularize_factor))
 
     for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
@@ -528,4 +528,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    OSK_Q_MultiProcess_Ave()
+    # main()
