@@ -20,8 +20,7 @@ else:
     path = "/home/zhiwei/Workspace/Forschungspraxis/Project/data/MountainCar/"
 
 
-def GGQLambda_MultiProcess_Ave(mu_2=0.08,
-                               ave_times=20,
+def GGQLambda_MultiProcess_Ave(ave_times=20,
                                learning_rate=0.1,
                                eligibility_factor=0.9):
     """
@@ -31,17 +30,16 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
         mu_2=0.8
     """
     # Learning parameters
-    precise = [8, 8]
+    precise = [10, 10]
 
     discount_factor = 0.9
     discount_of_learning_rate = 1
     epsilon = 0.1
 
     # Macro
-    NUM_STEP = 1000
-    NUM_EPISODE = 500
+    NUM_STEP = 150
+    NUM_EPISODE = 600
     AVE_TIMES = ave_times
-    REWARD_THREASHOLD = -100
     # Definition of dependencies
     env = gym.make('MountainCar-v0')
 
@@ -76,7 +74,6 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
         for i_episode in range(NUM_EPISODE):
             time_start = time.clock()
             observation = env.reset()
-            observation_bar = deepcopy(observation)
 
             discret_state = state_action_space._m_observation_to_discrete_state(
                 observation
@@ -104,8 +101,6 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
                     observation_bar, step_reward, done, info = env.step(action)
 
                     if done:
-                        if total_reward > REWARD_THREASHOLD:
-                            learning_agent.epsilon *= 0.999
                         print "Episode finished after {} timesteps in GQ(lambda)".format(t + 1), "in ", ave_times + 1, "times"
                         break
 
@@ -130,14 +125,11 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
                                         1
                                         )
 
-                observation = observation_bar
                 phi = phi_bar
                 action = action_bar
                 discret_state = discret_state_bar
                 total_reward += step_reward
                 if done:
-                    if total_reward > REWARD_THREASHOLD:
-                        learning_agent.epsilon *= 0.999
                     print "Episode finished after {} timesteps in GQ(lambda)".format(t + 1), "in ", ave_times + 1, "times"
                     break
             time_end = time.clock()
@@ -192,8 +184,7 @@ def GGQLambda_MultiProcess_Ave(mu_2=0.08,
         pickle.dump(time_history, f)
 
 
-def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
-                                ave_times=20,
+def RGGQLambda_MultiProcess_Ave(ave_times=20,
                                 learning_rate=0.1,
                                 eligibility_factor=0.9,
                                 regularize_factor=0.0001):
@@ -204,17 +195,16 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
         mu_2=0.8
     """
     # Learning parameters
-    precise = [8, 8]
+    precise = [10, 10]
 
     discount_factor = 0.9
     discount_of_learning_rate = 1
     epsilon = 0.1
 
     # Macro
-    NUM_STEP = 1000
-    NUM_EPISODE = 500
+    NUM_STEP = 150
+    NUM_EPISODE = 600
     AVE_TIMES = ave_times
-    REWARD_THREASHOLD = -100
     # Definition of dependencies
     env = gym.make('MountainCar-v0')
 
@@ -246,12 +236,12 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
         sparsity = []
         Qfunc_error_history_2 = []
         total_reward_episode_2 = []
-        max_reward = -float("inf")
         time_history_2 = []
+        max_reward = -float("inf")
         for i_episode in range(NUM_EPISODE):
             time_start = time.clock()
             observation = env.reset()
-            observation_bar = deepcopy(observation)
+
             discret_state = state_action_space._m_observation_to_discrete_state(
                 observation
             )
@@ -278,8 +268,6 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
                     observation_bar, step_reward, done, info = env.step(action)
 
                     if done:
-                        if total_reward > REWARD_THREASHOLD:
-                            learning_agent.epsilon *= 0.999
                         print "Episode finished after {} timesteps in RGGQ(lambda)".format(t + 1), "in ", ave_times + 1, "times"
                         break
 
@@ -303,14 +291,12 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
                                         1
                                         )
 
-                observation = observation_bar
                 phi = phi_bar
                 action = action_bar
                 discret_state = discret_state_bar
                 total_reward += step_reward
+
                 if done:
-                    if total_reward > REWARD_THREASHOLD:
-                        learning_agent.epsilon *= 0.999
                     print "Episode finished after {} timesteps in RGGQ(lambda)".format(t + 1), "in ", ave_times + 1, "times"
                     break
             time_end = time.clock()
@@ -373,10 +359,12 @@ def RGGQLambda_MultiProcess_Ave(mu_2=0.08,
         pickle.dump(sparsity, f)
 
 
-def OSK_Q_MultiProcess_Ave(mu_2=0.08,
-                           ave_times=20,
+def OSK_Q_MultiProcess_Ave(ave_times=20,
                            learning_rate=0.1,
-                           eligibility_factor=0.9):
+                           eligibility_factor=0.9,
+                           observation_dim=2,
+                           mu_1=0.04,
+                           mu_2=0.08):
     """
         ave_times=20,
         learning_rate=0.1,
@@ -389,12 +377,11 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
     epsilon = 0.1
 
     # Parameter OSK-Q
-    mu_1 = 0.04
     sigma = 1
 
     # Macro
-    NUM_STEP = 1000
-    NUM_EPISODE = 500
+    NUM_STEP = 150
+    NUM_EPISODE = 600
     AVE_TIMES = ave_times
 
     # Definition of dependencies
@@ -408,8 +395,8 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
             learning_rate,
             discount_factor,
             eligibility_factor,
-            epsilon,
             [0, 1, 2],
+            observation_dim,
             sigma
         )
         learning_agent = learning_agent_OSKQ
@@ -421,15 +408,15 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
         for i_episode in range(NUM_EPISODE):
             time_start = time.clock()
             observation = env.reset()
+            action = learning_agent._m_GreedyPolicy(observation, epsilon)
 
             total_reward = 0
             for t in range(NUM_STEP):
-                action = learning_agent._m_GreedyPolicy(observation)
-
                 observation_bar, step_reward, done, info = env.step(action)
 
                 action_bar = learning_agent._m_GreedyPolicy(
-                    observation_bar
+                    observation_bar,
+                    epsilon
                 )
 
                 learning_agent._m_Learn(
@@ -444,8 +431,6 @@ def OSK_Q_MultiProcess_Ave(mu_2=0.08,
                 action = action_bar
                 total_reward += step_reward
                 if done:
-                    # if total_reward > REWARD_THREASHOLD:
-                        # learning_agent.epsilon *= 0.999
                     print "Episode finished after {} timesteps in OSK-Q(lambda)".format(t + 1), "in ", ave_times + 1, "times"
                     break
             if total_reward > max_reward:
@@ -487,27 +472,23 @@ def main():
     ave_times = 20
     pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
 
-    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
-        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
+    for learning_rate in [0.003, 0.01, 0.03, 0.1]:
+        for eligibility_factor in [0.3, 0.6, 0.9]:
             pool.apply_async(GGQLambda_MultiProcess_Ave,
-                             (0.08, ave_times, learning_rate, eligibility_factor,))
+                             (ave_times, learning_rate, eligibility_factor,))
 
-    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
-        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-            for regularize_factor in [0.001, 0.003, 0.01, 0.03]:
+            for regularize_factor in [0.001, 0.003, 0.01]:
                 pool.apply_async(RGGQLambda_MultiProcess_Ave,
-                                 (0.08, ave_times, learning_rate, eligibility_factor, regularize_factor))
+                                 (ave_times, learning_rate, eligibility_factor, regularize_factor,))
 
-    for learning_rate in [0.001, 0.003, 0.01, 0.03, 0.1]:
-        for eligibility_factor in [0.2, 0.4, 0.6, 0.8]:
-            for mu_2 in [0.04, 0.08]:
-                pool.apply_async(OSK_Q_MultiProcess_Ave,
-                                 (mu_2, ave_times, learning_rate, eligibility_factor,))
+            for mu_1 in [0.04]:
+                for mu_2 in [0.04, 0.08]:
+                    pool.apply_async(OSK_Q_MultiProcess_Ave,
+                                     (ave_times, learning_rate, eligibility_factor, 2, mu_1, mu_2, ))
 
     pool.close()
     pool.join()
 
 
 if __name__ == '__main__':
-    OSK_Q_MultiProcess_Ave(0.08, 1, 0.1, 0.8)
-    # main()
+    main()
