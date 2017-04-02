@@ -459,7 +459,7 @@ But there are still two problems about value function approximation mainteined u
 
 Another widely concerned issure is convergence of the value function approximation. As Tsitsiklis \cite{tsitsiklis1997analysis} pointed out that even though the linear value function approximation converges in most online learning problem setting, but an algorithm could still diverge if either of the conditions is not satisfied, when a off-line learning is perform, because states are sampled from distributions independent of the dynamics of the Markov chain of interst, or a nonlinear value function approximation is used. We will also point out this kind of view later in the experiment. It's a servere problem in RL application, however, because of the great needs, value function approximation was still applied in many off-line TD algorithms like Q-learning at that time while ignoring the potential risk of divergent value function approximation. Sutton \cite{sutton1998reinforcement}\cite{sutton2009fast} solved off-line learning problem of off-policy learning by introducing a new object function, \textit{mean-squre projected Bellman error} (\textup{MSPBE}) and performing stochastic gradient mehtod an it.\\
 
-In this paper, we consider up-to-date algorithms GQ($\lambda$) \cite{maei2010gq}, RO-GQ($\lambda$) \cite{liu2012regularized} based on the traditional tabular algorithm framework (without value function approximation), kernel-based feature selective algorithm OSK-TD($\lambda$) \cite{chen2013online} and their comparison. The rest of this paper is organized as flollows. In Section \uppercase\expandafter{\romannumeral2}, an introduction on MDPs as well as the TD learning framework is given. \uppercase\expandafter{\romannumeral3} presents the used techniques in the algorithms to be compared. An algorithmetic introduction and comparison between three algorithm is proposed in the section \uppercase\expandafter{\romannumeral4}. And in section \uppercase\expandafter{\romannumeral5} the experimental result on the classic RL problem settings Mountain Car and Carto Car are provided to visulization the effectiveness of compared algorithm. At the \uppercase\expandafter{\romannumeral6} section gives a conclussion and future work.\\
+In this paper, we consider up-to-date algorithms GQ($\lambda$) \cite{maei2010gq}, RO-GQ($\lambda$) \cite{liu2012regularized} based on the traditional tabular algorithm framework (without value function approximation), kernel-based feature selective algorithm OSK-TD($\lambda$) \cite{chen2013online} and their comparison. The rest of this paper is organized as flollows. In Section \uppercase\expandafter{\romannumeral2}, an introduction on MDPs as well as the TD learning framework is given. \uppercase\expandafter{\romannumeral3} presents the used techniques in the algorithms to be compared. An algorithmetic introduction and comparison between three algorithm is proposed in the section \uppercase\expandafter{\romannumeral4}. And in section \uppercase\expandafter{\romannumeral5} the experimental result on the classic RL problem settings mountain car and Carto Car are provided to visulization the effectiveness of compared algorithm. At the \uppercase\expandafter{\romannumeral6} section gives a conclussion and future work.\\
 
 \section{RL and Background}
 \subsection{Framework and Notation}
@@ -1017,19 +1017,49 @@ Finally, we give the pseudocode of OSK-TD. Note, because OSK-TD is a prediction 
 
 
 \section{Experiment}
-In this paper, two experiments are used to demonstrate the effectiveness of the three algorithms on the continuous reinforcement learning problems: Mountain Car and Cart Pole. Theses two standard Reinforcement Learning benchmarks in the NIPS Workshop 2005 are two traditinal RL problems and also used to evaluate various of reinforcement learning algorithms. Note, because OSK-TD is a prediction algorithm. We combine OSK-TD with Q-learning to learn for the control task in the two experiments.\\
+In this paper, two experiments are used to demonstrate the effectiveness of the three algorithms on the continuous reinforcement learning problems: mountain car and cart pole. Theses two standard Reinforcement Learning benchmarks in the NIPS Workshop 2005 are two traditinal RL problems and also used to evaluate various of reinforcement learning algorithms. Note, because OSK-TD is a prediction algorithm. Therefore, we combine OSK-TD with Q-learning to form a OSK-Q algorithm (but still denoted as OSK-TD) to learn for the control task in the two experiments.\\
 
-The proposed algorithms' performance will be evaluated for their convergence, running time and sparsity with varied learning parameters. The same predefined parameters for each experiment are: 1. The curves are generated  by averaging the sum of rewards for 20 runs. 2. the discount factor is 0.9. 3) An episode is limited to 1000 steps.
-\subsection{Mountain Car}
-In Mountain Car simulation \cite{sutton1998reinforcement}, the learning agent needs to drive an underpowered car upon a sttep mountain road. The reward for each step is -1 until the car has reached its goal position on the top of mountain and the episode ends. There are three possible actions, full throttle forward (+1), full throttle backward (-1) and zero throttle (0). The car movement is based on the simple system dynamics, where position of the car is $x_t$ and velocity is $\dot{x_t}$. And the they are bounded by the simulator at $-2.4 \leq x_{t+1} \leq 2.4$ and $-0.20943951 \leq \dot{x}_{t+1} \leq 0.20943951$. The simulation starts at position $x_0=-0.3$ and the goal position $x_T=0.5$.\\
+The proposed algorithms' performance will be evaluated for their performance (total reward), convergence and robustness with varied learning parameters. The same predefined parameters for each experiment are: 1. The curves are generated  by averaging the sum of rewards for 20 runs. 2. the discount factor is 0.9. 3) An episode is limited to 1000 steps.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.3]{TotalRewardMountainCar.jpg}
+  \caption{Episodic total reward of mountain car}
+  \label{fig2}
+\end{figure}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.2]{TotalRewardCartPole.jpg}
+  \caption{Episodic total reward of cart pole}
+  \label{fig3}
+\end{figure}
+\subsection{Experimental Settings}
+\subsubsection{Mountain Car}
+In mountain car simulation \cite{sutton1998reinforcement}, the learning agent needs to drive an underpowered car upon a step mountain road. The reward for each step is -1 until the car has reached its goal position on the top of mountain and the episode ends. There are three possible actions, full throttle forward (+1), full throttle backward (-1) and zero throttle (0). The car movement is based on the simple system dynamics, where position of the car is $x_t$ and velocity is $\dot{x_t}$. And the they are bounded by the simulator at $-2.4 \leq x_{t+1} \leq 2.4$ and $-0.20943951 \leq \dot{x}_{t+1} \leq 0.20943951$. The simulation starts at position $x_0=-0.3$ and the goal position $x_T=0.5$.\\
+\subsubsection{Cart Pole}
+In cart pole simulations \cite{sutton1998reinforcement}, the learning agent needs to actively balance an unstable inverted pendulum mounted on a cart and keep it upright by moving the the cart horizontally. The reward for each step is 1 and 0 when the inverted pendulum fells (episode terminated), the goal of the experient is to keey the inverted pendulum upright as long as possible. Two possible actions are move left (-1) or right (+1) and the action has only freedom one. The system dynamics of cart pole is highly non-linear and more complicated than mountain car. The parameters are the position of cart $x_t$, the velocity of cart $\dot{x}_t$, the angle of pole $\theta_t$ and the rotation rate of pole $\dot{\theta}_t$. The are also bounded by the simulator at $-1.2 \leq x_{t+1} \leq 0.5$ and $-0.07 \leq \dot{x}_{t+1} \leq0.07$.
+\subsection{Experimental Results}
+\subsubsection{Mountain Car}
+1. the OSK-TD algorithm fails unfortunately, it is not able to learn from the simulation even after a fine parameter tunning. The main reason is lack of convergence of non-linear value function approximation e.g. kernel method, which is mentioned in \cite{tsitsiklis1997analysis}. However, from the learning curve in Fig.2 shows us, that GQ($\lambda$) ane RO-GQ($\lambda$) have successfully learned the policies from the experiment. 2. GQ($\lambda$) works much more stablely than the RO-GQ($\lambda$) in low dimensional or/and small scale problem because of its table-based property. 3, With a higher learning rate, the convergence of all parameter setting go faster. 3. RO-GQ($\lambda$) is more sensitive to the parameter setting, especially eligibility discount factor and regularization factor. The higher regularization factor is, the more unstable the learning behavior will be. 4. eligibility plays an important role in the learning process. Higher eligibility factor has greatly improved the convergence and robustness of both GQ($\lambda$) and RO-GQ($\lambda$). 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.3]{SparsityMountainCar.jpg}
+  \caption{Sparsity of RO-GQ for mountain car}
+  \label{fig4}
+\end{figure}
+5. after combining the Fig.2 and Fig.4 we can see the sparser parameter vector is, more unstable learning algorithm is. But it doesn't mean, an algorithm with sparser parameter expression has a better convergence or time performance.
+\subsubsection{Cart Pole}
+1. from the Fig. 3, it's clear to see, in cart pole simulation GQ($\lambda$) ane RO-GQ($\lambda$) have no idea about how to learn from episodes. 2. in cart pole the sparsity does not help to improve the efficiency of RO-GQ($\lambda$). 3. with the increase of the learning rate, the convergence of all algorithms to the optimal policy goes faster, except that OSK-TD diverges when $\mu_2=0.16$. 4. OSK-TD is very sensitive to the choice of $\mu_2$, the performance has been greatly improved with a growing learning rate when eligibility factor is 0.1.
 
-1. The OSK-Q algorithm fails unfortunately, it is not able to learn from the simulation even after a fine parameter tunning, we can see The main reason maybe lack of convergence of non-linear value function approximation, which was mentioned in \cite{tsitsiklis1997analysis}. However, from the learning curve in Fig.2, we can see GQ($\lambda$) ane Ro-GQ($\lambda$) have successfully learned the policies from the experiment. 2. GQ($\lambda$) works more stablely and faster than the RO-GQ($\lambda$). 3. RO-GQ($\lambda$) is more sensitive to the parameter setting, especially $\lambda$ and regularization factor. 4. The higher regularization factor is, the more sparse will the action-value function and more unstable the algorithm will be.
-\subsection{Cart Pole}
-In Cart Pole simulations \cite{sutton1998reinforcement}, the learning agent needs to actively balance an unstable inverted pendulum mounted on a cart and keep it upright by moving the the cart horizontally. The reward for each step is 1 and 0 when the inverted pendulum fells (episode terminated), the goal of the experient is to keey the inverted pendulum upright as long as possible. Two possible actions are move left (-1) or right (+1) and the action has only freedom one. The system dynamics of Cart Pole is highly non-linear and more complicated than Mountain Car. The parameters are the position of cart $x_t$, the velocity of cart $\dot{x}_t$, the angle of pole $\theta_t$ and the rotation rate of pole $\dot{\theta}_t$. The are also bounded by the simulator at $-1.2 \leq x_{t+1} \leq 0.5$ and $-0.07 \leq \dot{x}_{t+1} \leq0.07$.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.25]{SparsityCartPole.jpg}
+  \caption{Sparsity of RO-GQ for cart pole}
+  \label{fig5}
+\end{figure}
 \section{Conclusion}
-In this paper, three learning algorithms were proposed to deal with large scale and continuous RL problems. GQ($\lambda$) and RO-GQ($\lambda$) are traditional tabular-form learning algorithm while OSKTD is a selective kernel-based learning algorithm. For sparsification, different approaches have been applied. RO-GQ($\lambda$) generate the sparsity by minimizing a cost function with a $\ell1$ norm regularization term while OSK-Q follows a online kernel sparsification procedure.\\
+In this paper, three learning algorithms were proposed to deal with large scale or/and continuous RL problems. GQ($\lambda$) and RO-GQ($\lambda$) are traditional tabular-form learning algorithm while OSKTD is a selective kernel-based learning algorithm. For sparsification, different approaches have been applied. RO-GQ($\lambda$) generate the sparsity on learned parameter vector by minimizing a cost function with a $\ell1$ norm regularization term while OSK-TD follows a online kernel-selective sparsification procedure with a limited number of feature vectors in a dictionary.\\
 
-GQ($\lambda$)
+Tabular form GQ($\lambda$) is used as a baseline of the comparison because of the similarity in the objective function of both GQ($\lambda$) and RO-GQ($\lambda$).
 
 
 % if have a single appendix:
@@ -1089,18 +1119,6 @@ GQ($\lambda$)
 % (used to reserve space for the reference number labels box)
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,reference}
-
-% \begin{thebibliography}{1}
-% \bibitem{Reinforcement learning: An introduction}
-% R. S. Sutton and A. G. Barto, \emph{Reinforcement learning: An introduction}, 2nd~ed. \hskip 1em plus
-%   0.5em minus 0.4em\relax Cambridge, MA: MIT Press, 1998.
-% \bibitem{An analysis of temporal-difference learning with function approximation}
-% J. N. Tsitsiklis and B. Van Roy, "An analysis of temporal-difference learning with function approximation," in \emph{IEEE Transactions on Automatic Control}, vol. 42, no. 5, pp. 674–690, May 1997.
-% \bibitem{An analysis of linear models, linear value-function approximation, and feature selection for reinforcement learning}
-% R. Parr, L. Li, G. Taylor, C. Painter-Wakefield, and M. L. Littman, “An analysis of linear models, linear value-function approximation, and feature selection for reinforcement learning,” in \emph{Proceedings of the 25th international conference on Machine learning}, Helsinki, Finland, Jul. 2008, pp. 752-759.
-% \bibitem{Tree-based batch mode reinforcement learning.}
-% Ernst, Damien, Pierre Geurts, and Louis Wehenkel, "Tree-based batch mode reinforcement learning," in Journal of Machine Learning Research 6.Apr (2005): 503-556. 
-% \end{thebibliography}
 
 % biography section
 % 
