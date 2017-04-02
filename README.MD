@@ -8,4 +8,4 @@ This folder includes the self thinking of the research goal of Forschungspraxis.
 The implementations of GQ, RO-GQ and OSK-Q are in this directory. In the subfolder data, you can find the analytic data and its visualization of the project from the perspective of convergence, running time and sparsity.
 
 ## Final report
-Here are the report for the whole Forschungspraxis.
+Here is the report for the whole Forschungspraxis.
