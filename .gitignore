@@ -1,12 +1,12 @@
+# Latex file
+*.aux
+*.log
+*.pdf
+*.blg
+*.bbl
+*.fdb_latexmk
+*.fls
+*.synctex.gz
 
-.svn
-test
-*.o
-*.a
-*.so
-*.swp
-*.patch
-tags
-*.dylib
+# Python file
 *.pyc
-
