@@ -7,7 +7,7 @@ import pickle
 from sys import platform
 from os.path import isfile
 
-from Toolbox.algorithm import RGGQLambda, GGQLambda, OSKQ_New
+from Toolbox.algorithm import RGGQLambda, GGQLambda, OSKQ
 from Toolbox.StateActionSpace import StateActionSpace_MountainCar
 
 __auther__ = "Zhiwei"
@@ -28,16 +28,17 @@ def GGQLambda_MultiProcess_Ave(ave_times=20,
         mu_2=0.8
     """
     # Learning parameters
-    precise = [10, 10]
+    precise = [8, 8]
 
     discount_factor = 0.9
-    discount_of_learning_rate = 1
+    discount_of_learning_rate = 0.999
     epsilon = 0.1
 
     # Macro
     NUM_STEP = 150
     NUM_EPISODE = 600
     AVE_TIMES = ave_times
+    REWARD_THREASHOLD = -100
     # Definition of dependencies
     env = gym.make('MountainCar-v0')
 
@@ -135,6 +136,8 @@ def GGQLambda_MultiProcess_Ave(ave_times=20,
             time_history.append(time_consumed)
 
             if total_reward > max_reward:
+                if total_reward > REWARD_THREASHOLD:
+                    epsilon *= 0.999
                 max_reward = total_reward
 
             total_reward_episode.append(total_reward)   # Add total reward to reward history
@@ -196,13 +199,14 @@ def RGGQLambda_MultiProcess_Ave(ave_times=20,
     precise = [10, 10]
 
     discount_factor = 0.9
-    discount_of_learning_rate = 1
+    discount_of_learning_rate = 0.999
     epsilon = 0.1
 
     # Macro
     NUM_STEP = 150
     NUM_EPISODE = 600
     AVE_TIMES = ave_times
+    REWARD_THREASHOLD = -50
     # Definition of dependencies
     env = gym.make('MountainCar-v0')
 
@@ -302,6 +306,8 @@ def RGGQLambda_MultiProcess_Ave(ave_times=20,
             time_history_2.append(time_consumed)
 
             if total_reward > max_reward:
+                if total_reward > REWARD_THREASHOLD:
+                    epsilon *= 0.999
                 max_reward = total_reward
 
             total_reward_episode_2.append(total_reward)   # Add total reward to reward history
@@ -381,13 +387,13 @@ def OSK_Q_MultiProcess_Ave(ave_times=20,
     NUM_STEP = 150
     NUM_EPISODE = 600
     AVE_TIMES = ave_times
-
+    REWARD_THREASHOLD = -100
     # Definition of dependencies
     env = gym.make('MountainCar-v0')
 
     # Run algorithm
     for ave_times in range(AVE_TIMES):
-        learning_agent_OSKQ = OSKQ_New(
+        learning_agent_OSKQ = OSKQ(
             mu_1,
             mu_2,
             learning_rate,
@@ -467,24 +473,29 @@ def OSK_Q_MultiProcess_Ave(ave_times=20,
 
 
 def main():
-    ave_times = 30
+    ave_times = 5
+
     pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
 
-    for learning_rate in [0.0001, 0.0003, 0.001, 0.003, 0.01]:
-        for eligibility_factor in [0.3, 0.6, 0.9]:
+    for learning_rate in [0.03, 0.1]:
+        for eligibility_factor in [0.7, 0.8, 0.9]:
             if not isfile(path + "time_history_GGQ-" + str(learning_rate) +
                           "-" + str(eligibility_factor)):
                 pool.apply_async(GGQLambda_MultiProcess_Ave,
                                  (ave_times, learning_rate, eligibility_factor,))
 
-            for regularize_factor in [0.001, 0.003, 0.01]:
+    for learning_rate in [0.03, 0.1]:
+        for eligibility_factor in [0.7, 0.8, 0.9]:
+            for regularize_factor in [0.00003, 0.0001, 0.0003]:
                 if not isfile(path + "time_history_RGGQ-" + str(learning_rate) + "-" +
                               str(eligibility_factor) + "-" + str(regularize_factor)):
                     pool.apply_async(RGGQLambda_MultiProcess_Ave,
                                      (ave_times, learning_rate, eligibility_factor, regularize_factor,))
 
+    for learning_rate in [0.03, 0.1]:
+        for eligibility_factor in [0.7, 0.8, 0.9]:
             for mu_1 in [0.04]:
-                for mu_2 in [0.04, 0.08]:
+                for mu_2 in [0.08, 0.16]:
                     if not isfile(path + "time_history_OSKQ-" + str(learning_rate) + "-" +
                                   str(eligibility_factor) + "-" + str(mu_1) + "-" + str(mu_2)):
                         pool.apply_async(OSK_Q_MultiProcess_Ave,
