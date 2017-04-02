@@ -57,13 +57,13 @@ def read_data():
 
 def save_img(data):
     font = {'family': 'normal',
-            'size': 7}
+            'size': 10}
     matplotlib.rc('font', **font)
-    fig = plt.figure(figsize=(10, 14))
-    for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
-        for eligibility_factor_idx, eligibility_factor in enumerate([0, 0.1]):
+    fig = plt.figure(figsize=(16, 18))
+    for eligibility_factor_idx, eligibility_factor in enumerate([0, 0.1]):
+        for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
             ax = fig.add_subplot(
-                2, 2, learning_rate_idx * 2 + eligibility_factor_idx + 1)
+                2, 2, eligibility_factor_idx * 2 + learning_rate_idx + 1)
             ax.set_xlabel("Episodes: learning_rate=" + str(learning_rate) + " eligibility_factor=" + str(eligibility_factor))
             ax.set_ylabel('Sum of reward')
 
@@ -88,11 +88,11 @@ def save_img(data):
 
     fig.savefig("Total Reward.jpg")
 
-    fig = plt.figure(figsize=(10, 14))
-    for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
-        for eligibility_factor_idx, eligibility_factor in enumerate([0, 0.1]):
+    fig = plt.figure(figsize=(16, 18))
+    for eligibility_factor_idx, eligibility_factor in enumerate([0, 0.1]):
+        for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
             ax = fig.add_subplot(
-                2, 2, learning_rate_idx * 2 + eligibility_factor_idx + 1)
+                2, 2, eligibility_factor_idx * 2 + learning_rate_idx + 1)
             ax.set_xlabel("Episodes: learning_rate=" + str(learning_rate) + " eligibility_factor=" + str(eligibility_factor))
             ax.set_ylabel('Sum of consumed time')
 
@@ -104,7 +104,7 @@ def save_img(data):
             line_6, = plt.plot(data["time_history"]["OSKQ"][learning_rate][eligibility_factor][0.16])
 
     fig.legend(
-        (line_1, line_2, line_3, line_4),
+        (line_1, line_2, line_3, line_4, line_5, line_6,),
         (
             "GQ(lambda)",
             "RGGQ(lambda)(regularize_factor=0.00003)",
@@ -116,11 +116,11 @@ def save_img(data):
         loc=8)
     fig.savefig("Total time consumed.jpg")
 
-    fig = plt.figure(figsize=(10, 14))
-    for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
-        for eligibility_factor_idx, eligibility_factor in enumerate([0, 0.1]):
+    fig = plt.figure(figsize=(12, 12))
+    for eligibility_factor_idx, eligibility_factor in enumerate([0, 0.1]):
+        for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
             ax = fig.add_subplot(
-                2, 2, learning_rate_idx * 2 + eligibility_factor_idx + 1)
+                2, 2, eligibility_factor_idx * 2 + learning_rate_idx + 1)
             ax.set_xlabel("Episodes: learning_rate=" + str(learning_rate) + " eligibility_factor=" + str(eligibility_factor))
             ax.set_ylabel('Sparsity')
 

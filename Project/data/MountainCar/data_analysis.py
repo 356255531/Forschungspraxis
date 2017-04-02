@@ -48,13 +48,13 @@ def read_data():
 
 def save_img(data):
     font = {'family': 'normal',
-            'size': 7}
+            'size': 10}
     matplotlib.rc('font', **font)
-    fig = plt.figure(figsize=(16, 10))
-    for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
-        for eligibility_factor_idx, eligibility_factor in enumerate([0.7, 0.8, 0.9]):
+    fig = plt.figure(figsize=(10, 14))
+    for eligibility_factor_idx, eligibility_factor in enumerate([0.7, 0.8, 0.9]):
+        for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
             ax = fig.add_subplot(
-                2, 3, learning_rate_idx * 3 + eligibility_factor_idx + 1)
+                3, 2, eligibility_factor_idx * 2 + learning_rate_idx + 1)
             ax.set_xlabel("Episodes: learning_rate=" + str(learning_rate) + " eligibility_factor=" + str(eligibility_factor))
             ax.set_ylabel('Sum of reward')
 
@@ -74,11 +74,11 @@ def save_img(data):
 
     fig.savefig("Total Reward.jpg")
 
-    fig = plt.figure(figsize=(16, 10))
-    for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
-        for eligibility_factor_idx, eligibility_factor in enumerate([0.7, 0.8, 0.9]):
+    fig = plt.figure(figsize=(10, 14))
+    for eligibility_factor_idx, eligibility_factor in enumerate([0.7, 0.8, 0.9]):
+        for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
             ax = fig.add_subplot(
-                2, 3, learning_rate_idx * 3 + eligibility_factor_idx + 1)
+                3, 2, eligibility_factor_idx * 2 + learning_rate_idx + 1)
             ax.set_xlabel("Episodes: learning_rate=" + str(learning_rate) + " eligibility_factor=" + str(eligibility_factor))
             ax.set_ylabel('Sum of consumed time')
 
@@ -98,11 +98,11 @@ def save_img(data):
         loc=8)
     fig.savefig("Total time consumed.jpg")
 
-    fig = plt.figure(figsize=(16, 10))
-    for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
-        for eligibility_factor_idx, eligibility_factor in enumerate([0.7, 0.8, 0.9]):
+    fig = plt.figure(figsize=(10, 14))
+    for eligibility_factor_idx, eligibility_factor in enumerate([0.7, 0.8, 0.9]):
+        for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
             ax = fig.add_subplot(
-                2, 3, learning_rate_idx * 3 + eligibility_factor_idx + 1)
+                3, 2, eligibility_factor_idx * 2 + learning_rate_idx + 1)
             ax.set_xlabel("Episodes: learning_rate=" + str(learning_rate) + " eligibility_factor=" + str(eligibility_factor))
             ax.set_ylabel('Sparsity')
 
