@@ -7,3 +7,6 @@
 *.fdb_latexmk
 *.fls
 *.synctex.gz
+
+# Python file
+*.pyc
