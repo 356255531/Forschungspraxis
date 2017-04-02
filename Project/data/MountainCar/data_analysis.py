@@ -1,14 +1,11 @@
 import pickle
 import matplotlib
 from matplotlib import pyplot as plt
-import numpy.ma as ma
-import numpy as np
-from pykalman import KalmanFilter
 
 
 def read_data():
     data = {}
-    for data_type in ["time_history", "total_reward"]:
+    for data_type in ["time_history", "total_reward", ]:
         data[data_type] = {}
         for algo in ["GGQ", "RGGQ"]:
             data[data_type][algo] = {}
@@ -16,16 +13,6 @@ def read_data():
                 data[data_type][algo][learning_rate] = {}
                 for eligibility_factor in [0.7, 0.8, 0.9]:
                     data[data_type][algo][learning_rate][eligibility_factor] = {}
-                    if "OSKQ" == algo:
-                        for mu_1 in [0.04]:
-                            data[data_type][algo][learning_rate][eligibility_factor][mu_1] = {}
-                            for mu_2 in [0.04, 0.08]:
-                                with open(
-                                        data_type + "_" + algo + "-" + str(learning_rate) +
-                                        "-" + str(eligibility_factor) + "-" + str(mu_1) + "-" + str(mu_2),
-                                        'rb'
-                                ) as f:
-                                    data[data_type][algo][learning_rate][eligibility_factor][mu_1][mu_2] = pickle.load(f)
 
                     if "RGGQ" == algo:
                         for regularize_factor in [0.00003, 0.0001, 0.0003]:
@@ -42,6 +29,20 @@ def read_data():
                                 'rb'
                         ) as f:
                             data[data_type][algo][learning_rate][eligibility_factor] = pickle.load(f)
+
+    data["sparsity"] = {}
+    data["sparsity"]["RGGQ"] = {}
+    for learning_rate in [0.03, 0.1]:
+        data["sparsity"]["RGGQ"][learning_rate] = {}
+        for eligibility_factor in [0.7, 0.8, 0.9]:
+            data["sparsity"]["RGGQ"][learning_rate][eligibility_factor] = {}
+            for regularize_factor in [0.00003, 0.0001, 0.0003]:
+                with open(
+                    "sparsity_RGGQ" + "-" + str(learning_rate) + "-" +
+                    str(eligibility_factor) + "-" + str(regularize_factor),
+                    'rb'
+                ) as f:
+                    data["sparsity"]["RGGQ"][learning_rate][eligibility_factor][regularize_factor] = pickle.load(f)
     return data
 
 
@@ -49,7 +50,7 @@ def save_img(data):
     font = {'family': 'normal',
             'size': 7}
     matplotlib.rc('font', **font)
-    fig = plt.figure(figsize=(16, 8))
+    fig = plt.figure(figsize=(16, 10))
     for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
         for eligibility_factor_idx, eligibility_factor in enumerate([0.7, 0.8, 0.9]):
             ax = fig.add_subplot(
@@ -61,49 +62,63 @@ def save_img(data):
             line_2, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.00003])
             line_3, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.0001])
             line_4, = plt.plot(data["total_reward"]["RGGQ"][learning_rate][eligibility_factor][0.0003])
-            # line_5, = plt.plot(data["total_reward"]["OSKQ"][learning_rate][eligibility_factor][0.04])
-            # line_6, = plt.plot(data["total_reward"]["OSKQ"][learning_rate][eligibility_factor][0.08])
     fig.legend(
         (line_1, line_2, line_3, line_4),
         (
-            "GQ(lambda)", "RGGQ(lambda)(regularize_factor=0.001)",
-            "RGGQ(lambda)(regularize_factor=0.003)", "RGGQ(lambda)(regularize_factor=0.01)",
+            "GQ(lambda)",
+            "RGGQ(lambda)(regularize_factor=0.00003)",
+            "RGGQ(lambda)(regularize_factor=0.0001)",
+            "RGGQ(lambda)(regularize_factor=0.0003)",
         ),
         loc=8)
 
-    # fig.legend(
-    #     (line_1, line_2, line_3, line_4, line_5, line_6, line_7),
-    #     (
-    #         "GQ(lambda)", "RGGQ(lambda)(regularize_factor=0.001)",
-    #         "RGGQ(lambda)(regularize_factor=0.003)", "RGGQ(lambda)(regularize_factor=0.01)",
-    #         "RGGQ(lambda)(regularize_factor=0.03)",
-    #         "OKS-Q(mu2=0.04)", "OKS-Q(mu2=0.08)"),
-    #     loc=8)
     fig.savefig("Total Reward.jpg")
 
-    fig = plt.figure(figsize=(16, 8))
+    fig = plt.figure(figsize=(16, 10))
     for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
         for eligibility_factor_idx, eligibility_factor in enumerate([0.7, 0.8, 0.9]):
             ax = fig.add_subplot(
                 2, 3, learning_rate_idx * 3 + eligibility_factor_idx + 1)
             ax.set_xlabel("Episodes: learning_rate=" + str(learning_rate) + " eligibility_factor=" + str(eligibility_factor))
-            ax.set_ylabel('Sum of reward')
+            ax.set_ylabel('Sum of consumed time')
 
             line_1, = plt.plot(data["time_history"]["GGQ"][learning_rate][eligibility_factor])
             line_2, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.00003])
             line_3, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.0001])
             line_4, = plt.plot(data["time_history"]["RGGQ"][learning_rate][eligibility_factor][0.0003])
-            # line_5, = plt.plot(data["time_history"]["OSKQ"][learning_rate][eligibility_factor][0.04][0.04])
-            # line_6, = plt.plot(data["time_history"]["OSKQ"][learning_rate][eligibility_factor][0.04][0.08])
 
     fig.legend(
         (line_1, line_2, line_3, line_4),
         (
-            "GQ(lambda)", "RGGQ(lambda)(regularize_factor=0.001)",
-            "RGGQ(lambda)(regularize_factor=0.003)", "RGGQ(lambda)(regularize_factor=0.01)",
+            "GQ(lambda)",
+            "RGGQ(lambda)(regularize_factor=0.00003)",
+            "RGGQ(lambda)(regularize_factor=0.0001)",
+            "RGGQ(lambda)(regularize_factor=0.0003)",
         ),
         loc=8)
     fig.savefig("Total time consumed.jpg")
+
+    fig = plt.figure(figsize=(16, 10))
+    for learning_rate_idx, learning_rate in enumerate([0.03, 0.1]):
+        for eligibility_factor_idx, eligibility_factor in enumerate([0.7, 0.8, 0.9]):
+            ax = fig.add_subplot(
+                2, 3, learning_rate_idx * 3 + eligibility_factor_idx + 1)
+            ax.set_xlabel("Episodes: learning_rate=" + str(learning_rate) + " eligibility_factor=" + str(eligibility_factor))
+            ax.set_ylabel('Sparsity')
+
+            line_1, = plt.plot(data["sparsity"]["RGGQ"][learning_rate][eligibility_factor][0.00003])
+            line_2, = plt.plot(data["sparsity"]["RGGQ"][learning_rate][eligibility_factor][0.0001])
+            line_3, = plt.plot(data["sparsity"]["RGGQ"][learning_rate][eligibility_factor][0.0003])
+
+    fig.legend(
+        (line_1, line_2, line_3),
+        (
+            "RGGQ(lambda)(regularize_factor=0.00003)",
+            "RGGQ(lambda)(regularize_factor=0.0001)",
+            "RGGQ(lambda)(regularize_factor=0.0003)",
+        ),
+        loc=8)
+    fig.savefig("Sparsity.jpg")
 
 
 def data_denoise(data, ave_step=5):
