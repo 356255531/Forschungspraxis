@@ -511,5 +511,4 @@ def main():
 
 
 if __name__ == '__main__':
-    GGQLambda_MultiProcess_Ave(100, 1, 0)
-    # main()
+    main()
